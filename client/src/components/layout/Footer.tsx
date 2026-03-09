@@ -125,9 +125,7 @@ export default function Footer() {
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <Mail size={16} style={{ color: "#FF6B35", flexShrink: 0 }} />
-                <span className="text-sm" style={{ color: "rgba(255,255,255,0.7)", fontFamily: "DM Sans, sans-serif" }}>
-                  hello@maigrowth.com
-                </span>
+                <span className="text-sm" style={{ color: "rgba(255,255,255,0.7)", fontFamily: "DM Sans, sans-serif" }}>contact@maigrowth.com</span>
               </div>
               <div className="flex items-center gap-3">
                 <Globe2 size={16} style={{ color: "#FF6B35", flexShrink: 0 }} />
@@ -145,7 +143,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-
       <div
         className="border-t"
         style={{ borderColor: "rgba(255,255,255,0.1)" }}
