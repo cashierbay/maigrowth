@@ -13,53 +13,60 @@ const serviceOptions = [
 interface FormData {
   name: string;
   email: string;
+  company: string;
   website: string;
-  businessType: string;
-  services: string[];
-  budget: string;
-  goals: string;
+  service: string;
+  message: string;
 }
 
 export default function Contact() {
   const [form, setForm] = useState<FormData>({
     name: "",
     email: "",
+    company: "",
     website: "",
-    businessType: "",
-    services: [],
-    budget: "",
-    goals: "",
+    service: "",
+    message: "",
   });
   const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [serverError, setServerError] = useState("");
 
   const validate = () => {
     const newErrors: Partial<Record<keyof FormData, string>> = {};
     if (!form.name.trim()) newErrors.name = "Name is required";
-    if (!form.email.trim() || !/^[^@]+@[^@]+\.[^@]+$/.test(form.email)) newErrors.email = "Valid email is required";
-    if (!form.website.trim()) newErrors.website = "Website URL is required";
-    if (!form.businessType) newErrors.businessType = "Please select a business type";
-    if (!form.goals.trim()) newErrors.goals = "Please tell us about your goals";
+    if (!form.email.trim() || !/^[^@]+@[^@]+\.[^@]+$/.test(form.email))
+      newErrors.email = "Valid email is required";
+    if (!form.message.trim()) newErrors.message = "Please tell us about your goals";
     return newErrors;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setServerError("");
     const newErrors = validate();
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       return;
     }
-    setSubmitted(true);
-  };
-
-  const toggleService = (service: string) => {
-    setForm((prev) => ({
-      ...prev,
-      services: prev.services.includes(service)
-        ? prev.services.filter((s) => s !== service)
-        : [...prev.services, service],
-    }));
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        setServerError("Something went wrong. Please try again.");
+      } else {
+        setSubmitted(true);
+      }
+    } catch {
+      setServerError("Network error. Please check your connection and try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const inputStyle = {
@@ -145,150 +152,124 @@ export default function Contact() {
                     onSubmit={handleSubmit}
                     className="space-y-6"
                   >
-                    <div>
-                      <label className="block text-[13px] font-semibold mb-2" style={{ color: "#0F0F0F", fontFamily: "DM Sans, sans-serif" }}>
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="Your full name"
-                        value={form.name}
-                        onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        style={inputStyle}
-                        onFocus={(e) => Object.assign(e.target.style, inputFocus)}
-                        onBlur={(e) => { e.target.style.borderColor = "#E2E0DC"; e.target.style.boxShadow = "none"; }}
-                        data-testid="input-name"
-                      />
-                      {errors.name && <p className="mt-1 text-xs" style={{ color: "#EF4444" }}>{errors.name}</p>}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-[13px] font-semibold mb-2" style={{ color: "#0F0F0F", fontFamily: "DM Sans, sans-serif" }}>
+                          Full Name *
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="Your full name"
+                          value={form.name}
+                          onChange={(e) => setForm({ ...form, name: e.target.value })}
+                          style={inputStyle}
+                          onFocus={(e) => Object.assign(e.target.style, inputFocus)}
+                          onBlur={(e) => { e.target.style.borderColor = "#E2E0DC"; e.target.style.boxShadow = "none"; }}
+                          data-testid="input-name"
+                        />
+                        {errors.name && <p className="mt-1 text-xs" style={{ color: "#EF4444" }}>{errors.name}</p>}
+                      </div>
+
+                      <div>
+                        <label className="block text-[13px] font-semibold mb-2" style={{ color: "#0F0F0F", fontFamily: "DM Sans, sans-serif" }}>
+                          Email Address *
+                        </label>
+                        <input
+                          type="email"
+                          placeholder="your@email.com"
+                          value={form.email}
+                          onChange={(e) => setForm({ ...form, email: e.target.value })}
+                          style={inputStyle}
+                          onFocus={(e) => Object.assign(e.target.style, inputFocus)}
+                          onBlur={(e) => { e.target.style.borderColor = "#E2E0DC"; e.target.style.boxShadow = "none"; }}
+                          data-testid="input-email"
+                        />
+                        {errors.email && <p className="mt-1 text-xs" style={{ color: "#EF4444" }}>{errors.email}</p>}
+                      </div>
                     </div>
 
-                    <div>
-                      <label className="block text-[13px] font-semibold mb-2" style={{ color: "#0F0F0F", fontFamily: "DM Sans, sans-serif" }}>
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        placeholder="your@email.com"
-                        value={form.email}
-                        onChange={(e) => setForm({ ...form, email: e.target.value })}
-                        style={inputStyle}
-                        onFocus={(e) => Object.assign(e.target.style, inputFocus)}
-                        onBlur={(e) => { e.target.style.borderColor = "#E2E0DC"; e.target.style.boxShadow = "none"; }}
-                        data-testid="input-email"
-                      />
-                      {errors.email && <p className="mt-1 text-xs" style={{ color: "#EF4444" }}>{errors.email}</p>}
-                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-[13px] font-semibold mb-2" style={{ color: "#0F0F0F", fontFamily: "DM Sans, sans-serif" }}>
+                          Company Name
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="Your company"
+                          value={form.company}
+                          onChange={(e) => setForm({ ...form, company: e.target.value })}
+                          style={inputStyle}
+                          onFocus={(e) => Object.assign(e.target.style, inputFocus)}
+                          onBlur={(e) => { e.target.style.borderColor = "#E2E0DC"; e.target.style.boxShadow = "none"; }}
+                          data-testid="input-company"
+                        />
+                      </div>
 
-                    <div>
-                      <label className="block text-[13px] font-semibold mb-2" style={{ color: "#0F0F0F", fontFamily: "DM Sans, sans-serif" }}>
-                        Website URL *
-                      </label>
-                      <input
-                        type="url"
-                        placeholder="https://yourwebsite.com"
-                        value={form.website}
-                        onChange={(e) => setForm({ ...form, website: e.target.value })}
-                        style={inputStyle}
-                        onFocus={(e) => Object.assign(e.target.style, inputFocus)}
-                        onBlur={(e) => { e.target.style.borderColor = "#E2E0DC"; e.target.style.boxShadow = "none"; }}
-                        data-testid="input-website"
-                      />
-                      {errors.website && <p className="mt-1 text-xs" style={{ color: "#EF4444" }}>{errors.website}</p>}
-                    </div>
-
-                    <div>
-                      <label className="block text-[13px] font-semibold mb-2" style={{ color: "#0F0F0F", fontFamily: "DM Sans, sans-serif" }}>
-                        Business Type *
-                      </label>
-                      <select
-                        value={form.businessType}
-                        onChange={(e) => setForm({ ...form, businessType: e.target.value })}
-                        style={{ ...inputStyle, appearance: "none", cursor: "pointer" }}
-                        onFocus={(e) => Object.assign(e.target.style, inputFocus)}
-                        onBlur={(e) => { e.target.style.borderColor = "#E2E0DC"; e.target.style.boxShadow = "none"; }}
-                        data-testid="select-business-type"
-                      >
-                        <option value="">Select business type...</option>
-                        <option value="ecommerce">E-commerce</option>
-                        <option value="saas">SaaS / Software</option>
-                        <option value="agency">Agency</option>
-                        <option value="local">Local Business</option>
-                        <option value="content">Content / Media</option>
-                        <option value="other">Other</option>
-                      </select>
-                      {errors.businessType && <p className="mt-1 text-xs" style={{ color: "#EF4444" }}>{errors.businessType}</p>}
-                    </div>
-
-                    <div>
-                      <label className="block text-[13px] font-semibold mb-3" style={{ color: "#0F0F0F", fontFamily: "DM Sans, sans-serif" }}>
-                        Services Interested In
-                      </label>
-                      <div className="grid grid-cols-2 gap-3">
-                        {serviceOptions.map((service) => (
-                          <label
-                            key={service}
-                            className="flex items-center gap-3 cursor-pointer"
-                            data-testid={`checkbox-service-${service.toLowerCase().replace(/\s+/g, '-')}`}
-                          >
-                            <input
-                              type="checkbox"
-                              checked={form.services.includes(service)}
-                              onChange={() => toggleService(service)}
-                              className="rounded"
-                              style={{ accentColor: "#FF6B35", width: 16, height: 16 }}
-                            />
-                            <span className="text-[14px]" style={{ color: "#3D3D3D", fontFamily: "DM Sans, sans-serif" }}>
-                              {service}
-                            </span>
-                          </label>
-                        ))}
+                      <div>
+                        <label className="block text-[13px] font-semibold mb-2" style={{ color: "#0F0F0F", fontFamily: "DM Sans, sans-serif" }}>
+                          Website URL
+                        </label>
+                        <input
+                          type="text"
+                          placeholder="https://yourwebsite.com"
+                          value={form.website}
+                          onChange={(e) => setForm({ ...form, website: e.target.value })}
+                          style={inputStyle}
+                          onFocus={(e) => Object.assign(e.target.style, inputFocus)}
+                          onBlur={(e) => { e.target.style.borderColor = "#E2E0DC"; e.target.style.boxShadow = "none"; }}
+                          data-testid="input-website"
+                        />
                       </div>
                     </div>
 
                     <div>
                       <label className="block text-[13px] font-semibold mb-2" style={{ color: "#0F0F0F", fontFamily: "DM Sans, sans-serif" }}>
-                        Monthly Budget
+                        Service Interested In
                       </label>
                       <select
-                        value={form.budget}
-                        onChange={(e) => setForm({ ...form, budget: e.target.value })}
+                        value={form.service}
+                        onChange={(e) => setForm({ ...form, service: e.target.value })}
                         style={{ ...inputStyle, appearance: "none", cursor: "pointer" }}
                         onFocus={(e) => Object.assign(e.target.style, inputFocus)}
                         onBlur={(e) => { e.target.style.borderColor = "#E2E0DC"; e.target.style.boxShadow = "none"; }}
-                        data-testid="select-budget"
+                        data-testid="select-service"
                       >
-                        <option value="">Select budget range...</option>
-                        <option value="under500">Under $500</option>
-                        <option value="500-1000">$500–$1,000</option>
-                        <option value="1000-2500">$1,000–$2,500</option>
-                        <option value="2500-5000">$2,500–$5,000</option>
-                        <option value="5000+">$5,000+</option>
+                        <option value="">Select a service...</option>
+                        {serviceOptions.map((s) => (
+                          <option key={s} value={s}>{s}</option>
+                        ))}
                       </select>
                     </div>
 
                     <div>
                       <label className="block text-[13px] font-semibold mb-2" style={{ color: "#0F0F0F", fontFamily: "DM Sans, sans-serif" }}>
-                        Your Goals *
+                        Tell Us About Your Goals *
                       </label>
                       <textarea
-                        rows={4}
+                        rows={5}
                         placeholder="Tell us about your website, current situation, and what you want to achieve..."
-                        value={form.goals}
-                        onChange={(e) => setForm({ ...form, goals: e.target.value })}
+                        value={form.message}
+                        onChange={(e) => setForm({ ...form, message: e.target.value })}
                         style={{ ...inputStyle, resize: "vertical" }}
                         onFocus={(e) => Object.assign(e.target.style, inputFocus)}
                         onBlur={(e) => { e.target.style.borderColor = "#E2E0DC"; e.target.style.boxShadow = "none"; }}
-                        data-testid="textarea-goals"
+                        data-testid="textarea-message"
                       />
-                      {errors.goals && <p className="mt-1 text-xs" style={{ color: "#EF4444" }}>{errors.goals}</p>}
+                      {errors.message && <p className="mt-1 text-xs" style={{ color: "#EF4444" }}>{errors.message}</p>}
                     </div>
+
+                    {serverError && (
+                      <p className="text-sm text-center" style={{ color: "#EF4444" }}>{serverError}</p>
+                    )}
 
                     <button
                       type="submit"
                       className="btn-primary w-full justify-center"
+                      disabled={submitting}
                       data-testid="button-submit-contact"
+                      style={{ opacity: submitting ? 0.7 : 1 }}
                     >
-                      Send Message →
+                      {submitting ? "Sending..." : "Send Message →"}
                     </button>
                   </motion.form>
                 ) : (
