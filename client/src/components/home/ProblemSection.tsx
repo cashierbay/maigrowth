@@ -119,8 +119,15 @@ export default function ProblemSection() {
           className="grid grid-cols-3 gap-8 mt-20 pt-16"
           style={{ borderTop: "1px solid #E2E0DC" }}
         >
-          {stats.map((stat) => (
-            <motion.div key={stat.label} variants={fadeUp} className="text-center">
+          {stats.map((stat, i) => (
+            <motion.div
+              key={stat.label}
+              className="text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.5, delay: i * 0.15 }}
+            >
               <div
                 className="font-extrabold leading-none"
                 style={{

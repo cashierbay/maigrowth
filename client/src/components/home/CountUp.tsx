@@ -7,26 +7,26 @@ interface CountUpProps {
   duration?: number;
 }
 
-export default function CountUp({ target, suffix = "", duration = 2000 }: CountUpProps) {
+export default function CountUp({ target, suffix = "", duration = 2200 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
   const [count, setCount] = useState(0);
-  const [hasStarted, setHasStarted] = useState(false);
+  const hasStarted = useRef(false);
 
   useEffect(() => {
-    if (isInView && !hasStarted) {
-      setHasStarted(true);
-      const start = Date.now();
-      const tick = () => {
-        const elapsed = Date.now() - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        setCount(Math.round(eased * target));
-        if (progress < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-    }
-  }, [isInView, hasStarted, target, duration]);
+    if (!isInView || hasStarted.current) return;
+    hasStarted.current = true;
+    const startTime = performance.now();
+    const animate = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * target));
+      if (progress < 1) requestAnimationFrame(animate);
+      else setCount(target);
+    };
+    requestAnimationFrame(animate);
+  }, [isInView, target, duration]);
 
   return (
     <span ref={ref}>

@@ -1,0 +1,66 @@
+My MaiGrowth website is already built in Next.js 14 with Tailwind CSS and Framer Motion. Do NOT rebuild any page. Only add a count-up number animation to the 3 stats displayed in the Problem section on the home page.
+Context about the site:
+
+Framework: Next.js 14 App Router
+Animation library: Framer Motion (already installed)
+The 3 stats are in components/home/ProblemSection.tsx
+Current static values: "700M+" / "357%" / "20%+"
+The stats are displayed in a 3-column grid below the two problem cards
+Brand orange: #FF6B35 (Tailwind class: text-mg-orange)
+
+Step 1 — Create components/shared/CountUp.tsx (new file):
+typescript'use client'
+import { useEffect, useRef, useState } from 'react'
+import { useInView } from 'framer-motion'
+
+interface CountUpProps {
+  end: number
+  suffix?: string
+  duration?: number
+}
+
+export default function CountUp({ end, suffix = '', duration = 2200 }: CountUpProps) {
+  const [count, setCount] = useState(0)
+  const ref = useRef<HTMLSpanElement>(null)
+  const isInView = useInView(ref, { once: true, margin: '-80px' })
+  const hasStarted = useRef(false)
+
+  useEffect(() => {
+    if (!isInView || hasStarted.current) return
+    hasStarted.current = true
+    const startTime = performance.now()
+    const animate = (now: number) => {
+      const elapsed = now - startTime
+      const progress = Math.min(elapsed / duration, 1)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      setCount(Math.floor(eased * end))
+      if (progress < 1) requestAnimationFrame(animate)
+      else setCount(end)
+    }
+    requestAnimationFrame(animate)
+  }, [isInView, end, duration])
+
+  return <span ref={ref}>{count}{suffix}</span>
+}
+Step 2 — Edit components/home/ProblemSection.tsx:
+Add this import at the top:
+typescriptimport CountUp from '@/components/shared/CountUp'
+import { motion } from 'framer-motion'
+Find the stats grid section. Replace the 3 static number displays:
+Replace static "700M+" text with: <CountUp end={700} suffix="M+" duration={2200} />
+Replace static "357%" text with: <CountUp end={357} suffix="%" duration={2200} />
+Replace static "20%+" text with: <CountUp end={20} suffix="%+" duration={2200} />
+Also wrap each individual stat block (number + label together) in a motion.div:
+typescript<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.5 }}
+  transition={{ duration: 0.5, delay: 0 }}   // delay: 0 for first stat
+>
+Use delay: 0 for first stat, delay: 0.15 for second, delay: 0.3 for third.
+The animation must:
+
+Trigger only when the stats scroll into view (not on page load)
+Run once only — never restart if user scrolls back up
+Show suffix (M+, %, %+) at all times — only the number animates
+Use ease-out curve so it starts fast and slows at the end
