@@ -1,0 +1,121 @@
+My MaiGrowth website is already built in Next.js 14 with Tailwind CSS and Framer Motion. Do NOT rebuild any page. Only add scroll-triggered fade-up reveal animations to the home page sections and cards.
+Context about the site:
+
+Framework: Next.js 14 App Router
+Animation library: Framer Motion (already installed)
+Home page component files are in components/home/
+The hero section already has animations — do NOT touch it
+The testimonials carousel already animates — do NOT touch it
+The navbar and footer should NOT be animated
+
+Step 1 — Create components/shared/AnimatedSection.tsx (new file):
+typescript'use client'
+import { motion } from 'framer-motion'
+import { ReactNode } from 'react'
+
+interface Props {
+  children: ReactNode
+  delay?: number
+  className?: string
+}
+
+export default function AnimatedSection({ children, delay = 0, className = '' }: Props) {
+  return (
+    <motion.div
+      className={className}
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{ duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {children}
+    </motion.div>
+  )
+}
+Step 2 — Create components/shared/StaggerGroup.tsx (new file):
+typescript'use client'
+import { motion } from 'framer-motion'
+import { ReactNode } from 'react'
+
+const container = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.1 } }
+}
+const item = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } }
+}
+
+export function StaggerGroup({ children, className = '' }: { children: ReactNode; className?: string }) {
+  return (
+    <motion.div
+      className={className}
+      variants={container}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.12 }}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+export function StaggerItem({ children, className = '' }: { children: ReactNode; className?: string }) {
+  return (
+    <motion.div className={className} variants={item}>
+      {children}
+    </motion.div>
+  )
+}
+Step 3 — Apply animations to each home component:
+In components/home/ProblemSection.tsx:
+
+Wrap the section label + H2 + sub paragraph together in <AnimatedSection>
+Wrap the two-card grid container in <StaggerGroup> and each card in <StaggerItem>
+Stats row: already animated from Prompt 3 — leave as-is
+
+In components/home/ServicesOverview.tsx:
+
+Wrap label + H2 in <AnimatedSection>
+Wrap the 3-card grid in <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+Wrap each individual card in <StaggerItem>
+
+In components/home/WhyMaiGrowth.tsx:
+
+Wrap left column content in <AnimatedSection delay={0}>
+Wrap right column feature grid in <StaggerGroup> and each feature box in <StaggerItem>
+
+In components/home/FeaturesSection.tsx:
+
+Wrap label + H2 + sub in <AnimatedSection>
+Wrap 3-card grid in <StaggerGroup> and each card in <StaggerItem>
+
+In components/home/ComparisonTable.tsx:
+
+Wrap label + H2 + sub in <AnimatedSection>
+Wrap the table in <AnimatedSection delay={0.2}>
+
+In components/home/HowItWorks.tsx:
+
+Wrap label + H2 in <AnimatedSection>
+Wrap steps grid in <StaggerGroup> and each step in <StaggerItem>
+
+In components/home/TrustSection.tsx:
+
+Wrap label + H2 in <AnimatedSection>
+Wrap 3 trust cards in <StaggerGroup> and each in <StaggerItem>
+
+In components/home/HomeFAQ.tsx:
+
+Wrap label + H2 in <AnimatedSection>
+Wrap FAQ list in <AnimatedSection delay={0.2}>
+
+Rules — follow exactly:
+
+once: true on all animations — fire once, never repeat
+If a div already is a motion.div, add initial, whileInView, viewport, transition props to it directly — do NOT create a second wrapper div
+Add import AnimatedSection from '@/components/shared/AnimatedSection' at top of each file you edit
+Add import { StaggerGroup, StaggerItem } from '@/components/shared/StaggerGroup' where needed
+Do NOT animate: navbar, footer, hero, testimonials carousel
+
+Do NOT change any colors, text, spacing, layout, or component logic anywhere.
