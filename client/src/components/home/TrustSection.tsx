@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
 import { ShieldCheck, Globe2, Sparkles } from "lucide-react";
-import { fadeUp, stagger } from "@/lib/animations";
+import AnimatedSection from "@/components/shared/AnimatedSection";
+import { StaggerGroup, StaggerItem } from "@/components/shared/StaggerGroup";
 
 const cards = [
   {
@@ -24,18 +24,11 @@ export default function TrustSection() {
   return (
     <section style={{ backgroundColor: "#EFEFED", padding: "96px 0" }}>
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          className="text-center mb-14"
-        >
-          <motion.span variants={fadeUp} className="section-label">
+        <AnimatedSection className="text-center mb-14">
+          <span className="section-label">
             WHY TRUST US
-          </motion.span>
-          <motion.h2
-            variants={fadeUp}
+          </span>
+          <h2
             style={{
               fontFamily: "Syne, sans-serif",
               fontWeight: 700,
@@ -46,22 +39,15 @@ export default function TrustSection() {
             }}
           >
             Built on Transparency. Delivered with Proof.
-          </motion.h2>
-        </motion.div>
+          </h2>
+        </AnimatedSection>
 
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
-        >
+        <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {cards.map((card) => {
             const Icon = card.icon;
             return (
-              <motion.div
+              <StaggerItem
                 key={card.title}
-                variants={fadeUp}
                 className="mg-card"
                 style={{ cursor: "default" }}
                 whileHover={{ borderColor: "#FF6B35" }}
@@ -79,10 +65,10 @@ export default function TrustSection() {
                 >
                   {card.body}
                 </p>
-              </motion.div>
+              </StaggerItem>
             );
           })}
-        </motion.div>
+        </StaggerGroup>
       </div>
     </section>
   );

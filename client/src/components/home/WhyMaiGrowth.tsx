@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
 import { BarChart2, ShieldCheck, MessageCircle, Globe2, Clock, Layers } from "lucide-react";
-import { fadeUp, stagger } from "@/lib/animations";
+import AnimatedSection from "@/components/shared/AnimatedSection";
+import { StaggerGroup, StaggerItem } from "@/components/shared/StaggerGroup";
 
 const features = [
   { icon: BarChart2, label: "Ahrefs DR Verified" },
@@ -16,17 +16,11 @@ export default function WhyMaiGrowth() {
     <section style={{ backgroundColor: "#FFFFFF", padding: "112px 0" }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
-          >
-            <motion.span variants={fadeUp} className="section-label">
+          <AnimatedSection>
+            <span className="section-label">
               WHY MAIGROWTH
-            </motion.span>
-            <motion.h2
-              variants={fadeUp}
+            </span>
+            <h2
               className="mt-3 mb-8"
               style={{
                 fontFamily: "Syne, sans-serif",
@@ -38,38 +32,30 @@ export default function WhyMaiGrowth() {
               }}
             >
               Your Trusted Partner for High-Quality Link Building + AI Visibility
-            </motion.h2>
+            </h2>
             <div className="space-y-4">
               {[
                 "MaiGrowth has spent years refining its approach to link building and AI search optimization — learning exactly what it takes to build backlinks that genuinely improve rankings AND get brands cited in AI-generated answers.",
                 "The core of our process is expert, scalable outreach to secure backlinks from high-authority, relevant publications that carry real SEO weight and build real brand recognition.",
                 "We handle every detail of the link building and AEO/GEO process. You step back and focus on your business while MaiGrowth delivers consistent, measurable visibility results.",
               ].map((para, i) => (
-                <motion.p
+                <p
                   key={i}
-                  variants={fadeUp}
                   className="text-[15px] leading-relaxed"
                   style={{ color: "#3D3D3D", fontFamily: "DM Sans, sans-serif" }}
                 >
                   {para}
-                </motion.p>
+                </p>
               ))}
             </div>
-          </motion.div>
+          </AnimatedSection>
 
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
-            className="grid grid-cols-2 gap-4"
-          >
+          <StaggerGroup className="grid grid-cols-2 gap-4">
             {features.map((feature) => {
               const Icon = feature.icon;
               return (
-                <motion.div
+                <StaggerItem
                   key={feature.label}
-                  variants={fadeUp}
                   className="flex items-center gap-4 px-5 py-4 rounded-2xl cursor-default transition-all duration-200"
                   style={{
                     backgroundColor: "#F7F6F4",
@@ -96,10 +82,10 @@ export default function WhyMaiGrowth() {
                   >
                     {feature.label}
                   </span>
-                </motion.div>
+                </StaggerItem>
               );
             })}
-          </motion.div>
+          </StaggerGroup>
         </div>
       </div>
     </section>

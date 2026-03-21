@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
 import { Award, CreditCard, Settings2 } from "lucide-react";
-import { fadeUp, stagger } from "@/lib/animations";
+import AnimatedSection from "@/components/shared/AnimatedSection";
+import { StaggerGroup, StaggerItem } from "@/components/shared/StaggerGroup";
 
 const cards = [
   {
@@ -24,18 +24,11 @@ export default function FeaturesSection() {
   return (
     <section style={{ backgroundColor: "#EFEFED", padding: "112px 0" }}>
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          className="text-center mb-16"
-        >
-          <motion.span variants={fadeUp} className="section-label">
+        <AnimatedSection className="text-center mb-16">
+          <span className="section-label">
             WHAT MAKES US DIFFERENT
-          </motion.span>
-          <motion.h2
-            variants={fadeUp}
+          </span>
+          <h2
             style={{
               fontFamily: "Syne, sans-serif",
               fontWeight: 700,
@@ -46,31 +39,20 @@ export default function FeaturesSection() {
             }}
           >
             Features of Our Link Building + AEO/GEO Service
-          </motion.h2>
-          <motion.p
-            variants={fadeUp}
+          </h2>
+          <p
             className="mt-4 max-w-2xl mx-auto text-[17px] leading-relaxed"
             style={{ color: "#3D3D3D", fontFamily: "DM Sans, sans-serif" }}
           >
             Everything you need to dominate both traditional search and AI-powered answers — handled end to end by our team.
-          </motion.p>
-        </motion.div>
+          </p>
+        </AnimatedSection>
 
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
-        >
+        <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {cards.map((card) => {
             const Icon = card.icon;
             return (
-              <motion.div
-                key={card.title}
-                variants={fadeUp}
-                className="mg-card text-center"
-              >
+              <StaggerItem key={card.title} className="mg-card text-center">
                 <div
                   className="rounded-full flex items-center justify-center mx-auto mb-6"
                   style={{ backgroundColor: "#FF6B35", width: 64, height: 64 }}
@@ -89,10 +71,10 @@ export default function FeaturesSection() {
                 >
                   {card.body}
                 </p>
-              </motion.div>
+              </StaggerItem>
             );
           })}
-        </motion.div>
+        </StaggerGroup>
       </div>
     </section>
   );

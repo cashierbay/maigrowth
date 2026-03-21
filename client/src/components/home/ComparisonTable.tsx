@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, XCircle } from "lucide-react";
-import { fadeUp, stagger } from "@/lib/animations";
+import AnimatedSection from "@/components/shared/AnimatedSection";
+
+const EASE = [0.22, 1, 0.36, 1] as const;
 
 const rows = [
   { feature: "Google Ranking Backlinks", others: "yes", mg: "yes" },
@@ -23,18 +25,11 @@ export default function ComparisonTable() {
   return (
     <section style={{ backgroundColor: "#FFFFFF", padding: "112px 0" }}>
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          className="text-center mb-16"
-        >
-          <motion.span variants={fadeUp} className="section-label">
+        <AnimatedSection className="text-center mb-16">
+          <span className="section-label">
             THE DIFFERENCE
-          </motion.span>
-          <motion.h2
-            variants={fadeUp}
+          </span>
+          <h2
             style={{
               fontFamily: "Syne, sans-serif",
               fontWeight: 700,
@@ -47,21 +42,20 @@ export default function ComparisonTable() {
             Why MaiGrowth vs. Every Other
             <br />
             Link Building Agency
-          </motion.h2>
-          <motion.p
-            variants={fadeUp}
+          </h2>
+          <p
             className="mt-4 max-w-2xl mx-auto text-[17px] leading-relaxed"
             style={{ color: "#3D3D3D", fontFamily: "DM Sans, sans-serif" }}
           >
             The agency landscape hasn't kept up with how search actually works in 2025. We have.
-          </motion.p>
-        </motion.div>
+          </p>
+        </AnimatedSection>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.5 }}
+          viewport={{ once: true, amount: 0.12 }}
+          transition={{ duration: 0.55, delay: 0.2, ease: EASE }}
           className="overflow-x-auto"
         >
           <div style={{ border: "1px solid #E2E0DC", borderRadius: 16, overflow: "hidden" }}>

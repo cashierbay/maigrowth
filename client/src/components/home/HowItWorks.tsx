@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { Search, BarChart, Zap, TrendingUp } from "lucide-react";
-import { fadeUp, stagger } from "@/lib/animations";
+import AnimatedSection from "@/components/shared/AnimatedSection";
+import { StaggerGroup, StaggerItem } from "@/components/shared/StaggerGroup";
+
+const EASE = [0.22, 1, 0.36, 1] as const;
 
 const steps = [
   {
@@ -33,18 +36,11 @@ export default function HowItWorks() {
   return (
     <section style={{ backgroundColor: "#F7F6F4", padding: "120px 0" }}>
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          className="text-center mb-20"
-        >
-          <motion.span variants={fadeUp} className="section-label">
+        <AnimatedSection className="text-center mb-20">
+          <span className="section-label">
             THE PROCESS
-          </motion.span>
-          <motion.h2
-            variants={fadeUp}
+          </span>
+          <h2
             style={{
               fontFamily: "Syne, sans-serif",
               fontWeight: 700,
@@ -55,31 +51,20 @@ export default function HowItWorks() {
             }}
           >
             Simple Process. Measurable Results.
-          </motion.h2>
-          <motion.p
-            variants={fadeUp}
+          </h2>
+          <p
             className="mt-4 text-[17px] leading-relaxed max-w-xl mx-auto"
             style={{ color: "#767676", fontFamily: "DM Sans, sans-serif" }}
           >
             From discovery to monthly reporting — a streamlined four-step system built for real, compounding growth.
-          </motion.p>
-        </motion.div>
+          </p>
+        </AnimatedSection>
 
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
+        <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
-              <motion.div
-                key={step.number}
-                variants={fadeUp}
-                className="relative group"
-              >
+              <StaggerItem key={step.number} className="relative group">
                 {index < steps.length - 1 && (
                   <div
                     className="hidden lg:block absolute top-10 left-full w-full"
@@ -165,16 +150,16 @@ export default function HowItWorks() {
                     </p>
                   </div>
                 </div>
-              </motion.div>
+              </StaggerItem>
             );
           })}
-        </motion.div>
+        </StaggerGroup>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.55, delay: 0.4, ease: EASE }}
           className="mt-14 p-8 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-6"
           style={{
             background: "linear-gradient(135deg, #12153D 0%, #1C2050 100%)",

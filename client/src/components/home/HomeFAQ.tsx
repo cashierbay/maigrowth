@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { fadeUp, stagger } from "@/lib/animations";
+import AnimatedSection from "@/components/shared/AnimatedSection";
 
 const faqs = [
   {
@@ -32,18 +32,11 @@ export default function HomeFAQ() {
   return (
     <section style={{ backgroundColor: "#F7F6F4", padding: "112px 0" }}>
       <div className="max-w-3xl mx-auto px-6">
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          className="text-center mb-14"
-        >
-          <motion.span variants={fadeUp} className="section-label">
+        <AnimatedSection className="text-center mb-14">
+          <span className="section-label">
             QUICK ANSWERS
-          </motion.span>
-          <motion.h2
-            variants={fadeUp}
+          </span>
+          <h2
             style={{
               fontFamily: "Syne, sans-serif",
               fontWeight: 700,
@@ -54,19 +47,13 @@ export default function HomeFAQ() {
             }}
           >
             Common Questions
-          </motion.h2>
-        </motion.div>
+          </h2>
+        </AnimatedSection>
 
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-        >
+        <AnimatedSection delay={0.2}>
           {faqs.map((faq, i) => (
-            <motion.div
+            <div
               key={i}
-              variants={fadeUp}
               style={{ borderBottom: "1px solid #E2E0DC" }}
             >
               <button
@@ -113,9 +100,9 @@ export default function HomeFAQ() {
                   </motion.div>
                 )}
               </AnimatePresence>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </AnimatedSection>
       </div>
     </section>
   );

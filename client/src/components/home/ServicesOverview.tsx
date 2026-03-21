@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { Link2, BrainCircuit, Globe2 } from "lucide-react";
 import { Link } from "wouter";
-import { fadeUp, stagger } from "@/lib/animations";
+import AnimatedSection from "@/components/shared/AnimatedSection";
+import { StaggerGroup, StaggerItem } from "@/components/shared/StaggerGroup";
 
 const services = [
   {
@@ -32,18 +33,11 @@ export default function ServicesOverview() {
   return (
     <section style={{ backgroundColor: "#EFEFED", padding: "112px 0" }}>
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          className="text-center mb-16"
-        >
-          <motion.span variants={fadeUp} className="section-label">
+        <AnimatedSection className="text-center mb-16">
+          <span className="section-label">
             WHAT WE DO
-          </motion.span>
-          <motion.h2
-            variants={fadeUp}
+          </span>
+          <h2
             style={{
               fontFamily: "Syne, sans-serif",
               fontWeight: 700,
@@ -54,29 +48,21 @@ export default function ServicesOverview() {
             }}
           >
             Three Services. One Unified Visibility Strategy.
-          </motion.h2>
-          <motion.p
-            variants={fadeUp}
+          </h2>
+          <p
             className="mt-4 max-w-2xl mx-auto text-[17px] leading-relaxed"
             style={{ color: "#3D3D3D", fontFamily: "DM Sans, sans-serif" }}
           >
             While others focus on a single channel, MaiGrowth makes you visible on all three simultaneously.
-          </motion.p>
-        </motion.div>
+          </p>
+        </AnimatedSection>
 
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
-        >
+        <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {services.map((service) => {
             const Icon = service.icon;
             return (
-              <motion.div
+              <StaggerItem
                 key={service.title}
-                variants={fadeUp}
                 className="mg-card relative flex flex-col"
                 style={
                   service.featured
@@ -120,10 +106,10 @@ export default function ServicesOverview() {
                     Learn More →
                   </span>
                 </Link>
-              </motion.div>
+              </StaggerItem>
             );
           })}
-        </motion.div>
+        </StaggerGroup>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}

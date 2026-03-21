@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { XCircle, CheckCircle2 } from "lucide-react";
-import { fadeUp, stagger } from "@/lib/animations";
+import AnimatedSection from "@/components/shared/AnimatedSection";
+import { StaggerGroup, StaggerItem } from "@/components/shared/StaggerGroup";
 import CountUp from "./CountUp";
 
 const stats = [
@@ -13,18 +14,11 @@ export default function ProblemSection() {
   return (
     <section style={{ backgroundColor: "#F7F6F4", padding: "112px 0" }}>
       <div className="max-w-7xl mx-auto px-6">
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          className="text-center mb-16"
-        >
-          <motion.span variants={fadeUp} className="section-label">
+        <AnimatedSection className="text-center mb-16">
+          <span className="section-label">
             WHY TRADITIONAL SEO ISN'T ENOUGH
-          </motion.span>
-          <motion.h2
-            variants={fadeUp}
+          </span>
+          <h2
             className="mt-3"
             style={{
               fontFamily: "Syne, sans-serif",
@@ -38,25 +32,17 @@ export default function ProblemSection() {
             The Search Landscape Has Changed.
             <br />
             Has Your Strategy?
-          </motion.h2>
-          <motion.p
-            variants={fadeUp}
+          </h2>
+          <p
             className="mt-4 max-w-2xl mx-auto text-[17px] leading-relaxed"
             style={{ color: "#3D3D3D", fontFamily: "DM Sans, sans-serif" }}
           >
             Over 700 million people now get answers directly from AI tools every week. Is your brand showing up in those answers — or invisible?
-          </motion.p>
-        </motion.div>
+          </p>
+        </AnimatedSection>
 
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
-        >
-          <motion.div
-            variants={fadeUp}
+        <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <StaggerItem
             className="mg-card relative"
             style={{ borderTopWidth: 3, borderTopColor: "#f87171" }}
           >
@@ -83,10 +69,9 @@ export default function ProblemSection() {
                 <span key={tag} className="tag-neutral">{tag}</span>
               ))}
             </div>
-          </motion.div>
+          </StaggerItem>
 
-          <motion.div
-            variants={fadeUp}
+          <StaggerItem
             className="mg-card relative"
             style={{ borderTopWidth: 3, borderTopColor: "#FF6B35" }}
           >
@@ -108,14 +93,10 @@ export default function ProblemSection() {
                 <span key={tag} className="tag">{tag}</span>
               ))}
             </div>
-          </motion.div>
-        </motion.div>
+          </StaggerItem>
+        </StaggerGroup>
 
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
+        <div
           className="grid grid-cols-3 gap-8 mt-20 pt-16"
           style={{ borderTop: "1px solid #E2E0DC" }}
         >
@@ -146,7 +127,7 @@ export default function ProblemSection() {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
