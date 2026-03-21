@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import { fadeUp, stagger } from "@/lib/animations";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import { StaggerGroup, StaggerItem } from "@/components/shared/StaggerGroup";
+import TeamSection from "@/components/about/TeamSection";
 
 const statCards = [
   {
@@ -328,6 +329,8 @@ export default function About() {
           </div>
         </div>
       </section>
+
+      <TeamSection />
 
       <section
         className="text-center relative"
