@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
+import { Eye, Star, Lightbulb } from "lucide-react";
 import { Link } from "wouter";
 import { fadeUp, stagger } from "@/lib/animations";
+import AnimatedSection from "@/components/shared/AnimatedSection";
+import { StaggerGroup, StaggerItem } from "@/components/shared/StaggerGroup";
 
 const stats = [
   { number: "100+", label: "Clients Served Globally" },
@@ -11,22 +14,23 @@ const stats = [
 
 const values = [
   {
+    icon: Eye,
     title: "Transparency",
-    body: "Every link, metric, and result is documented and shared. No black boxes, no vague promises.",
+    body: "Every link, metric, and result is documented and shared. No black boxes, no vague promises — you see exactly what we deliver and how it performs.",
   },
   {
+    icon: Star,
     title: "Quality Over Quantity",
-    body: "One DR70 editorial link beats 50 directory submissions. We never compromise on quality.",
+    body: "One DR70 editorial link beats 50 directory submissions. We never compromise on quality to hit volume targets — ever.",
   },
   {
+    icon: Lightbulb,
     title: "Forward Thinking",
-    body: "AEO and GEO are not add-ons. They are the new baseline for any serious search strategy.",
-  },
-  {
-    title: "Results First",
-    body: "We measure success in rankings, citations, and traffic — not activity reports and slide decks.",
+    body: "AEO and GEO are not add-ons. They are the new baseline for any serious search strategy. We build for where search is going, not where it was.",
   },
 ];
+
+const EASE = [0.22, 1, 0.36, 1] as const;
 
 export default function About() {
   return (
@@ -167,53 +171,102 @@ export default function About() {
         </div>
       </section>
 
+      {/* OUR VALUES — Two-column: left text block, right stacked cards */}
       <section style={{ backgroundColor: "#EFEFED", padding: "112px 0" }}>
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
-            className="text-center mb-14"
-          >
-            <motion.span variants={fadeUp} className="section-label">
-              OUR VALUES
-            </motion.span>
-            <motion.h2
-              variants={fadeUp}
-              style={{
-                fontFamily: "Syne, sans-serif",
-                fontWeight: 700,
-                fontSize: "clamp(28px, 3.5vw, 46px)",
-                lineHeight: 1.1,
-                color: "#0F0F0F",
-              }}
-            >
-              What We Stand For
-            </motion.h2>
-          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6"
-          >
-            {values.map((v) => (
-              <motion.div key={v.title} variants={fadeUp} className="mg-card">
-                <h3
-                  className="text-xl mb-3"
-                  style={{ fontFamily: "Syne, sans-serif", fontWeight: 700, color: "#0F0F0F" }}
-                >
-                  {v.title}
-                </h3>
-                <p className="text-[15px] leading-relaxed" style={{ color: "#3D3D3D", fontFamily: "DM Sans, sans-serif" }}>
-                  {v.body}
-                </p>
+            {/* Left: label + title + description */}
+            <AnimatedSection>
+              <span className="section-label">OUR VALUES</span>
+              <h2
+                className="mt-4 mb-6"
+                style={{
+                  fontFamily: "Syne, sans-serif",
+                  fontWeight: 700,
+                  fontSize: "clamp(28px, 3.5vw, 46px)",
+                  lineHeight: 1.1,
+                  letterSpacing: "-0.01em",
+                  color: "#0F0F0F",
+                }}
+              >
+                What We Stand For
+              </h2>
+              <p
+                className="text-[16px] leading-relaxed mb-8"
+                style={{ color: "#3D3D3D", fontFamily: "DM Sans, sans-serif", maxWidth: 420 }}
+              >
+                Our values aren't printed on a wall — they're reflected in every link we build, every report we send, and every strategy we create. Three principles guide everything we do.
+              </p>
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: 0.3, ease: EASE }}
+              >
+                <Link href="/about">
+                  <motion.span
+                    className="btn-secondary"
+                    whileHover={{ scale: 1.02, transition: { duration: 0.18 } }}
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    Learn More About Us →
+                  </motion.span>
+                </Link>
               </motion.div>
-            ))}
-          </motion.div>
+            </AnimatedSection>
+
+            {/* Right: 3 stacked value cards */}
+            <StaggerGroup className="flex flex-col gap-5">
+              {values.map((v) => {
+                const Icon = v.icon;
+                return (
+                  <StaggerItem
+                    key={v.title}
+                    className="flex items-start gap-5 rounded-2xl p-6 cursor-default"
+                    style={{
+                      backgroundColor: "#FFFFFF",
+                      border: "1px solid #E2E0DC",
+                      boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
+                    }}
+                    whileHover={{ y: -4, boxShadow: "0 12px 36px rgba(255,107,53,0.10)", borderColor: "#FF6B35", transition: { duration: 0.22 } }}
+                  >
+                    <div
+                      className="flex-shrink-0 rounded-full flex items-center justify-center"
+                      style={{
+                        backgroundColor: "#FF6B35",
+                        width: 52,
+                        height: 52,
+                        marginTop: 2,
+                      }}
+                    >
+                      <Icon size={22} color="white" />
+                    </div>
+                    <div>
+                      <h3
+                        className="mb-2"
+                        style={{
+                          fontFamily: "Syne, sans-serif",
+                          fontWeight: 700,
+                          fontSize: 20,
+                          color: "#0F0F0F",
+                          lineHeight: 1.2,
+                        }}
+                      >
+                        {v.title}
+                      </h3>
+                      <p
+                        className="text-[14px] leading-relaxed"
+                        style={{ color: "#3D3D3D", fontFamily: "DM Sans, sans-serif" }}
+                      >
+                        {v.body}
+                      </p>
+                    </div>
+                  </StaggerItem>
+                );
+              })}
+            </StaggerGroup>
+          </div>
         </div>
       </section>
 
@@ -260,10 +313,22 @@ export default function About() {
             className="mt-12 flex flex-wrap gap-4 justify-center"
           >
             <Link href="/contact">
-              <span className="btn-primary">Book a Consultation →</span>
+              <motion.span
+                className="btn-primary"
+                whileHover={{ scale: 1.03, boxShadow: "0 8px 28px rgba(255,107,53,0.32)", transition: { duration: 0.18 } }}
+                whileTap={{ scale: 0.97 }}
+              >
+                Book a Consultation →
+              </motion.span>
             </Link>
             <Link href="/services">
-              <span className="btn-ghost">View Services</span>
+              <motion.span
+                className="btn-ghost"
+                whileHover={{ scale: 1.02, transition: { duration: 0.18 } }}
+                whileTap={{ scale: 0.97 }}
+              >
+                View Services
+              </motion.span>
             </Link>
           </motion.div>
         </div>
