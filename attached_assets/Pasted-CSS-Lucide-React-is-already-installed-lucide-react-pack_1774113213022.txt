@@ -1,0 +1,44 @@
+CSS. Lucide React is already installed (lucide-react package). Do NOT rebuild any page or section. Only find and replace emoji icons with proper Lucide React icons across the home page components.
+Context about the site:
+
+Framework: Next.js 14 App Router
+Icons library: lucide-react (already installed)
+Brand orange color class: text-mg-orange (which is #FF6B35)
+Each icon sits inside a circular container div — do NOT remove or change the container, only swap the emoji inside it
+
+Go through each component file and make these exact replacements:
+In components/home/ServicesOverview.tsx:
+Remove 🔗 → add <Link2 className="w-6 h-6 text-mg-orange" />
+Remove 🧠 → add <BrainCircuit className="w-6 h-6 text-mg-orange" />
+Remove 🌐 → add <Globe2 className="w-6 h-6 text-mg-orange" />
+In components/home/WhyMaiGrowth.tsx (the 6 feature boxes):
+Remove 📊 → add <BarChart2 className="w-5 h-5 text-white" />
+Remove 🛡 → add <ShieldCheck className="w-5 h-5 text-white" />
+Remove 💬 → add <MessageCircle className="w-5 h-5 text-white" />
+Remove 🌐 → add <Globe2 className="w-5 h-5 text-white" />
+Remove ⏱ → add <Clock className="w-5 h-5 text-white" />
+Remove 🗂 → add <Layers className="w-5 h-5 text-white" />
+In components/home/FeaturesSection.tsx (3 feature cards):
+Remove 🏆 → add <Award className="w-7 h-7 text-white" />
+Remove 💳 → add <CreditCard className="w-7 h-7 text-white" />
+Remove ⚙️ → add <Settings2 className="w-7 h-7 text-white" />
+In components/home/HowItWorks.tsx (4 process steps):
+Remove 🔍 → add <Search className="w-6 h-6 text-mg-orange" />
+Remove 📋 → add <ClipboardList className="w-6 h-6 text-mg-orange" />
+Remove ⚡ → add <Zap className="w-6 h-6 text-mg-orange" />
+Remove 📈 → add <TrendingUp className="w-6 h-6 text-mg-orange" />
+In components/home/TrustSection.tsx (3 trust cards):
+Remove 🛡️ → add <ShieldCheck className="w-7 h-7 text-mg-orange" />
+Remove 🌐 → add <Globe2 className="w-7 h-7 text-mg-orange" />
+Remove ✨ → add <Sparkles className="w-7 h-7 text-mg-orange" />
+In components/home/ProblemSection.tsx:
+Remove ✗ text or emoji → add <XCircle className="w-6 h-6 text-red-400" />
+Remove ✓ text or emoji → add <CheckCircle2 className="w-6 h-6 text-mg-orange" />
+Add this import block at the top of each file you edit (only import what you use in that file):
+typescriptimport {
+  Link2, BrainCircuit, Globe2, BarChart2, ShieldCheck,
+  MessageCircle, Clock, Layers, Award, CreditCard,
+  Settings2, Search, ClipboardList, Zap, TrendingUp,
+  Sparkles, XCircle, CheckCircle2
+} from 'lucide-react'
+Do NOT change any text, layout, colors, sizes of containers, or any other component. Only swap the emoji for Lucide icons.

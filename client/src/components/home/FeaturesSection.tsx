@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Award, CreditCard, Settings } from "lucide-react";
+import { Award, CreditCard, Settings2 } from "lucide-react";
 import { fadeUp, stagger } from "@/lib/animations";
 
 const cards = [
@@ -14,7 +14,7 @@ const cards = [
     body: "Quality backlinks should be permanent assets, not recurring fees. Every link secured through MaiGrowth requires only a single flat-rate payment — yours to keep with no monthly charges.",
   },
   {
-    icon: Settings,
+    icon: Settings2,
     title: "Fully Managed Campaigns",
     body: "We handle every detail of your link building and AEO/GEO campaign — from strategy and outreach to content writing and reporting. You get powerful results without the additional workload.",
   },
