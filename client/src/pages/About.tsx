@@ -93,7 +93,9 @@ export default function About() {
 
       <section style={{ backgroundColor: "#F7F6F4", padding: "112px 0" }}>
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+
+            {/* Left: Story text */}
             <motion.div
               variants={stagger}
               initial="hidden"
@@ -105,28 +107,29 @@ export default function About() {
               </motion.span>
               <motion.h2
                 variants={fadeUp}
-                className="mt-3 mb-8"
+                className="mt-3 mb-7"
                 style={{
                   fontFamily: "Syne, sans-serif",
                   fontWeight: 700,
                   fontSize: "clamp(24px, 3vw, 38px)",
                   lineHeight: 1.2,
+                  letterSpacing: "-0.01em",
                   color: "#0F0F0F",
                 }}
               >
                 Built for the Channel That Matters Now
               </motion.h2>
-              <div className="space-y-5">
+              <div className="space-y-4">
                 {[
                   "MaiGrowth was founded on one clear observation: search has fundamentally changed. Hundreds of millions of people now get answers from ChatGPT, Perplexity, Google AI Overviews, and other AI tools — and brands not optimized for these channels are completely invisible to that audience.",
                   "Traditional link building agencies were built for a version of search that, while still important, is no longer the whole picture. We built MaiGrowth to be the agency that doesn't just react to today's algorithm but builds lasting authority across every surface where customers search.",
-                  "Our team combines deep link building expertise — built through years of delivering high-authority placements across competitive niches — with cutting-edge AEO and GEO methodology. The result is a service that builds visibility where it counts most: Google rankings today, AI citations tomorrow.",
+                  "Our team combines deep link building expertise with cutting-edge AEO and GEO methodology. The result is a service that builds visibility where it counts most: Google rankings today, AI citations tomorrow.",
                 ].map((p, i) => (
                   <motion.p
                     key={i}
                     variants={fadeUp}
-                    className="leading-relaxed"
-                    style={{ color: "#3D3D3D", fontFamily: "DM Sans, sans-serif", fontSize: 16 }}
+                    className="leading-relaxed text-[15px]"
+                    style={{ color: "#5A5A5A", fontFamily: "DM Sans, sans-serif" }}
                   >
                     {p}
                   </motion.p>
@@ -134,39 +137,49 @@ export default function About() {
               </div>
             </motion.div>
 
+            {/* Right: Clean stat list */}
             <motion.div
               variants={stagger}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.15 }}
-              className="grid grid-cols-2 gap-6"
+              className="flex flex-col"
             >
-              {stats.map((stat) => (
+              {stats.map((stat, i) => (
                 <motion.div
                   key={stat.label}
                   variants={fadeUp}
-                  className="mg-card text-center"
+                  className="flex items-center justify-between py-7"
+                  style={{
+                    borderBottom: i < stats.length - 1 ? "1px solid #E2E0DC" : "none",
+                  }}
                 >
-                  <div
-                    className="font-extrabold"
+                  <span
+                    style={{
+                      fontFamily: "DM Sans, sans-serif",
+                      fontSize: 15,
+                      color: "#767676",
+                      fontWeight: 500,
+                    }}
+                  >
+                    {stat.label}
+                  </span>
+                  <span
                     style={{
                       fontFamily: "Syne, sans-serif",
-                      fontSize: "clamp(28px, 4vw, 44px)",
+                      fontWeight: 800,
+                      fontSize: "clamp(28px, 3.5vw, 42px)",
                       color: "#FF6B35",
-                      lineHeight: 1.1,
+                      lineHeight: 1,
+                      letterSpacing: "-0.02em",
                     }}
                   >
                     {stat.number}
-                  </div>
-                  <div
-                    className="text-sm mt-2"
-                    style={{ color: "#767676", fontFamily: "DM Sans, sans-serif" }}
-                  >
-                    {stat.label}
-                  </div>
+                  </span>
                 </motion.div>
               ))}
             </motion.div>
+
           </div>
         </div>
       </section>
