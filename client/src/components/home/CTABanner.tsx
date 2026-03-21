@@ -43,10 +43,22 @@ export default function CTABanner() {
             className="mt-10 flex flex-wrap gap-4 justify-center"
           >
             <Link href="/contact" data-testid="button-cta-banner-primary">
-              <span className="btn-primary">Book Free Consultation →</span>
+              <motion.span
+                className="btn-primary"
+                whileHover={{ scale: 1.03, boxShadow: "0 8px 28px rgba(255,107,53,0.32)", transition: { duration: 0.18 } }}
+                whileTap={{ scale: 0.97 }}
+              >
+                Book Free Consultation →
+              </motion.span>
             </Link>
             <Link href="/services" data-testid="button-cta-banner-secondary">
-              <span className="btn-ghost">View Services</span>
+              <motion.span
+                className="btn-ghost"
+                whileHover={{ scale: 1.02, transition: { duration: 0.18 } }}
+                whileTap={{ scale: 0.97 }}
+              >
+                View Services
+              </motion.span>
             </Link>
           </motion.div>
 

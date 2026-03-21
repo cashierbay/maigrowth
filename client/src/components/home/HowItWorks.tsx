@@ -98,19 +98,22 @@ export default function HowItWorks() {
                     el.style.transform = "translateY(0)";
                   }}
                 >
-                  <div
+                  <motion.div
                     className="absolute top-0 right-0 select-none leading-none"
                     style={{
                       fontFamily: "Syne, sans-serif",
                       fontWeight: 800,
                       fontSize: 88,
-                      color: "rgba(255,107,53,0.06)",
+                      color: "#FF6B35",
                       lineHeight: 1,
                       transform: "translate(8px, -16px)",
                     }}
+                    initial={{ opacity: 0.06 }}
+                    whileHover={{ opacity: 0.38 }}
+                    transition={{ duration: 0.2 }}
                   >
                     {step.number}
-                  </div>
+                  </motion.div>
 
                   <div className="relative z-10">
                     <div
@@ -180,7 +183,13 @@ export default function HowItWorks() {
             </p>
           </div>
           <a href="/contact" className="flex-shrink-0">
-            <span className="btn-primary whitespace-nowrap">Book Free Consultation →</span>
+            <motion.span
+              className="btn-primary whitespace-nowrap"
+              whileHover={{ scale: 1.03, boxShadow: "0 8px 28px rgba(255,107,53,0.32)", transition: { duration: 0.18 } }}
+              whileTap={{ scale: 0.97 }}
+            >
+              Book Free Consultation →
+            </motion.span>
           </a>
         </motion.div>
       </div>

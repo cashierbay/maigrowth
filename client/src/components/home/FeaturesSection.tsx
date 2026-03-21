@@ -52,7 +52,11 @@ export default function FeaturesSection() {
           {cards.map((card) => {
             const Icon = card.icon;
             return (
-              <StaggerItem key={card.title} className="mg-card text-center">
+              <StaggerItem
+                key={card.title}
+                className="mg-card text-center"
+                whileHover={{ y: -6, boxShadow: "0 14px 40px rgba(0,0,0,0.09)", transition: { duration: 0.22 } }}
+              >
                 <div
                   className="rounded-full flex items-center justify-center mx-auto mb-6"
                   style={{ backgroundColor: "#FF6B35", width: 64, height: 64 }}

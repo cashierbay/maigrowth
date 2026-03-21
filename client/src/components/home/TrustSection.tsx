@@ -50,7 +50,7 @@ export default function TrustSection() {
                 key={card.title}
                 className="mg-card"
                 style={{ cursor: "default" }}
-                whileHover={{ borderColor: "#FF6B35" }}
+                whileHover={{ y: -6, boxShadow: "0 14px 40px rgba(0,0,0,0.09)", borderColor: "#FF6B35", transition: { duration: 0.22 } }}
               >
                 <Icon size={28} style={{ color: "#FF6B35" }} className="mb-4" />
                 <h3

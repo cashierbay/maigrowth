@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { BarChart2, ShieldCheck, MessageCircle, Globe2, Clock, Layers } from "lucide-react";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import { StaggerGroup, StaggerItem } from "@/components/shared/StaggerGroup";
@@ -56,26 +57,25 @@ export default function WhyMaiGrowth() {
               return (
                 <StaggerItem
                   key={feature.label}
-                  className="flex items-center gap-4 px-5 py-4 rounded-2xl cursor-default transition-all duration-200"
+                  className="flex items-center gap-4 px-5 py-4 rounded-2xl cursor-default"
                   style={{
                     backgroundColor: "#F7F6F4",
                     border: "1px solid #E2E0DC",
                   }}
-                  whileHover={{
-                    borderColor: "#FF6B35",
-                    boxShadow: "0 4px 16px rgba(0,0,0,0.06)",
-                  }}
+                  whileHover={{ scale: 1.04, borderColor: "#FF6B35", transition: { duration: 0.18 } }}
                 >
-                  <div
+                  <motion.div
                     className="rounded-full flex items-center justify-center flex-shrink-0"
                     style={{
                       backgroundColor: "#FF6B35",
                       width: 48,
                       height: 48,
                     }}
+                    whileHover={{ rotate: 10, scale: 1.12 }}
+                    transition={{ duration: 0.2 }}
                   >
                     <Icon size={20} color="white" />
-                  </div>
+                  </motion.div>
                   <span
                     className="text-[14px]"
                     style={{ fontFamily: "Syne, sans-serif", fontWeight: 700, color: "#0F0F0F" }}

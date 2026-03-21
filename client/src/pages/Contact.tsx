@@ -262,15 +262,17 @@ export default function Contact() {
                       <p className="text-sm text-center" style={{ color: "#EF4444" }}>{serverError}</p>
                     )}
 
-                    <button
+                    <motion.button
                       type="submit"
                       className="btn-primary w-full justify-center"
                       disabled={submitting}
                       data-testid="button-submit-contact"
                       style={{ opacity: submitting ? 0.7 : 1 }}
+                      whileHover={{ scale: 1.03, boxShadow: "0 8px 28px rgba(255,107,53,0.32)", transition: { duration: 0.18 } }}
+                      whileTap={{ scale: 0.97 }}
                     >
                       {submitting ? "Sending..." : "Send Message →"}
-                    </button>
+                    </motion.button>
                   </motion.form>
                 ) : (
                   <motion.div

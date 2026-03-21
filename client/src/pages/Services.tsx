@@ -509,7 +509,17 @@ export default function Services() {
                   ))}
                 </div>
                 <Link href="/contact">
-                  <span className={`${pkg.buttonClass} w-full justify-center`}>{pkg.buttonLabel}</span>
+                  <motion.span
+                    className={`${pkg.buttonClass} w-full justify-center`}
+                    whileHover={
+                      pkg.buttonClass === "btn-primary"
+                        ? { scale: 1.03, boxShadow: "0 8px 28px rgba(255,107,53,0.32)", transition: { duration: 0.18 } }
+                        : { scale: 1.02, transition: { duration: 0.18 } }
+                    }
+                    whileTap={{ scale: 0.97 }}
+                  >
+                    {pkg.buttonLabel}
+                  </motion.span>
                 </Link>
               </motion.div>
             ))}

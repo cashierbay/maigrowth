@@ -248,6 +248,24 @@
     color: #767676;
     border: 1px solid #E2E0DC;
   }
+
+  .nav-link-underline {
+    @apply relative;
+  }
+  .nav-link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #FF6B35;
+    transition: width 0.25s ease;
+  }
+  .nav-link-underline:hover::after,
+  .nav-link-underline.active::after {
+    width: 100%;
+  }
 }
 
 @layer utilities {

@@ -1,0 +1,83 @@
+My MaiGrowth website is already built in Next.js 14 with Tailwind CSS and Framer Motion. Do NOT rebuild anything. Only add hover micro-interactions to cards and buttons across the site to make interactions feel premium and alive.
+Context about the site:
+
+Framework: Next.js 14 App Router
+Animation: Framer Motion (already installed)
+Brand orange: #FF6B35
+Cards already have Tailwind hover classes — we are now UPGRADING them to Framer Motion whileHover
+If any element is already wrapped in motion.div from scroll animations (Prompt 4), add whileHover directly to that existing motion.div — do NOT add a second wrapper
+
+UPGRADE 1 — Service cards in components/home/ServicesOverview.tsx:
+For the standard service card divs, convert container div to motion.div and add:
+typescriptwhileHover={{ y: -7, boxShadow: '0 16px 48px rgba(255,107,53,0.11)' }}
+transition={{ duration: 0.22, ease: 'easeOut' }}
+For the featured AEO card specifically:
+typescriptwhileHover={{ y: -9, boxShadow: '0 20px 60px rgba(255,107,53,0.18)' }}
+transition={{ duration: 0.22, ease: 'easeOut' }}
+UPGRADE 2 — Feature boxes in components/home/WhyMaiGrowth.tsx:
+Convert each feature box div to motion.div:
+typescriptwhileHover={{ scale: 1.04, borderColor: '#FF6B35' }}
+transition={{ duration: 0.18 }}
+Also convert the circular icon container inside each box to motion.div:
+typescriptwhileHover={{ rotate: 10, scale: 1.12 }}
+transition={{ duration: 0.2 }}
+UPGRADE 3 — Features and Trust cards:
+In components/home/FeaturesSection.tsx and components/home/TrustSection.tsx:
+Convert each card to motion.div:
+typescriptwhileHover={{ y: -6, boxShadow: '0 14px 40px rgba(0,0,0,0.09)' }}
+transition={{ duration: 0.22 }}
+UPGRADE 4 — How It Works step numbers in components/home/HowItWorks.tsx:
+Convert the large step number div to motion.div:
+typescript// Default state: low opacity (already defined in Tailwind as opacity-[0.12])
+whileHover={{ opacity: 0.38 }}
+transition={{ duration: 0.2 }}
+This makes the faint step number glow brighter on hover — a subtle, elegant effect.
+UPGRADE 5 — All primary CTA buttons site-wide:
+Search every file for buttons with btn-primary class or the orange filled button style.
+Convert each to motion.button (or motion.div if it is a Link):
+typescriptwhileHover={{ scale: 1.03, boxShadow: '0 8px 28px rgba(255,107,53,0.32)' }}
+whileTap={{ scale: 0.97 }}
+transition={{ duration: 0.18 }}
+Files to check: components/layout/Navbar.tsx, app/page.tsx, app/contact/page.tsx, app/services/page.tsx, components/home/CTABanner.tsx
+UPGRADE 6 — All secondary/ghost buttons site-wide:
+typescriptwhileHover={{ scale: 1.02 }}
+whileTap={{ scale: 0.97 }}
+transition={{ duration: 0.18 }}
+UPGRADE 7 — Navbar links in components/layout/Navbar.tsx:
+Add this CSS to app/globals.css inside the @layer components block:
+css.nav-link-underline {
+  @apply relative;
+}
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #FF6B35;
+  transition: width 0.25s ease;
+}
+.nav-link-underline:hover::after,
+.nav-link-underline.active::after {
+  width: 100%;
+}
+Then add nav-link-underline class to each nav link element in Navbar.tsx.
+UPGRADE 8 — FAQ items in components/home/HomeFAQ.tsx:
+When a FAQ item is OPEN, add a left border accent using inline style or Tailwind:
+typescript// Open state
+className="border-l-[3px] border-mg-orange pl-4 transition-all duration-300"
+// Closed state  
+className="border-l-[3px] border-transparent pl-4 transition-all duration-300"
+Also add a smooth color transition to the question text:
+When open: text-mg-orange
+When closed: text-mg-ink
+Add transition-colors duration-200 to the question text element.
+Rules — follow exactly:
+
+If a div is already motion.div from Prompt 4 scroll animations, add whileHover and whileTap to it directly — no extra wrapper
+Remove any existing Tailwind hover: classes on elements you are upgrading to Framer Motion hover — they will conflict
+Do NOT change any text, colors, layout, font sizes, or component structure
+Do NOT touch the testimonials carousel
+Do NOT touch the hero background layers added in Prompt 1
+Import motion from framer-motion in every file you edit

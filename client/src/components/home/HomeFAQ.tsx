@@ -54,20 +54,23 @@ export default function HomeFAQ() {
           {faqs.map((faq, i) => (
             <div
               key={i}
-              style={{ borderBottom: "1px solid #E2E0DC" }}
+              className="border-l-[3px] pl-4 transition-all duration-300"
+              style={{
+                borderBottom: "1px solid #E2E0DC",
+                borderLeftColor: openIndex === i ? "#FF6B35" : "transparent",
+              }}
             >
               <button
-                className="flex items-center justify-between w-full py-5 text-left transition-colors cursor-pointer"
+                className="flex items-center justify-between w-full py-5 text-left cursor-pointer"
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 data-testid={`button-faq-${i}`}
               >
                 <span
-                  className="text-[16px] font-medium pr-4"
+                  className="text-[16px] font-medium pr-4 transition-colors duration-200"
                   style={{
                     fontFamily: "Syne, sans-serif",
                     fontWeight: 600,
                     color: openIndex === i ? "#FF6B35" : "#0F0F0F",
-                    transition: "color 0.2s",
                   }}
                 >
                   {faq.q}

@@ -72,6 +72,11 @@ export default function ServicesOverview() {
                       }
                     : {}
                 }
+                whileHover={
+                  service.featured
+                    ? { y: -9, boxShadow: "0 20px 60px rgba(255,107,53,0.18)", transition: { duration: 0.22, ease: "easeOut" } }
+                    : { y: -7, boxShadow: "0 16px 48px rgba(255,107,53,0.11)", transition: { duration: 0.22, ease: "easeOut" } }
+                }
               >
                 {service.badge && (
                   <div className="absolute top-6 right-6">
@@ -119,7 +124,13 @@ export default function ServicesOverview() {
           className="text-center mt-14"
         >
           <Link href="/services" data-testid="button-view-all-services">
-            <span className="btn-secondary">View All Services →</span>
+            <motion.span
+              className="btn-secondary"
+              whileHover={{ scale: 1.02, transition: { duration: 0.18 } }}
+              whileTap={{ scale: 0.97 }}
+            >
+              View All Services →
+            </motion.span>
           </Link>
         </motion.div>
       </div>

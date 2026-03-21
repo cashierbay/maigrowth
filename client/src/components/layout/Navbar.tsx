@@ -69,7 +69,7 @@ export default function Navbar() {
                 data-testid={`link-nav-${link.label.toLowerCase()}`}
               >
                 <span
-                  className="text-[14px] font-medium transition-colors cursor-pointer"
+                  className={`text-[14px] font-medium cursor-pointer nav-link-underline${location === link.href ? " active" : ""}`}
                   style={{
                     fontFamily: "DM Sans, sans-serif",
                     color:
@@ -89,9 +89,14 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center">
             <Link href="/contact" data-testid="link-cta-desktop">
-              <span className="btn-primary text-sm" style={{ padding: "10px 24px" }}>
+              <motion.span
+                className="btn-primary text-sm"
+                style={{ padding: "10px 24px" }}
+                whileHover={{ scale: 1.03, boxShadow: "0 8px 28px rgba(255,107,53,0.32)", transition: { duration: 0.18 } }}
+                whileTap={{ scale: 0.97 }}
+              >
                 Get Free Consultation
-              </span>
+              </motion.span>
             </Link>
           </div>
 
@@ -172,9 +177,13 @@ export default function Navbar() {
                 </a>
               </div>
               <Link href="/contact">
-                <span className="btn-primary w-full justify-center text-center">
+                <motion.span
+                  className="btn-primary w-full justify-center text-center"
+                  whileHover={{ scale: 1.03, boxShadow: "0 8px 28px rgba(255,107,53,0.32)", transition: { duration: 0.18 } }}
+                  whileTap={{ scale: 0.97 }}
+                >
                   Get Free Consultation
-                </span>
+                </motion.span>
               </Link>
             </div>
           </motion.div>
