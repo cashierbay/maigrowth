@@ -163,9 +163,10 @@ export default function HowItWorks() {
                     style={{
                       fontFamily: "Syne, sans-serif",
                       fontWeight: 900,
-                      fontSize: 100,
-                      color: "rgba(255,107,53,0.06)",
+                      fontSize: 110,
+                      color: "transparent",
                       lineHeight: 1,
+                      WebkitTextStroke: "1.5px rgba(255,107,53,0.35)",
                     }}
                   >
                     {step.number}
