@@ -188,7 +188,6 @@ export default function Navbar() {
                         borderRadius: 16,
                         boxShadow: "0 16px 48px rgba(0,0,0,0.12)",
                         minWidth: 240,
-                        overflow: "hidden",
                         padding: "8px",
                       }}
                     >
@@ -264,7 +263,7 @@ export default function Navbar() {
                                     exit={{ opacity: 0, x: 6, scale: 0.97 }}
                                     transition={{ duration: 0.16, ease: EASE }}
                                     className="absolute top-0"
-                                    style={{ left: "calc(100% + 8px)", minWidth: 220 }}
+                                    style={{ left: "calc(100% + 8px)", minWidth: 220, zIndex: 100 }}
                                     onMouseEnter={() => { if (subCloseTimer.current) clearTimeout(subCloseTimer.current); }}
                                     onMouseLeave={closeSub}
                                     data-testid={`flyout-${cat.key}`}
