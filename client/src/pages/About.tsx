@@ -22,8 +22,8 @@ const statCards = [
     number: "50,000+",
     title: "Links Built",
     body: "High-authority backlinks placed across real, traffic-verified websites with DR 40+ — all white-hat, all permanent.",
-    href: "/services",
-    cta: "View Services",
+    href: "/guest-posts",
+    cta: "View Guest Posts",
     bg: "rgba(18,21,61,0.04)",
     iconBg: "#12153D",
   },
@@ -32,8 +32,8 @@ const statCards = [
     number: "3",
     title: "Search Channels",
     body: "Google SEO, AI Overviews (AEO), and generative engines (GEO) — we cover every surface where your customers search for answers.",
-    href: "/services",
-    cta: "Learn More",
+    href: "/contact",
+    cta: "Get Started",
     bg: "rgba(255,107,53,0.06)",
     iconBg: "#FF6B35",
   },
@@ -381,15 +381,6 @@ export default function About() {
                 whileTap={{ scale: 0.97 }}
               >
                 Book a Consultation →
-              </motion.span>
-            </Link>
-            <Link href="/services">
-              <motion.span
-                className="btn-ghost"
-                whileHover={{ scale: 1.02, transition: { duration: 0.18 } }}
-                whileTap={{ scale: 0.97 }}
-              >
-                View Services
               </motion.span>
             </Link>
           </motion.div>

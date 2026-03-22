@@ -51,15 +51,6 @@ export default function CTABanner() {
                 Book Free Strategy Call →
               </motion.span>
             </Link>
-            <Link href="/services" data-testid="button-cta-banner-secondary">
-              <motion.span
-                className="btn-ghost"
-                whileHover={{ scale: 1.02, transition: { duration: 0.18 } }}
-                whileTap={{ scale: 0.97 }}
-              >
-                View Services
-              </motion.span>
-            </Link>
           </motion.div>
 
           <motion.p
