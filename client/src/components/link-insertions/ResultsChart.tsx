@@ -4,9 +4,9 @@ import { CheckCircle2 } from "lucide-react";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const bars = [
-  { label: "Month 1", height: 29, pct: "100%" },
-  { label: "Month 3", height: 44, pct: "152%" },
-  { label: "Month 6", height: 67, pct: "231%" },
+  { label: "Month 1", height: 30, pct: "100%" },
+  { label: "Month 3", height: 50, pct: "182%" },
+  { label: "Month 6", height: 75, pct: "231%" },
   { label: "Month 12", height: 100, pct: "340%" },
 ];
 
@@ -50,25 +50,46 @@ export default function ResultsChart() {
             className="rounded-2xl p-8"
             style={{ backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}
           >
-            <p className="text-sm font-semibold mb-6" style={{ color: "rgba(255,255,255,0.5)" }}>
+            <p className="text-sm font-semibold mb-4" style={{ color: "rgba(255,255,255,0.5)" }}>
               Organic Traffic Growth
             </p>
-            <div className="flex items-end gap-4 h-44">
-              {bars.map((b, i) => (
-                <div key={b.label} className="flex-1 flex flex-col items-center gap-2">
+
+            {/* Row 1: percentage labels above the bars */}
+            <div className="flex gap-4 mb-2">
+              {bars.map((b) => (
+                <div key={b.label} className="flex-1 text-center">
                   <span className="text-xs font-bold" style={{ color: "#FF6B35" }}>{b.pct}</span>
-                  <motion.div
-                    className="w-full rounded-t-lg"
-                    style={{ backgroundColor: "#FF6B35" }}
-                    initial={{ height: 0 }}
-                    whileInView={{ height: `${b.height}%` }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.7, ease: EASE, delay: i * 0.12 }}
-                  />
-                  <span className="text-xs text-center" style={{ color: "rgba(255,255,255,0.45)" }}>{b.label}</span>
                 </div>
               ))}
             </div>
+
+            {/* Row 2: fixed-height bar area — bars grow upward from the bottom */}
+            <div className="flex items-end gap-4" style={{ height: 160 }}>
+              {bars.map((b, i) => (
+                <motion.div
+                  key={b.label}
+                  className="flex-1 rounded-t-lg"
+                  style={{
+                    background: "linear-gradient(to top, #E85A25, #FF6B35)",
+                    minHeight: 4,
+                  }}
+                  initial={{ height: 0 }}
+                  whileInView={{ height: `${b.height}%` }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, ease: EASE, delay: i * 0.12 }}
+                />
+              ))}
+            </div>
+
+            {/* Row 3: month labels below the bars */}
+            <div className="flex gap-4 mt-2">
+              {bars.map((b) => (
+                <div key={b.label} className="flex-1 text-center">
+                  <span className="text-xs" style={{ color: "rgba(255,255,255,0.45)" }}>{b.label}</span>
+                </div>
+              ))}
+            </div>
+
             <p className="text-xs mt-4 text-center" style={{ color: "rgba(255,255,255,0.3)" }}>
               Based on average client campaign data
             </p>
