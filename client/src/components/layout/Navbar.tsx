@@ -7,6 +7,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
+  { href: "/guest-posts", label: "Guest Posts", hideOnHome: true },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
@@ -62,11 +63,11 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {navLinks.filter(link => !(link.hideOnHome && location === "/")).map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                data-testid={`link-nav-${link.label.toLowerCase()}`}
+                data-testid={`link-nav-${link.label.toLowerCase().replace(/\s+/g, "-")}`}
               >
                 <span
                   className={`text-[14px] font-medium cursor-pointer nav-link-underline${location === link.href ? " active" : ""}`}
@@ -142,7 +143,7 @@ export default function Navbar() {
             </div>
 
             <div className="flex flex-col flex-1 px-8 pt-10 gap-2">
-              {navLinks.map((link, i) => (
+              {navLinks.filter(link => !(link.hideOnHome && location === "/")).map((link, i) => (
                 <motion.div
                   key={link.href}
                   initial={{ opacity: 0, x: 20 }}
