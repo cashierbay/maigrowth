@@ -754,69 +754,309 @@ export default function GuestPosts() {
         </div>
       </section>
 
-      {/* ─── SECTION 7: HOW IT WORKS ─── */}
-      <section className="relative overflow-hidden" style={{ backgroundColor: "#12153D", padding: "112px 0" }}>
-        <div className="absolute inset-0" style={DOT_GRID} />
-        <div className="relative z-10 max-w-7xl mx-auto px-6">
-          <motion.div {...fadeUp} className="text-center mb-16">
-            <span className="section-label">THE PROCESS</span>
+      {/* ─── SECTION 7: HOW IT WORKS — REDESIGNED ─── */}
+      <section className="relative py-28 px-6 overflow-hidden" style={{ background: "#12153D" }}>
+        <div
+          className="absolute inset-0 pointer-events-none z-0"
+          style={{
+            backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px)",
+            backgroundSize: "32px 32px",
+          }}
+        />
+        <div
+          className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none z-0"
+          style={{
+            width: "600px",
+            height: "300px",
+            background: "radial-gradient(ellipse, rgba(255,107,53,0.06) 0%, transparent 70%)",
+            filter: "blur(40px)",
+          }}
+        />
+
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <motion.div
+            className="text-center mb-20"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <span
+              style={{
+                fontSize: "10px",
+                fontWeight: 600,
+                letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: "#FF6B35",
+                display: "block",
+                marginBottom: "16px",
+                fontFamily: "DM Sans, sans-serif",
+              }}
+            >
+              The Process
+            </span>
             <h2
-              style={{ fontFamily: "Syne, sans-serif", fontWeight: 700, fontSize: "clamp(28px, 3.5vw, 46px)", color: "white" }}
-              className="leading-tight mt-2"
+              style={{
+                fontFamily: "Syne, sans-serif",
+                fontWeight: 800,
+                fontSize: "clamp(28px, 4vw, 48px)",
+                lineHeight: 1.06,
+                letterSpacing: "-0.02em",
+                color: "#FFFFFF",
+              }}
             >
               How Our Guest Post Service Works
             </h2>
+            <p
+              style={{
+                fontSize: "15px",
+                lineHeight: 1.75,
+                color: "rgba(255,255,255,0.45)",
+                maxWidth: "520px",
+                margin: "16px auto 0",
+                fontFamily: "DM Sans, sans-serif",
+              }}
+            >
+              A transparent, fully managed process from strategy to live placement — with you in control at every step.
+            </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16">
-            {PROCESS_STEPS.map((step, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {[
+              {
+                num: "01",
+                title: "Backlink Gap Analysis",
+                body: "We calculate exactly how many links you need to beat your competitors based on link velocity and authority gaps. Optional but highly recommended for new campaigns.",
+                badge: "Optional",
+                badgeColor: "rgba(255,107,53,0.15)",
+                badgeText: "#FF6B35",
+                fullWidth: false,
+              },
+              {
+                num: "02",
+                title: "Site Prospecting & Blogger Outreach",
+                body: "We identify relevant, high-DR blogs in your niche then begin manual email outreach directly to bloggers and editors. No automated sequences. No scraped databases.",
+                badge: null,
+                fullWidth: false,
+              },
+              {
+                num: "03",
+                title: "Site Approval",
+                body: "You stay in full control. Pre-approve domains, set DR and traffic minimums, exclude irrelevant niches, and review content before it is submitted for publication.",
+                badge: "You Approve",
+                badgeColor: "rgba(255,107,53,0.15)",
+                badgeText: "#FF6B35",
+                fullWidth: false,
+              },
+              {
+                num: "04",
+                title: "Content Creation",
+                body: "Our professional SEO writers create 1,000+ word articles aligned with your brand voice, target keywords, and link placement strategy. No extra cost.",
+                badge: "Included",
+                badgeColor: "rgba(0,180,100,0.15)",
+                badgeText: "#00C878",
+                fullWidth: false,
+              },
+              {
+                num: "05",
+                title: "Publish & Report",
+                body: "Once live, you receive: the live URL, DR and traffic metrics, anchor text used, indexation status, and a full exportable report in CSV and PDF format.",
+                badge: null,
+                fullWidth: true,
+              },
+            ].map((step, i) => (
               <motion.div
                 key={step.num}
-                {...fadeUp}
-                transition={{ ...fadeUp.transition, delay: i * 0.1 }}
-                className="py-8"
-                style={{ borderBottom: "1px solid #2A2F6A" }}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                whileHover={{ borderColor: "rgba(255,107,53,0.4)", y: -4 }}
+                data-testid={`card-step-${step.num}`}
+                style={{
+                  background: "#1C2050",
+                  border: "1px solid #2A2F6A",
+                  borderRadius: "16px",
+                  padding: "32px",
+                  position: "relative",
+                  transition: "border-color 0.25s ease",
+                  ...(step.fullWidth
+                    ? { gridColumn: "1 / -1", maxWidth: "600px", margin: "0 auto", width: "100%" }
+                    : {}),
+                }}
               >
-                <p
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
+                  <div
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: "36px",
+                      height: "36px",
+                      borderRadius: "10px",
+                      background: "rgba(255,107,53,0.12)",
+                      border: "1px solid rgba(255,107,53,0.25)",
+                      fontFamily: "Syne, sans-serif",
+                      fontWeight: 800,
+                      fontSize: "13px",
+                      color: "#FF6B35",
+                      letterSpacing: "0.02em",
+                    }}
+                  >
+                    {step.num}
+                  </div>
+                  {step.badge && (
+                    <span
+                      style={{
+                        fontSize: "10px",
+                        fontWeight: 600,
+                        fontFamily: "DM Sans, sans-serif",
+                        padding: "3px 10px",
+                        borderRadius: "999px",
+                        background: step.badgeColor,
+                        color: step.badgeText,
+                        letterSpacing: "0.04em",
+                      }}
+                    >
+                      {step.badge}
+                    </span>
+                  )}
+                </div>
+
+                <h3
                   style={{
                     fontFamily: "Syne, sans-serif",
-                    fontWeight: 800,
-                    fontSize: 52,
-                    color: "rgba(255,107,53,0.25)",
-                    lineHeight: 1,
-                    marginBottom: 12,
+                    fontWeight: 700,
+                    fontSize: "17px",
+                    color: "#FFFFFF",
+                    letterSpacing: "-0.01em",
+                    marginBottom: "10px",
+                    lineHeight: 1.3,
                   }}
                 >
-                  {step.num}
-                </p>
-                <h4 style={{ fontFamily: "Syne, sans-serif", fontWeight: 700, fontSize: 18, color: "white" }} className="mb-2">
                   {step.title}
-                </h4>
-                <p style={{ color: "rgba(255,255,255,0.55)", fontFamily: "DM Sans, sans-serif", fontSize: 14, lineHeight: 1.75 }}>
+                </h3>
+                <p
+                  style={{
+                    fontFamily: "DM Sans, sans-serif",
+                    fontSize: "13.5px",
+                    lineHeight: 1.75,
+                    color: "rgba(255,255,255,0.5)",
+                  }}
+                >
                   {step.body}
                 </p>
+
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: "-10px",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    width: "8px",
+                    height: "8px",
+                    borderRadius: "50%",
+                    background: "#FF6B35",
+                    opacity: 0.4,
+                  }}
+                />
               </motion.div>
             ))}
           </div>
 
           <motion.div
-            {...fadeUp}
-            className="mt-8 pt-8 text-center space-y-2"
-            style={{ borderTop: "1px solid #2A2F6A" }}
+            className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-5"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p style={{ color: "rgba(255,255,255,0.4)", fontFamily: "DM Sans, sans-serif", fontSize: 14, fontStyle: "italic" }}>
-              Typical turnaround: 21 days depending on niche and outreach response rates.
-            </p>
-            <p className="text-sm" style={{ fontFamily: "DM Sans, sans-serif" }}>
-              <span style={{ color: "#FF6B35", fontWeight: 600 }}>Agencies: </span>
-              <span style={{ color: "rgba(255,255,255,0.6)" }}>Branded link reports, client-ready documentation, and white-label pricing available.</span>
-            </p>
+            <div
+              style={{
+                background: "rgba(255,107,53,0.06)",
+                border: "1px solid rgba(255,107,53,0.2)",
+                borderRadius: "14px",
+                padding: "24px 28px",
+                display: "flex",
+                alignItems: "center",
+                gap: "16px",
+              }}
+            >
+              <div
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "10px",
+                  background: "rgba(255,107,53,0.15)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                }}
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
+                </svg>
+              </div>
+              <div>
+                <div style={{ fontFamily: "Syne, sans-serif", fontWeight: 700, fontSize: "13px", color: "#FF6B35", marginBottom: "4px" }}>
+                  Typical Turnaround
+                </div>
+                <div style={{ fontFamily: "DM Sans, sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.5)", lineHeight: 1.5 }}>
+                  21 days depending on niche and outreach response rates.
+                </div>
+              </div>
+            </div>
+
+            <div
+              style={{
+                background: "rgba(255,255,255,0.03)",
+                border: "1px solid #2A2F6A",
+                borderRadius: "14px",
+                padding: "24px 28px",
+                display: "flex",
+                alignItems: "center",
+                gap: "16px",
+              }}
+            >
+              <div
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  borderRadius: "10px",
+                  background: "rgba(255,255,255,0.06)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  flexShrink: 0,
+                }}
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <div>
+                <div style={{ fontFamily: "Syne, sans-serif", fontWeight: 700, fontSize: "13px", color: "rgba(255,255,255,0.7)", marginBottom: "4px" }}>
+                  Agencies
+                </div>
+                <div style={{ fontFamily: "DM Sans, sans-serif", fontSize: "13px", color: "rgba(255,255,255,0.4)", lineHeight: 1.5 }}>
+                  Branded link reports, client-ready docs, and white-label pricing available.
+                </div>
+              </div>
+            </div>
           </motion.div>
 
-          <motion.div {...fadeUp} className="mt-10 flex justify-center">
+          <motion.div
+            className="text-center mt-14"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
             <Link href="/contact">
               <motion.span
                 className="btn-primary"
+                style={{ fontSize: "15px", padding: "14px 36px" }}
                 whileHover={{ scale: 1.03, boxShadow: "0 8px 28px rgba(255,107,53,0.32)" }}
                 whileTap={{ scale: 0.97 }}
                 data-testid="button-process-cta"

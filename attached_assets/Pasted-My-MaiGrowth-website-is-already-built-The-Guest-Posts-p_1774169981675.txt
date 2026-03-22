@@ -1,0 +1,291 @@
+My MaiGrowth website is already built. The Guest Posts page at app/guest-posts/page.tsx has a "How Our Guest Post Service Works" section that looks ugly — plain text on a dotted navy background with oversized numbered headings that feel like a retro video game.
+Do NOT touch any other section on any page. Only find the "How It Works" / "How Our Guest Post Service Works" section inside app/guest-posts/page.tsx and completely replace its JSX with the new design below.
+
+EXISTING SITE CONTEXT
+
+Framework: Next.js 14 App Router
+Styling: Tailwind CSS with custom mg color tokens
+Animations: Framer Motion (already installed)
+Icons: Lucide React (already installed)
+Fonts: Syne (700, 800) + DM Sans (400, 500, 600)
+mg-dark: #12153D | mg-orange: #FF6B35 | mg-surface: #FFFFFF
+mg-darkAlt: #1C2050 | mg-darkBorder: #2A2F6A | mg-body: #3D3D3D
+
+
+DESIGN DIRECTION
+Problem with current design: Oversized retro-looking numbers, plain text, no visual containers, flat dotted background with zero depth or hierarchy.
+New design direction: Premium SaaS process section. Think Linear, Vercel, Notion process pages. Each step is a self-contained card with a clean number badge, icon, title, and body. Cards sit on the dark navy background with a subtle surface elevation. A connecting line runs between steps on desktop. The whole section feels structured, modern, and trustworthy.
+Aesthetic: Clean dark-surface cards with thin glowing borders. Step numbers are small elegant badges — NOT giant decorative text. Connecting line between cards creates a visual flow. Framer Motion stagger animation reveals each card as it scrolls into view.
+
+REPLACE THE ENTIRE "HOW IT WORKS" SECTION WITH THIS:
+Find the section that contains "How Our Guest Post Service Works" in app/guest-posts/page.tsx and replace the entire section JSX with the following:
+tsx{/* HOW IT WORKS — REDESIGNED */}
+<section className="relative py-28 px-6 overflow-hidden" style={{ background: '#12153D' }}>
+
+  {/* Subtle dot grid background — very faint */}
+  <div
+    className="absolute inset-0 pointer-events-none z-0"
+    style={{
+      backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px)',
+      backgroundSize: '32px 32px',
+    }}
+  />
+
+  {/* Radial orange glow top-center */}
+  <div
+    className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none z-0"
+    style={{
+      width: '600px', height: '300px',
+      background: 'radial-gradient(ellipse, rgba(255,107,53,0.06) 0%, transparent 70%)',
+      filter: 'blur(40px)',
+    }}
+  />
+
+  <div className="relative z-10 max-w-6xl mx-auto">
+
+    {/* SECTION HEADER */}
+    <motion.div
+      className="text-center mb-20"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <span style={{
+        fontSize: '10px', fontWeight: 600, letterSpacing: '0.18em',
+        textTransform: 'uppercase' as const, color: '#FF6B35',
+        display: 'block', marginBottom: '16px',
+        fontFamily: 'DM Sans, sans-serif',
+      }}>
+        The Process
+      </span>
+      <h2 style={{
+        fontFamily: 'Syne, sans-serif', fontWeight: 800,
+        fontSize: 'clamp(28px, 4vw, 48px)',
+        lineHeight: 1.06, letterSpacing: '-0.02em', color: '#FFFFFF',
+      }}>
+        How Our Guest Post Service Works
+      </h2>
+      <p style={{
+        fontSize: '15px', lineHeight: 1.75, color: 'rgba(255,255,255,0.45)',
+        maxWidth: '520px', margin: '16px auto 0',
+        fontFamily: 'DM Sans, sans-serif',
+      }}>
+        A transparent, fully managed process from strategy to live placement — 
+        with you in control at every step.
+      </p>
+    </motion.div>
+
+    {/* STEPS GRID — 2 columns desktop, 1 mobile */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+      {[
+        {
+          num: '01',
+          icon: 'BarChart2',
+          title: 'Backlink Gap Analysis',
+          body: 'We calculate exactly how many links you need to beat your competitors based on link velocity and authority gaps. Optional but highly recommended for new campaigns.',
+          badge: 'Optional',
+          badgeColor: 'rgba(255,107,53,0.15)',
+          badgeText: '#FF6B35',
+        },
+        {
+          num: '02',
+          icon: 'Search',
+          title: 'Site Prospecting & Blogger Outreach',
+          body: 'We identify relevant, high-DR blogs in your niche then begin manual email outreach directly to bloggers and editors. No automated sequences. No scraped databases.',
+          badge: null,
+        },
+        {
+          num: '03',
+          icon: 'CheckSquare',
+          title: 'Site Approval',
+          body: 'You stay in full control. Pre-approve domains, set DR and traffic minimums, exclude irrelevant niches, and review content before it is submitted for publication.',
+          badge: 'You Approve',
+          badgeColor: 'rgba(255,107,53,0.15)',
+          badgeText: '#FF6B35',
+        },
+        {
+          num: '04',
+          icon: 'PenLine',
+          title: 'Content Creation',
+          body: 'Our professional SEO writers create 1,000+ word articles aligned with your brand voice, target keywords, and link placement strategy. No extra cost.',
+          badge: 'Included',
+          badgeColor: 'rgba(0,180,100,0.15)',
+          badgeText: '#00C878',
+        },
+        {
+          num: '05',
+          icon: 'FileCheck',
+          title: 'Publish & Report',
+          body: 'Once live, you receive: the live URL, DR and traffic metrics, anchor text used, indexation status, and a full exportable report in CSV and PDF format.',
+          badge: null,
+        },
+      ].map((step, i) => (
+        <motion.div
+          key={step.num}
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+          whileHover={{ borderColor: 'rgba(255,107,53,0.4)', y: -4 }}
+          style={{
+            background: '#1C2050',
+            border: '1px solid #2A2F6A',
+            borderRadius: '16px',
+            padding: '32px',
+            position: 'relative' as const,
+            transition: 'border-color 0.25s ease, transform 0.25s ease',
+            // Step 5 spans full width on desktop
+            ...(i === 4 ? { gridColumn: '1 / -1', maxWidth: '600px', margin: '0 auto', width: '100%' } : {}),
+          }}
+        >
+          {/* Top row — number badge + optional status badge */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+
+            {/* Step number — small elegant badge */}
+            <div style={{
+              display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
+              width: '36px', height: '36px', borderRadius: '10px',
+              background: 'rgba(255,107,53,0.12)',
+              border: '1px solid rgba(255,107,53,0.25)',
+              fontFamily: 'Syne, sans-serif', fontWeight: 800,
+              fontSize: '13px', color: '#FF6B35', letterSpacing: '0.02em',
+            }}>
+              {step.num}
+            </div>
+
+            {/* Optional badge */}
+            {step.badge && (
+              <span style={{
+                fontSize: '10px', fontWeight: 600,
+                fontFamily: 'DM Sans, sans-serif',
+                padding: '3px 10px', borderRadius: '999px',
+                background: step.badgeColor,
+                color: step.badgeText,
+                letterSpacing: '0.04em',
+              }}>
+                {step.badge}
+              </span>
+            )}
+          </div>
+
+          {/* Title */}
+          <h3 style={{
+            fontFamily: 'Syne, sans-serif', fontWeight: 700,
+            fontSize: '17px', color: '#FFFFFF',
+            letterSpacing: '-0.01em', marginBottom: '10px', lineHeight: 1.3,
+          }}>
+            {step.title}
+          </h3>
+
+          {/* Body */}
+          <p style={{
+            fontFamily: 'DM Sans, sans-serif',
+            fontSize: '13.5px', lineHeight: 1.75,
+            color: 'rgba(255,255,255,0.5)',
+          }}>
+            {step.body}
+          </p>
+
+          {/* Bottom connector dot */}
+          <div style={{
+            position: 'absolute' as const,
+            bottom: '-10px', left: '50%', transform: 'translateX(-50%)',
+            width: '8px', height: '8px', borderRadius: '50%',
+            background: '#FF6B35', opacity: 0.4,
+          }} />
+
+        </motion.div>
+      ))}
+
+    </div>
+
+    {/* TURNAROUND + AGENCY NOTE */}
+    <motion.div
+      className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-5"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {/* Turnaround */}
+      <div style={{
+        background: 'rgba(255,107,53,0.06)',
+        border: '1px solid rgba(255,107,53,0.2)',
+        borderRadius: '14px', padding: '24px 28px',
+        display: 'flex', alignItems: 'center', gap: '16px',
+      }}>
+        <div style={{
+          width: '40px', height: '40px', borderRadius: '10px',
+          background: 'rgba(255,107,53,0.15)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          flexShrink: 0,
+        }}>
+          {/* Clock icon */}
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF6B35" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <div>
+          <div style={{ fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: '13px', color: '#FF6B35', marginBottom: '4px' }}>
+            Typical Turnaround
+          </div>
+          <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '13px', color: 'rgba(255,255,255,0.5)', lineHeight: 1.5 }}>
+            21 days depending on niche and outreach response rates.
+          </div>
+        </div>
+      </div>
+
+      {/* Agency access */}
+      <div style={{
+        background: 'rgba(255,255,255,0.03)',
+        border: '1px solid #2A2F6A',
+        borderRadius: '14px', padding: '24px 28px',
+        display: 'flex', alignItems: 'center', gap: '16px',
+      }}>
+        <div style={{
+          width: '40px', height: '40px', borderRadius: '10px',
+          background: 'rgba(255,255,255,0.06)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          flexShrink: 0,
+        }}>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <div>
+          <div style={{ fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: '13px', color: 'rgba(255,255,255,0.7)', marginBottom: '4px' }}>
+            Agencies
+          </div>
+          <div style={{ fontFamily: 'DM Sans, sans-serif', fontSize: '13px', color: 'rgba(255,255,255,0.4)', lineHeight: 1.5 }}>
+            Branded link reports, client-ready docs, and white-label pricing available.
+          </div>
+        </div>
+      </div>
+    </motion.div>
+
+    {/* CTA BUTTON */}
+    <motion.div
+      className="text-center mt-14"
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: 0.4 }}
+    >
+      <a
+        href="/contact"
+        className="btn-primary"
+        style={{ fontSize: '15px', padding: '14px 36px' }}
+      >
+        Talk to Our SEO Strategists →
+      </a>
+    </motion.div>
+
+  </div>
+</section>
+Make sure motion is imported from framer-motion at the top of the file. If it is already imported, do not add a duplicate import.
+
+WHAT THIS REDESIGN FIXES
+The old design problems and what replaces them:
+Old ProblemNew SolutionGiant retro-style numbers (01, 02, 03) dominating each cardSmall elegant orange badge (36×36px rounded square) — step number is a detail, not a headlinePlain text floating on dotted backgroundEach step is a self-contained elevated card — bg #1C2050 on #12153D navy — creates depth and separationNo visual hierarchy inside each stepClear 3-layer hierarchy: number badge row → title → body copyNo animationFramer Motion stagger — each card fades up with 0.1s delay between themCards hover with no feedbackwhileHover lifts card 4px and brightens border to orangeFlat turnaround note buried in textTwo styled info cards at the bottom — Turnaround + Agency access — each with iconNo visual distinction between optional and required stepsSmall colored badges: "Optional" in orange tint, "Included" in green tint, "You Approve" in orange tintStep 5 feels orphaned in 2-column gridStep 5 spans full width and is centered — intentional asymmetry
