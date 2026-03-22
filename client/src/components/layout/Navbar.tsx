@@ -34,7 +34,7 @@ export default function Navbar() {
   }, [mobileOpen]);
 
   const linkColor = (active: boolean) =>
-    active ? "#FF6B35" : scrolled ? "#3D3D3D" : "rgba(255,255,255,0.8)";
+    active ? "#FF6B35" : scrolled ? "#3D3D3D" : "rgba(255,255,255,0.6)";
 
   return (
     <>
@@ -48,7 +48,7 @@ export default function Navbar() {
                 borderBottom: "1px solid #E2E0DC",
                 boxShadow: "0 1px 12px rgba(0,0,0,0.06)",
               }
-            : { backgroundColor: "transparent" }
+            : { backgroundColor: "#12153D" }
         }
       >
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between" style={{ height: 72 }}>
