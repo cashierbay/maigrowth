@@ -62,7 +62,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 export default function About() {
   return (
     <>
-      <title>About MaiGrowth — Built for the AI Search Era</title>
+      <title>About MaiGrowth — Link Building for Google and AI Search</title>
 
       <section
         className="relative flex flex-col items-center justify-center text-center"

@@ -13,7 +13,7 @@ import CTABanner from "@/components/home/CTABanner";
 export default function Home() {
   return (
     <>
-      <title>MaiGrowth — Link Building + AEO + GEO | Rank on Google. Get Cited by AI.</title>
+      <title>MaiGrowth — Guest Posts & Link Insertions | Found in Google & AI</title>
       <Hero />
       <ProblemSection />
       <ServicesOverview />

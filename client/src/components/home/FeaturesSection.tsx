@@ -1,4 +1,4 @@
-import { Award, CreditCard, Settings2 } from "lucide-react";
+import { Award, CreditCard, Sparkles } from "lucide-react";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import { StaggerGroup, StaggerItem } from "@/components/shared/StaggerGroup";
 
@@ -6,17 +6,17 @@ const cards = [
   {
     icon: Award,
     title: "Guaranteed Quality",
-    body: "We deliver only the highest-quality, most thoroughly vetted backlinks. Every link we build comes from a real website with genuine organic traffic — no PBNs, no fake sites, no shortcuts.",
+    body: "Every link comes from a real website with genuine organic traffic. Thoroughly vetted before outreach. No PBNs. No fake sites. No shortcuts. Your domain's safety is non-negotiable.",
   },
   {
     icon: CreditCard,
     title: "One-Time Payments",
-    body: "Quality backlinks should be permanent assets, not recurring fees. Every link secured through MaiGrowth requires only a single flat-rate payment — yours to keep with no monthly charges.",
+    body: "Permanent placements. Pay once. Your link stays live. No monthly rental fees. No recurring charges. Every placement is yours to keep.",
   },
   {
-    icon: Settings2,
-    title: "Fully Managed Campaigns",
-    body: "We handle every detail of your link building and AEO/GEO campaign — from strategy and outreach to content writing and reporting. You get powerful results without the additional workload.",
+    icon: Sparkles,
+    title: "Your Brand in AI Answers",
+    body: "Our links are placed on sites that ChatGPT, Perplexity, and Google AI Overviews regularly cite. Your brand gets mentioned in AI-generated answers — included in every order.",
   },
 ];
 
@@ -38,13 +38,13 @@ export default function FeaturesSection() {
               color: "#0F0F0F",
             }}
           >
-            Features of Our Link Building + AEO/GEO Service
+            Features of Our Link Building Service
           </h2>
           <p
             className="mt-4 max-w-2xl mx-auto text-[17px] leading-relaxed"
             style={{ color: "#3D3D3D", fontFamily: "DM Sans, sans-serif" }}
           >
-            Everything you need to dominate both traditional search and AI-powered answers — handled end to end by our team.
+            Every Guest Post and Link Insertion we build includes these guarantees — no exceptions.
           </p>
         </AnimatedSection>
 

@@ -25,9 +25,9 @@ export default function CTABanner() {
               letterSpacing: "-0.01em",
             }}
           >
-            Ready to Rank on Google AND
+            More Traffic from Google.
             <br />
-            Get Cited by AI?
+            More Mentions in AI.
           </motion.h2>
 
           <motion.p
@@ -35,7 +35,7 @@ export default function CTABanner() {
             className="text-lg max-w-xl mx-auto mt-4"
             style={{ color: "rgba(255,255,255,0.6)", fontFamily: "DM Sans, sans-serif" }}
           >
-            Book a free 30-minute consultation. We'll show you exactly where your visibility gaps are and how to close them.
+            Start with a free 30-minute strategy call. We will look at your site, your competitors, and tell you exactly which service fits your goals.
           </motion.p>
 
           <motion.div
@@ -48,7 +48,7 @@ export default function CTABanner() {
                 whileHover={{ scale: 1.03, boxShadow: "0 8px 28px rgba(255,107,53,0.32)", transition: { duration: 0.18 } }}
                 whileTap={{ scale: 0.97 }}
               >
-                Book Free Consultation →
+                Book Free Strategy Call →
               </motion.span>
             </Link>
             <Link href="/services" data-testid="button-cta-banner-secondary">
@@ -67,7 +67,7 @@ export default function CTABanner() {
             className="mt-6 text-xs"
             style={{ color: "rgba(255,255,255,0.35)", fontFamily: "DM Sans, sans-serif" }}
           >
-            Free · No Obligation · Expert Analysis · 24hr Response
+            Free · No Commitment · White-Hat Only · Reply Within 24 Hours
           </motion.p>
         </motion.div>
       </div>

@@ -11,12 +11,12 @@ const cards = [
   {
     icon: Globe2,
     title: "Real Websites Only",
-    body: "Every backlink comes from genuine websites with real organic traffic, real editorial standards, and real audiences. Zero fake sites. Zero shortcuts.",
+    body: "Every backlink comes from genuine websites with real organic traffic and real editorial standards. Zero fake sites. Zero link networks. Zero shortcuts.",
   },
   {
     icon: Sparkles,
-    title: "AI-Era Specialists",
-    body: "We're among the first agencies combining traditional link building with AEO and GEO — purpose-built for how search works in 2025 and beyond.",
+    title: "Found in ChatGPT & AI Overviews",
+    body: "Our links are placed on the same authoritative sites that ChatGPT, Perplexity, and Google AI Overviews reference when generating answers. Your brand gets found wherever your customers search.",
   },
 ];
 

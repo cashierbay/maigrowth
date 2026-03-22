@@ -4,10 +4,10 @@ import { Mail, Globe2, Clock, CheckCircle2, Linkedin, Twitter } from "lucide-rea
 import { fadeUp, stagger } from "@/lib/animations";
 
 const serviceOptions = [
-  "Link Building",
-  "AEO Optimization",
-  "GEO Optimization",
-  "Full Package",
+  "Guest Posts",
+  "Link Insertions",
+  "Full Campaign Package (Both)",
+  "Not Sure Yet",
 ];
 
 interface FormData {
@@ -89,7 +89,7 @@ export default function Contact() {
 
   return (
     <>
-      <title>Free Strategy Consultation — MaiGrowth</title>
+      <title>Free Strategy Call — MaiGrowth</title>
 
       <section
         className="relative flex flex-col items-center justify-center text-center"
@@ -123,7 +123,7 @@ export default function Contact() {
               letterSpacing: "-0.02em",
             }}
           >
-            Let's Build Your Visibility Strategy
+            Let's Build Your Link Strategy
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -132,7 +132,7 @@ export default function Contact() {
             className="mt-6 text-lg max-w-2xl mx-auto"
             style={{ color: "rgba(255,255,255,0.6)", fontFamily: "DM Sans, sans-serif" }}
           >
-            Free 30-minute consultation. No pressure — just an expert audit of where you stand and what's possible.
+            Tell us about your website and goals. We will recommend the right service and package for your situation.
           </motion.p>
         </div>
       </section>

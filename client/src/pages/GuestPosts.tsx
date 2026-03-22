@@ -230,6 +230,7 @@ export default function GuestPosts() {
 
   return (
     <div>
+      <title>Guest Post Service — Rank on Google & Get Cited in AI | MaiGrowth</title>
       {/* ─── SECTION 1: HERO ─── */}
       <section
         className="relative min-h-[80vh] flex flex-col items-center justify-center overflow-hidden"

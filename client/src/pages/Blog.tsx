@@ -84,7 +84,7 @@ export default function Blog() {
 
   return (
     <>
-      <title>Blog — AI Search & Link Building Insights | MaiGrowth</title>
+      <title>Blog — Link Building & AI Search Insights | MaiGrowth</title>
 
       <section
         className="relative flex flex-col items-center justify-center text-center"

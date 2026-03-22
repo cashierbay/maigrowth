@@ -6,12 +6,12 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 const rows = [
   { feature: "Google Ranking Backlinks", others: "yes", mg: "yes" },
-  { feature: "AI Answer Citations (AEO)", others: "no", mg: "yes" },
-  { feature: "ChatGPT / Perplexity Visibility (GEO)", others: "no", mg: "yes" },
+  { feature: "Cited in ChatGPT & Perplexity", others: "no", mg: "yes" },
+  { feature: "Google AI Overviews Visibility", others: "no", mg: "yes" },
   { feature: "Real Website Placements Only", others: "sometimes", mg: "yes" },
   { feature: "White-Hat Guaranteed", others: "sometimes", mg: "yes" },
-  { feature: "Topical Authority Building", others: "rarely", mg: "yes" },
-  { feature: "AI Citation Tracking & Reporting", others: "no", mg: "yes" },
+  { feature: "Content Writing Included", others: "sometimes", mg: "yes" },
+  { feature: "21-Day Turnaround", others: "no", mg: "yes" },
   { feature: "Global Service, Fully Remote", others: "sometimes", mg: "yes" },
 ];
 
@@ -39,15 +39,13 @@ export default function ComparisonTable() {
               color: "#0F0F0F",
             }}
           >
-            Why MaiGrowth vs. Every Other
-            <br />
-            Link Building Agency
+            Why MaiGrowth vs Every Other Link Building Agency
           </h2>
           <p
             className="mt-4 max-w-2xl mx-auto text-[17px] leading-relaxed"
             style={{ color: "#3D3D3D", fontFamily: "DM Sans, sans-serif" }}
           >
-            The agency landscape hasn't kept up with how search actually works in 2025. We have.
+            Other agencies build links for Google only. MaiGrowth builds links that work everywhere your customers search.
           </p>
         </AnimatedSection>
 

@@ -15,11 +15,11 @@ export interface Post extends PostMeta {
 const postData: Post[] = [
   {
     slug: "what-is-aeo-guide-2025",
-    title: "What Is AEO? The Complete Guide to Answer Engine Optimization in 2025",
-    excerpt: "AEO is the methodology that gets your brand selected as the answer in AI-powered search results. Here's everything you need to know.",
+    title: "Why Your Links Need to Work in ChatGPT, Not Just Google",
+    excerpt: "Most link building only targets Google. Here's why the best links in 2025 also get your brand cited in ChatGPT, Perplexity, and Google AI Overviews.",
     date: "2025-03-05",
     readTime: "8 min read",
-    category: "AEO",
+    category: "AI Search",
     categoryColor: "orange",
     content: `## What Is Answer Engine Optimization (AEO)?
 
@@ -84,11 +84,11 @@ AEO is no longer optional for brands serious about search visibility in 2025. It
   },
   {
     slug: "geo-vs-seo-future-of-search",
-    title: "GEO vs. SEO: Why Generative Engine Optimization Is the Future of Search",
-    excerpt: "Google SEO and GEO are fundamentally different games. Here's why your existing SEO skills don't automatically translate to AI citation — and what to do about it.",
+    title: "Guest Posts vs Link Insertions: Which is Right for Your Campaign?",
+    excerpt: "Two services, different strengths. Here's exactly how to choose — and when combining both gets you the best results.",
     date: "2025-02-28",
     readTime: "9 min read",
-    category: "GEO",
+    category: "Link Building",
     categoryColor: "navy",
     content: `## GEO vs. SEO: Two Different Games
 
@@ -232,11 +232,11 @@ This is a systematic, measurable process — not guesswork. Brands that commit t
   },
   {
     slug: "link-building-ai-era",
-    title: "Link Building in the AI Era: What Changed, What Died, and What Still Works",
-    excerpt: "AI search didn't kill link building — it made quality more important than ever. Here's what changed and how modern links now serve double duty for Google and AI authority.",
+    title: "How to Get Your Brand Mentioned in ChatGPT and Perplexity",
+    excerpt: "Millions of people now get answers from AI tools. Here's the practical strategy for making your brand show up in those answers.",
     date: "2025-02-14",
     readTime: "8 min read",
-    category: "Link Building",
+    category: "AI Search",
     categoryColor: "orange",
     content: `## Link Building Has Evolved — Not Died
 

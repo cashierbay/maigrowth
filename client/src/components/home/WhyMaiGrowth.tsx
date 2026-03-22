@@ -9,7 +9,7 @@ const features = [
   { icon: MessageCircle, label: "SEO Support Included" },
   { icon: Globe2, label: "All Real Websites" },
   { icon: Clock, label: "21-Day Turnaround" },
-  { icon: Layers, label: "Large Site Inventory" },
+  { icon: Layers, label: "ChatGPT & AI Citations" },
 ];
 
 export default function WhyMaiGrowth() {
@@ -32,13 +32,13 @@ export default function WhyMaiGrowth() {
                 color: "#0F0F0F",
               }}
             >
-              Your Trusted Partner for High-Quality Link Building + AI Visibility
+              Your Trusted Partner for High-Quality Link Building
             </h2>
             <div className="space-y-4">
               {[
-                "MaiGrowth has spent years refining its approach to link building and AI search optimization — learning exactly what it takes to build backlinks that genuinely improve rankings AND get brands cited in AI-generated answers.",
-                "The core of our process is expert, scalable outreach to secure backlinks from high-authority, relevant publications that carry real SEO weight and build real brand recognition.",
-                "We handle every detail of the link building and AEO/GEO process. You step back and focus on your business while MaiGrowth delivers consistent, measurable visibility results.",
+                "MaiGrowth has spent years building links that actually move the needle — not just for Google rankings, but for the AI search tools that now influence millions of buying decisions every day.",
+                "Every placement is secured through manual outreach to real website owners and editors. No automated blasts. No scraped databases. Real relationships. Real placements.",
+                "You get a complete campaign — outreach, content writing, placement, and reporting — handled end to end. You focus on your business. We handle the links.",
               ].map((para, i) => (
                 <p
                   key={i}

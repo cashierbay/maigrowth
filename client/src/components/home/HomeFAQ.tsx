@@ -5,24 +5,24 @@ import AnimatedSection from "@/components/shared/AnimatedSection";
 
 const faqs = [
   {
-    q: "What is AEO and why does it matter in 2025?",
-    a: "AEO stands for Answer Engine Optimization. As Google AI Overviews, Bing Copilot, and AI assistants now directly answer search queries, brands not optimized to be cited as sources are losing enormous visibility. AEO structures your content and authority so AI systems choose your brand as the answer — not your competitor's.",
+    q: "What is a Guest Post service?",
+    a: "A Guest Post is a brand new article written by our team and published on a real, high-authority website in your niche. The article includes a contextual link back to your site. Every placement is white-hat, permanently live, and delivered within 21 days. Because we only place on trusted, authoritative sites — your brand also gets found in ChatGPT and Perplexity answers as a bonus.",
   },
   {
-    q: "What is GEO optimization?",
-    a: "GEO stands for Generative Engine Optimization. It focuses on making your brand visible inside AI-generated responses from ChatGPT, Perplexity, Claude, and Gemini. When someone asks these tools a question in your industry, GEO ensures your brand is recognized and cited as an authoritative source.",
+    q: "What is a Link Insertion?",
+    a: "A Link Insertion places your link into an existing, already-published article on a real authority website. The article already has trust, traffic, and indexation — your link immediately benefits from that. Faster than Guest Posts and equally effective for building authority in both Google and AI search.",
   },
   {
-    q: "How is MaiGrowth different from regular link building agencies?",
-    a: "Most link building agencies are built entirely around Google. MaiGrowth combines premium link building with AEO and GEO strategies — so every link we build serves double duty: improving your Google rankings AND strengthening your authority with AI engines. Same investment, multiplied visibility.",
+    q: "Why do your links show up in ChatGPT and Perplexity?",
+    a: "We only build links on websites that AI tools like ChatGPT, Perplexity, and Google AI Overviews regularly reference as trusted sources. This means when someone asks an AI tool a question in your niche, your brand is more likely to be cited in the answer. This is not a separate service — it is simply how we select sites and build every link. No extra cost.",
   },
   {
-    q: "Do you work with businesses globally?",
-    a: "Yes — MaiGrowth is a fully remote, global service. We work with business owners in any country and any industry. Our outreach network is international and our AEO/GEO strategies are built for any English-language website regardless of location.",
+    q: "Do I need Guest Posts or Link Insertions — or both?",
+    a: "Both work well. Guest Posts are best for building topical authority with fresh, niche-relevant content. Link Insertions are faster and work well for adding placements in aged, trusted articles. Most serious campaigns benefit from both — which is why we offer Full Campaign Packages that combine them for better results and better value.",
   },
   {
     q: "How long does it take to see results?",
-    a: "Link building improvements typically appear within 60–90 days. AEO results — featured snippets and AI Overview appearances — can surface within 30–60 days. Most clients see initial AI tool citations within 60–90 days of starting GEO work, depending on their existing domain authority.",
+    a: "Individual placements go live within 21 days. Google ranking improvements typically appear within 60–90 days as search engines crawl and evaluate the new links. Your brand appearing in ChatGPT and Perplexity answers varies by niche — most clients notice increased AI visibility within 60–90 days of starting a campaign.",
   },
 ];
 

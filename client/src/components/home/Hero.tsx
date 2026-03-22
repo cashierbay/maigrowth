@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { stagger, fadeUp } from "@/lib/animations";
 
-const words1 = ["Rank", "on", "Google."];
-const words2 = ["Get", "Cited", "by"];
+const words1 = ["Guest", "Posts", "&", "Link", "Insertions"];
+const words2 = ["Built", "for", "Google", "AND"];
 
 export default function Hero() {
   return (
@@ -88,7 +88,7 @@ export default function Hero() {
               className="text-[11px] font-semibold uppercase tracking-[0.16em] block mb-8"
               style={{ color: "#FF6B35", fontFamily: "DM Sans, sans-serif" }}
             >
-              LINK BUILDING · AEO · GEO
+              GUEST POSTS · LINK INSERTIONS · AI & LLM READY
             </span>
           </motion.div>
 
@@ -136,7 +136,7 @@ export default function Hero() {
             className="text-lg md:text-xl max-w-2xl mx-auto mt-6 leading-relaxed"
             style={{ color: "rgba(255,255,255,0.65)", fontFamily: "DM Sans, sans-serif" }}
           >
-            Most agencies stop at Google rankings. MaiGrowth builds links that also get your brand mentioned in ChatGPT, Perplexity, and Google AI Overviews — where the next generation of buying decisions happens every day.
+            High-authority backlinks that rank your site on Google AND get your brand mentioned in ChatGPT, Perplexity, and Google AI Overviews. White-hat. Real sites. Every time.
           </motion.p>
 
           <motion.div
@@ -145,11 +145,11 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="mt-10 flex flex-wrap items-center justify-center gap-4"
           >
-            <Link href="/contact" data-testid="button-hero-cta-primary">
-              <span className="btn-primary">Start Growing Today →</span>
+            <Link href="/guest-posts" data-testid="button-hero-cta-primary">
+              <span className="btn-primary">View Our Services →</span>
             </Link>
-            <Link href="/services" data-testid="button-hero-cta-secondary">
-              <span className="btn-ghost">See Our Services</span>
+            <Link href="/contact" data-testid="button-hero-cta-secondary">
+              <span className="btn-ghost">Book a Free Call</span>
             </Link>
           </motion.div>
 
@@ -162,8 +162,9 @@ export default function Hero() {
           >
             {[
               "White-Hat Only",
-              "AEO + GEO Ready",
-              "Global Service",
+              "Real Websites",
+              "Found in ChatGPT & Perplexity",
+              "21-Day Turnaround",
             ].map((item) => (
               <span
                 key={item}

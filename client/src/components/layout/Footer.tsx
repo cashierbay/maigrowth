@@ -15,7 +15,7 @@ export default function Footer() {
               <span style={{ color: "#FF6B35" }}>Growth</span>
             </div>
             <p className="mt-3 text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.6)" }}>
-              Rank on Google. Get Cited by AI.
+              Links Built for Google. Found in ChatGPT & Perplexity.
             </p>
             <p className="mt-2 text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>
               Premium link building and AEO/GEO optimization for the AI search era. Global service, fully remote.
@@ -64,8 +64,10 @@ export default function Footer() {
             <ul className="space-y-3">
               {[
                 { href: "/", label: "Home" },
+                { href: "/guest-posts", label: "Guest Posts" },
+                { href: "/link-insertions", label: "Link Insertions" },
+                { href: "/packages", label: "Packages" },
                 { href: "/about", label: "About" },
-                { href: "/services", label: "Services" },
                 { href: "/blog", label: "Blog" },
                 { href: "/contact", label: "Contact" },
               ].map((link) => (
@@ -94,20 +96,20 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
-                "Link Building",
-                "AEO Optimization",
-                "GEO Optimization",
-                "Free Consultation",
+                { label: "Guest Posts", href: "/guest-posts" },
+                { label: "Link Insertions", href: "/link-insertions" },
+                { label: "Full Campaign Packages", href: "/packages" },
+                { label: "Free Consultation", href: "/contact" },
               ].map((item) => (
-                <li key={item}>
-                  <Link href="/services">
+                <li key={item.label}>
+                  <Link href={item.href}>
                     <span
                       className="text-sm cursor-pointer transition-colors"
                       style={{ color: "rgba(255,255,255,0.7)", fontFamily: "DM Sans, sans-serif" }}
                       onMouseEnter={(e) => (e.currentTarget.style.color = "white")}
                       onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.7)")}
                     >
-                      {item}
+                      {item.label}
                     </span>
                   </Link>
                 </li>

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Link2, BrainCircuit, Globe2 } from "lucide-react";
+import { Link2 } from "lucide-react";
 import { Link } from "wouter";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import { StaggerGroup, StaggerItem } from "@/components/shared/StaggerGroup";
@@ -7,25 +7,23 @@ import { StaggerGroup, StaggerItem } from "@/components/shared/StaggerGroup";
 const services = [
   {
     icon: Link2,
-    title: "Premium Link Building",
-    body: "High-authority backlinks from real, traffic-verified websites. White-hat outreach, guest posts, contextual insertions. Permanent — not rental.",
-    tags: ["White-Hat", "Real Sites", "DR 40+"],
-    featured: false,
-  },
-  {
-    icon: BrainCircuit,
-    title: "AEO Optimization",
-    body: "Get selected as the answer. Optimize your content structure and authority so Google AI Overviews and Bing Copilot cite your brand as the definitive source.",
-    tags: ["AI Overviews", "Featured Snippets", "Schema"],
+    title: "Guest Posts",
+    body: "Brand new articles written and published on real, high-DR authority websites in your niche. Permanently live. Content writing included. Your link placed in the main body — not the footer or sidebar.",
+    tags: ["DR 30–60+", "Content Included", "Permanent Placement"],
     featured: true,
-    badge: "NEW ERA",
+    badge: "Most Popular",
+    href: "/guest-posts",
+    linkLabel: "View Guest Post Packages →",
   },
   {
-    icon: Globe2,
-    title: "GEO Optimization",
-    body: "Build recognition inside AI engines. Make ChatGPT, Perplexity, Claude, and Gemini cite your brand when users ask questions in your niche.",
-    tags: ["ChatGPT", "Perplexity", "Gemini", "Claude"],
+    icon: Link2,
+    title: "Link Insertions",
+    body: "Your link added contextually into existing, aged articles on real authority websites. The article already has trust and traffic — your link inherits that authority immediately.",
+    tags: ["Aged Articles", "Fast Turnaround", "Permanent Placement"],
     featured: false,
+    badge: "",
+    href: "/link-insertions",
+    linkLabel: "View Link Insertion Packages →",
   },
 ];
 
@@ -35,7 +33,7 @@ export default function ServicesOverview() {
       <div className="max-w-7xl mx-auto px-6">
         <AnimatedSection className="text-center mb-16">
           <span className="section-label">
-            WHAT WE DO
+            OUR SERVICES
           </span>
           <h2
             style={{
@@ -47,17 +45,17 @@ export default function ServicesOverview() {
               color: "#0F0F0F",
             }}
           >
-            Three Services. One Unified Visibility Strategy.
+            Two Services. One Clear Goal.
           </h2>
           <p
             className="mt-4 max-w-2xl mx-auto text-[17px] leading-relaxed"
             style={{ color: "#3D3D3D", fontFamily: "DM Sans, sans-serif" }}
           >
-            While others focus on a single channel, MaiGrowth makes you visible on all three simultaneously.
+            Most agencies build links for Google only. Every MaiGrowth placement works in Google search AND gets your brand mentioned in AI-generated answers — at no extra cost.
           </p>
         </AnimatedSection>
 
-        <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 max-w-4xl mx-auto gap-6">
           {services.map((service) => {
             const Icon = service.icon;
             return (
@@ -101,14 +99,14 @@ export default function ServicesOverview() {
                     <span key={tag} className="tag-neutral">{tag}</span>
                   ))}
                 </div>
-                <Link href="/services" data-testid={`link-service-${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                <Link href={service.href} data-testid={`link-service-${service.title.toLowerCase().replace(/\s+/g, '-')}`}>
                   <span
                     className="text-sm font-semibold cursor-pointer transition-all"
                     style={{ color: "#FF6B35", fontFamily: "DM Sans, sans-serif" }}
                     onMouseEnter={(e) => (e.currentTarget.style.textDecoration = "underline")}
                     onMouseLeave={(e) => (e.currentTarget.style.textDecoration = "none")}
                   >
-                    Learn More →
+                    {service.linkLabel}
                   </span>
                 </Link>
               </StaggerItem>
@@ -117,19 +115,58 @@ export default function ServicesOverview() {
         </StaggerGroup>
 
         <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.12 }}
+          transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          style={{
+            background: "rgba(255,107,53,0.05)",
+            border: "1px solid rgba(255,107,53,0.2)",
+            borderRadius: "16px",
+            padding: "28px 32px",
+            maxWidth: "680px",
+            margin: "40px auto 0",
+            display: "flex",
+            alignItems: "flex-start",
+            gap: "16px",
+          }}
+        >
+          <span style={{ fontSize: "18px", flexShrink: 0, marginTop: "3px" }}>⚡</span>
+          <div>
+            <p style={{
+              fontFamily: "Syne, sans-serif",
+              fontWeight: 700,
+              fontSize: "14px",
+              color: "#FF6B35",
+              marginBottom: "8px",
+            }}>
+              Why MaiGrowth links show up in ChatGPT and Perplexity
+            </p>
+            <p style={{
+              fontFamily: "DM Sans, sans-serif",
+              fontSize: "13px",
+              lineHeight: "1.75",
+              color: "#3D3D3D",
+            }}>
+              We only place links on websites that AI tools regularly reference as trusted sources. So when someone asks ChatGPT or Perplexity a question in your niche, your brand is more likely to appear in the answer. Every Guest Post and Link Insertion we build works this way. No extra cost. No separate service. Just better links.
+            </p>
+          </div>
+        </motion.div>
+
+        <motion.div
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.12 }}
           transition={{ duration: 0.55, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mt-14"
         >
-          <Link href="/services" data-testid="button-view-all-services">
+          <Link href="/packages" data-testid="button-view-all-services">
             <motion.span
               className="btn-secondary"
               whileHover={{ scale: 1.02, transition: { duration: 0.18 } }}
               whileTap={{ scale: 0.97 }}
             >
-              View All Services →
+              See Full Campaign Packages →
             </motion.span>
           </Link>
         </motion.div>
