@@ -17,7 +17,8 @@ A production-ready marketing website for MaiGrowth — a global link building an
 
 - `/` — Home page (Hero, Problem, Services Overview, Why MaiGrowth, Features, Comparison Table, How It Works, Trust, Testimonials, FAQ, CTA)
 - `/about` — About page (Story, Stats, Values, Mission)
-- `/services` — Services page (Link Building, AEO, GEO, Pricing, FAQ)
+- `/guest-posts` — Guest Posts service page (DR tiers, packages, FAQ, testimonials)
+- `/link-insertions` — Link Insertions service page (15 sections: Hero, Trust Badges, Benefits, Results Chart, Offerings, Bulk Savings, Comparison Table, Packages, Process, Quality, Guarantees, Testimonials, Final CTA, FAQ)
 - `/blog` — Blog listing (6 educational articles)
 - `/blog/:slug` — Individual blog post with sidebar TOC and related posts
 - `/contact` — Contact form with success state

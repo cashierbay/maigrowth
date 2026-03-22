@@ -11,6 +11,7 @@ import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
 import Contact from "@/pages/Contact";
 import GuestPosts from "@/pages/GuestPosts";
+import LinkInsertions from "@/pages/LinkInsertions";
 import AdminSubmissions from "@/pages/AdminSubmissions";
 import NotFound from "@/pages/not-found";
 
@@ -20,6 +21,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/about" component={About} />
       <Route path="/guest-posts" component={GuestPosts} />
+      <Route path="/link-insertions" component={LinkInsertions} />
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/contact" component={Contact} />
