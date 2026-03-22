@@ -99,6 +99,8 @@ export default {
           borderDark: "#C8C5BF",
           success: "#1A7F5A",
           navy: "#12153D",
+          green: "#00C47A",
+          blue: "#3B7FFF",
         },
       },
       fontFamily: {

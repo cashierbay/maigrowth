@@ -1,5 +1,6 @@
 import Hero from "@/components/home/Hero";
 import ProblemSection from "@/components/home/ProblemSection";
+import ResultsSection from "@/components/home/ResultsSection";
 import ServicesOverview from "@/components/home/ServicesOverview";
 import WhyMaiGrowth from "@/components/home/WhyMaiGrowth";
 import FeaturesSection from "@/components/home/FeaturesSection";
@@ -16,6 +17,7 @@ export default function Home() {
       <title>MaiGrowth — Guest Posts & Link Insertions | Found in Google & AI</title>
       <Hero />
       <ProblemSection />
+      <ResultsSection />
       <ServicesOverview />
       <WhyMaiGrowth />
       <FeaturesSection />
