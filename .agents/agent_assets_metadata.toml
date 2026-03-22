@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "bF-k7f5Gh92hp2_6Je4r9"
+uri = "file://DESIGN.md"
+type = "text"
+title = "MaiGrowth Design System"
