@@ -5,9 +5,9 @@ import { StaggerGroup, StaggerItem } from "@/components/shared/StaggerGroup";
 import CountUp from "./CountUp";
 
 const stats = [
-  { number: 700, suffix: "M+", label: "Weekly AI Search Users" },
-  { number: 357, suffix: "%", label: "AI Referral Traffic Growth in 2024" },
-  { number: 20, suffix: "%+", label: "Google Searches Show AI Overviews" },
+  { number: 700, suffix: "M+", label: "ChatGPT & AI users every week", color: "#FF6B35" },
+  { number: 357, suffix: "%", label: "Growth in AI referral traffic", color: "#12153D" },
+  { number: 20, suffix: "%+", label: "Of Google searches show AI answers", color: "#00C47A" },
 ];
 
 export default function ProblemSection() {
@@ -29,15 +29,15 @@ export default function ProblemSection() {
               color: "#0F0F0F",
             }}
           >
-            The Search Landscape Has Changed.
+            Is Your Brand Showing Up in AI Answers —
             <br />
-            Has Your Strategy?
+            or Is Your Competitor?
           </h2>
           <p
             className="mt-4 max-w-2xl mx-auto text-[17px] leading-relaxed"
             style={{ color: "#3D3D3D", fontFamily: "DM Sans, sans-serif" }}
           >
-            Over 700 million people now get answers directly from AI tools every week. Is your brand showing up in those answers — or invisible?
+            1 in 3 searches now involves an AI tool. Your potential customers are getting answers from ChatGPT, Perplexity, and Google AI Overviews — and if your brand is not cited there, your competitor's is.
           </p>
         </AnimatedSection>
 
@@ -114,7 +114,7 @@ export default function ProblemSection() {
                 style={{
                   fontFamily: "Syne, sans-serif",
                   fontSize: "clamp(32px, 5vw, 52px)",
-                  color: "#FF6B35",
+                  color: stat.color,
                 }}
               >
                 <CountUp target={stat.number} suffix={stat.suffix} />
@@ -128,6 +128,22 @@ export default function ProblemSection() {
             </motion.div>
           ))}
         </div>
+        <p
+          style={{
+            textAlign: 'center',
+            fontFamily: 'DM Sans, sans-serif',
+            fontStyle: 'italic',
+            fontSize: '14px',
+            color: '#767676',
+            marginTop: '24px',
+            maxWidth: '560px',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            lineHeight: '1.7',
+          }}
+        >
+          The brands that show up in AI answers today will be the ones dominating their niche in 3 years.
+        </p>
       </div>
     </section>
   );
