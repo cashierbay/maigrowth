@@ -14,6 +14,9 @@ import GuestPosts from "@/pages/GuestPosts";
 import LinkInsertions from "@/pages/LinkInsertions";
 import Packages from "@/pages/Packages";
 import AdminSubmissions from "@/pages/AdminSubmissions";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import TermsAndConditions from "@/pages/TermsAndConditions";
+import RefundPolicy from "@/pages/RefundPolicy";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -27,6 +30,9 @@ function Router() {
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/contact" component={Contact} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/terms-and-conditions" component={TermsAndConditions} />
+      <Route path="/refund-policy" component={RefundPolicy} />
       <Route path="/admin" component={AdminSubmissions} />
       <Route component={NotFound} />
     </Switch>
