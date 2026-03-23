@@ -54,9 +54,7 @@ export default function ServicesOverview() {
               letterSpacing: "-0.01em",
               color: "#0F0F0F",
             }}
-          >
-            Two Services. One Clear Goal.
-          </h2>
+          >SEO Link Building & Authority Growth That Drives Rankings and AI Visibility</h2>
           <p
             className="mt-4 max-w-2xl mx-auto text-[17px] leading-relaxed"
             style={{ color: "#3D3D3D", fontFamily: "DM Sans, sans-serif" }}
