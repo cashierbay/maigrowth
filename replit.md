@@ -21,6 +21,7 @@ A production-ready marketing website for MaiGrowth — a global link building an
 - `/link-insertions` — Link Insertions service page (15 sections: Hero, Trust Badges, Benefits, Results Chart, Offerings, Bulk Savings, Comparison Table, Packages, Process, Quality, Guarantees, Testimonials, Final CTA, FAQ)
 - `/blog` — Blog listing (6 educational articles)
 - `/blog/:slug` — Individual blog post with sidebar TOC and related posts
+- `/packages` — Campaign Packages page (11 sections: AnimatedHero, StatsCounter, ProblemSolution, PackageCards ×5, ValueBreakdown, ProcessSteps, CaseStudies ×3, ComparisonTable, Testimonials, FAQ, FinalCTA "Two Paths")
 - `/contact` — Contact form with success state
 
 ## Brand Design System
