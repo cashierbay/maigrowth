@@ -21,84 +21,87 @@ export default function PrivacyPolicy() {
               <section>
                 <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>1. Introduction</h2>
                 <p>
-                  MaiGrowth ("we," "us," "our," or "Company") operates the maigrowth.com website and related services. We are committed to protecting your privacy and ensuring you have a positive experience on our site.
+                  MaiGrowth ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website at maigrowth.com or use our services. Please read this policy carefully. If you disagree with its terms, please discontinue use of our site.
                 </p>
               </section>
 
               <section>
                 <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>2. Information We Collect</h2>
-                <p className="mb-3">We collect information you provide directly to us, including:</p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Contact information (name, email, phone, company)</li>
-                  <li>Website and business information</li>
-                  <li>Campaign preferences and goals</li>
-                  <li>Payment information (processed securely via third-party providers)</li>
-                </ul>
+                <p>
+                  We collect information you provide directly to us when you fill out our contact form, subscribe to our newsletter, use our services, or communicate with us via email. This may include your name, email address, company name, website URL, and any other information you choose to provide. We may also automatically collect certain information when you visit our website, including your IP address, browser type, operating system, referring URLs, and pages viewed.
+                </p>
               </section>
 
               <section>
                 <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>3. How We Use Your Information</h2>
-                <p className="mb-3">We use the information we collect to:</p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Provide, maintain, and improve our services</li>
-                  <li>Process transactions and send related information</li>
-                  <li>Communicate about your account and campaigns</li>
-                  <li>Send marketing communications (with your consent)</li>
-                  <li>Comply with legal obligations</li>
-                </ul>
+                <p>
+                  We use the information we collect to provide, maintain, and improve our services, respond to your inquiries and provide customer support, send you marketing communications with your consent, analyze usage patterns and improve our website, and comply with applicable legal obligations. We will never use your information in ways that are inconsistent with this Privacy Policy.
+                </p>
               </section>
 
               <section>
                 <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>4. Information Sharing</h2>
                 <p>
-                  We do not sell or rent your personal information to third parties. We may share information with service providers who assist us in operating our website and conducting our business, subject to confidentiality agreements.
+                  We do not sell, trade, or rent your personal information to third parties. We may share your information only in the following circumstances: with service providers who assist in our operations such as hosting, analytics, and email services; when required by law or to protect our legal rights; or with your explicit consent. Any third-party service providers we work with are obligated to keep your information confidential and secure.
                 </p>
               </section>
 
               <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>5. Data Security</h2>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>5. Third-Party Links</h2>
                 <p>
-                  We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the internet is entirely secure.
+                  Our website may contain links to third-party websites. We are not responsible for the privacy practices or content of those sites. We encourage you to review the privacy policies of any third-party sites you visit.
                 </p>
               </section>
 
               <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>6. Your Rights</h2>
-                <p className="mb-3">Depending on your location, you may have the right to:</p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Access your personal information</li>
-                  <li>Correct inaccurate data</li>
-                  <li>Request deletion of your information</li>
-                  <li>Opt-out of marketing communications</li>
-                </ul>
-              </section>
-
-              <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>7. Cookies</h2>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>6. Cookies and Tracking</h2>
                 <p>
-                  Our website uses cookies to enhance your experience. You can control cookie settings through your browser. For more details, see our cookie policy.
+                  We use cookies and similar tracking technologies to analyze website traffic and improve user experience. Cookies are small data files stored on your device. You can control or disable cookies through your browser settings, though doing so may affect certain features of our website.
                 </p>
               </section>
 
               <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>8. Third-Party Links</h2>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>7. Data Retention</h2>
                 <p>
-                  Our website may contain links to external sites. We are not responsible for the privacy practices of these third-party websites. Please review their privacy policies before providing personal information.
+                  We retain your personal information only for as long as necessary to fulfill the purposes outlined in this policy, comply with legal obligations, resolve disputes, and enforce our agreements. When your information is no longer needed, we will securely delete or anonymize it.
                 </p>
               </section>
 
               <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>9. Changes to This Policy</h2>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>8. Data Security</h2>
                 <p>
-                  We may update this privacy policy from time to time. We will notify you of significant changes by posting the updated policy on our website with an updated "Last Updated" date.
+                  We implement reasonable and appropriate technical and organizational security measures to protect your information from unauthorized access, disclosure, alteration, or destruction. However, no method of transmission over the Internet or electronic storage is 100% secure, and we cannot guarantee absolute security.
                 </p>
               </section>
 
               <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>10. Contact Us</h2>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>9. Children's Privacy</h2>
                 <p>
-                  If you have questions about this privacy policy or our privacy practices, please contact us at privacy@maigrowth.com.
+                  Our services are not directed at children under the age of 13. We do not knowingly collect personal information from children. If you believe we have inadvertently collected information from a child, please contact us immediately and we will take steps to delete it.
                 </p>
+              </section>
+
+              <section>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>10. Your Rights</h2>
+                <p>
+                  Depending on your location, you may have certain rights regarding your personal information, including the right to access the personal information we hold about you, request correction of inaccurate information, request deletion of your information, opt-out of marketing communications, and data portability. If you are located in the European Union, you have additional rights under the General Data Protection Regulation (GDPR). California residents may have additional rights under the California Consumer Privacy Act (CCPA). To exercise any of these rights, please contact us using the details below.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>11. Changes to This Policy</h2>
+                <p>
+                  We reserve the right to update this Privacy Policy at any time. We will notify you of significant changes by posting the new policy on this page with an updated revision date. We encourage you to review this policy periodically. Your continued use of our services after changes are posted constitutes your acceptance of the updated policy.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>12. Contact Us</h2>
+                <p>
+                  If you have questions or concerns about this Privacy Policy, please contact us at:
+                </p>
+                <p className="mt-2">Email: <span style={{ fontWeight: 600 }}>contact@maigrowth.com</span></p>
+                <p>Website: <span style={{ fontWeight: 600 }}>https://maigrowth.com</span></p>
               </section>
             </div>
           </motion.div>
