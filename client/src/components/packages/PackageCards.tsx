@@ -16,12 +16,12 @@ const PACKAGES = [
     perLink: "$130/link",
     savePct: "Save 13%",
     features: [
-      "→ 5× Guest Posts (DR 30+)",
-      "→ 5× Link Insertions (DR 30+)",
-      "→ AI & LLM optimization",
-      "→ Dedicated account manager",
-      "→ Full placement reports",
-      "→ 12-month link guarantee",
+      "5× Guest Posts (DR 30+)",
+      "5× Link Insertions (DR 30+)",
+      "AI & LLM optimization",
+      "Dedicated account manager",
+      "Full placement reports",
+      "12-month link guarantee",
     ],
     featured: false,
   },
@@ -36,13 +36,13 @@ const PACKAGES = [
     perLink: "$135/link",
     savePct: "Save 16%",
     features: [
-      "→ 10× Guest Posts (DR 30-40+)",
-      "→ 10× Link Insertions (DR 30-40+)",
-      "→ AI & LLM optimization",
-      "→ Content strategy session",
-      "→ Dedicated account manager",
-      "→ Weekly progress updates",
-      "→ 12-month link guarantee",
+      "10× Guest Posts (DR 30-40+)",
+      "10× Link Insertions (DR 30-40+)",
+      "AI & LLM optimization",
+      "Content strategy session",
+      "Dedicated account manager",
+      "Weekly progress updates",
+      "12-month link guarantee",
     ],
     featured: false,
   },
@@ -57,14 +57,14 @@ const PACKAGES = [
     perLink: "$134/link",
     savePct: "Save 19%",
     features: [
-      "→ 22× Guest Posts (DR 40-50+)",
-      "→ 18× Link Insertions (DR 40-50+)",
-      "→ AI & LLM optimization",
-      "→ Full content strategy",
-      "→ Dedicated senior manager",
-      "→ Bi-weekly strategy calls",
-      "→ Competitor gap analysis",
-      "→ 12-month link guarantee",
+      "22× Guest Posts (DR 40-50+)",
+      "18× Link Insertions (DR 40-50+)",
+      "AI & LLM optimization",
+      "Full content strategy",
+      "Dedicated senior manager",
+      "Bi-weekly strategy calls",
+      "Competitor gap analysis",
+      "12-month link guarantee",
     ],
     featured: true,
   },
@@ -79,14 +79,14 @@ const PACKAGES = [
     perLink: "$150/link",
     savePct: "Save 22%",
     features: [
-      "→ 35× Guest Posts (DR 40-60+)",
-      "→ 25× Link Insertions (DR 40-60+)",
-      "→ AI & LLM optimization",
-      "→ Full content + creation",
-      "→ Dedicated senior manager",
-      "→ Weekly strategy calls",
-      "→ Monthly performance audit",
-      "→ 12-month link guarantee",
+      "35× Guest Posts (DR 40-60+)",
+      "25× Link Insertions (DR 40-60+)",
+      "AI & LLM optimization",
+      "Full content + creation",
+      "Dedicated senior manager",
+      "Weekly strategy calls",
+      "Monthly performance audit",
+      "12-month link guarantee",
     ],
     featured: false,
   },
@@ -101,28 +101,18 @@ const PACKAGES = [
     perLink: "$150/link",
     savePct: "Save 25%",
     features: [
-      "→ 60× Guest Posts (DR 50-60+)",
-      "→ 40× Link Insertions (DR 50-60+)",
-      "→ AI & LLM optimization + audit",
-      "→ Full content + PR strategy",
-      "→ Dedicated team (3 specialists)",
-      "→ Weekly strategy sessions",
-      "→ Monthly CEO briefing",
-      "→ 12-month link guarantee",
+      "60× Guest Posts (DR 50-60+)",
+      "40× Link Insertions (DR 50-60+)",
+      "AI & LLM optimization + audit",
+      "Full content + PR strategy",
+      "Dedicated team (3 specialists)",
+      "Weekly strategy sessions",
+      "Monthly CEO briefing",
+      "12-month link guarantee",
     ],
     featured: false,
   },
 ];
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: { transition: { staggerChildren: 0.1 } },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } },
-};
 
 export default function PackageCards() {
   return (
@@ -153,38 +143,37 @@ export default function PackageCards() {
           </p>
         </motion.div>
 
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.05 }}
-        >
-          {PACKAGES.map(({ emoji, name, tagline, desc, price, was, saved, perLink, savePct, features, featured }) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+          {PACKAGES.map(({ emoji, name, tagline, desc, price, was, saved, perLink, savePct, features, featured }, i) =>
             featured ? (
+              /* Featured card — glow pulse on wrapper, separate from reveal animation */
               <motion.div
                 key={name}
-                variants={itemVariants}
-                className="relative flex flex-col rounded-2xl"
-                style={{
-                  gridColumn: "span 1",
-                  border: "2px solid #FF6B35",
-                  zIndex: 2,
-                }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: EASE }}
                 whileHover={{ y: -12, transition: { duration: 0.3 } }}
-                animate={{
-                  boxShadow: [
-                    "0 24px 72px rgba(255,107,53,0.2)",
-                    "0 24px 72px rgba(255,107,53,0.42)",
-                    "0 24px 72px rgba(255,107,53,0.2)",
-                  ],
-                }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="relative flex flex-col rounded-2xl"
+                style={{ border: "2px solid #FF6B35", zIndex: 2 }}
                 data-testid={`card-package-${name.toLowerCase().replace(/\s+/g, "-")}`}
               >
+                {/* Glow pulse sits inside, on a child — doesn't affect parent opacity/y */}
+                <motion.div
+                  className="absolute inset-0 rounded-2xl pointer-events-none"
+                  animate={{
+                    boxShadow: [
+                      "0 24px 72px rgba(255,107,53,0.2)",
+                      "0 24px 72px rgba(255,107,53,0.42)",
+                      "0 24px 72px rgba(255,107,53,0.2)",
+                    ],
+                  }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                />
+
                 {/* Agency Favourite badge */}
                 <motion.div
-                  className="absolute -top-3.5 left-1/2 -translate-x-1/2 text-white text-xs font-bold px-5 py-1.5 rounded-full whitespace-nowrap"
+                  className="absolute -top-3.5 left-1/2 -translate-x-1/2 text-white text-xs font-bold px-5 py-1.5 rounded-full whitespace-nowrap z-10"
                   style={{ background: "linear-gradient(90deg, #FF6B35, #E85A25)" }}
                   animate={{
                     boxShadow: [
@@ -198,47 +187,34 @@ export default function PackageCards() {
                   🔥 AGENCY FAVORITE
                 </motion.div>
 
-                <div className="p-7 flex flex-col flex-1" style={{ backgroundColor: "#FFFFFF", borderRadius: "14px" }}>
+                <div className="p-7 flex flex-col flex-1 rounded-2xl" style={{ backgroundColor: "#FFFFFF" }}>
                   <div className="text-3xl mb-3">{emoji}</div>
                   <h3 className="font-syne font-bold text-xl mb-0.5" style={{ color: "#0F0F0F" }}>{name}</h3>
                   <p className="text-xs font-semibold mb-3" style={{ color: "#FF6B35", fontFamily: "DM Sans, sans-serif" }}>{tagline}</p>
                   <p className="text-xs mb-5 leading-relaxed" style={{ color: "#767676", fontFamily: "DM Sans, sans-serif" }}>{desc}</p>
 
-                  {/* AI badge shimmer */}
-                  <motion.div
-                    className="relative overflow-hidden self-start text-white text-xs font-bold px-4 py-1.5 rounded-full mb-5"
-                    style={{ background: "linear-gradient(90deg, #FF6B35, #E85A25)" }}
-                    animate={{
-                      boxShadow: [
-                        "0 0 12px rgba(255,107,53,0.4)",
-                        "0 0 24px rgba(255,107,53,0.8)",
-                        "0 0 12px rgba(255,107,53,0.4)",
-                      ],
-                    }}
-                    transition={{ duration: 3, repeat: Infinity }}
-                  >
+                  {/* AI badge with shimmer */}
+                  <div className="relative overflow-hidden self-start text-white text-xs font-bold px-4 py-1.5 rounded-full mb-5" style={{ background: "linear-gradient(90deg, #FF6B35, #E85A25)" }}>
                     <motion.div
                       className="absolute inset-0"
                       style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)" }}
                       animate={{ x: ["-200%", "200%"] }}
                       transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                     />
-                    🤖 AI & LLM Ready
-                  </motion.div>
+                    🤖 AI &amp; LLM Ready
+                  </div>
 
                   <div className="mb-4">
                     <div className="flex items-baseline gap-2">
                       <span className="font-syne font-extrabold text-2xl" style={{ color: "#0F0F0F" }}>{price}</span>
                       <span className="text-xs line-through" style={{ color: "#A8A8A8" }}>{was}</span>
                     </div>
-                    <div className="flex items-center gap-2 mt-1">
+                    <div className="flex items-center gap-2 mt-1 flex-wrap">
                       <span className="text-xs" style={{ color: "#767676" }}>{perLink}</span>
                       <span className="text-xs font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: "#FFF0EB", color: "#FF6B35" }}>
                         {savePct}
                       </span>
-                      <span className="text-xs font-bold" style={{ color: "#00C47A" }}>
-                        Save {saved}
-                      </span>
+                      <span className="text-xs font-bold" style={{ color: "#00C47A" }}>Save {saved}</span>
                     </div>
                   </div>
 
@@ -246,7 +222,7 @@ export default function PackageCards() {
                     {features.map((f) => (
                       <div key={f} className="flex items-start gap-2">
                         <CheckCircle2 size={13} className="flex-shrink-0 mt-0.5" style={{ color: "#00C47A" }} />
-                        <span className="text-xs" style={{ color: "#3D3D3D", fontFamily: "DM Sans, sans-serif" }}>{f.replace("→ ", "")}</span>
+                        <span className="text-xs" style={{ color: "#3D3D3D", fontFamily: "DM Sans, sans-serif" }}>{f}</span>
                       </div>
                     ))}
                   </div>
@@ -265,12 +241,16 @@ export default function PackageCards() {
                 </div>
               </motion.div>
             ) : (
+              /* Non-featured cards — simple reveal */
               <motion.div
                 key={name}
-                variants={itemVariants}
-                className="relative flex flex-col rounded-2xl"
-                style={{ border: "1px solid #E2E0DC", backgroundColor: "#F7F6F4" }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1, ease: EASE }}
                 whileHover={{ y: -12, transition: { duration: 0.3 } }}
+                className="relative flex flex-col rounded-2xl"
+                style={{ border: "1px solid #E2E0DC", backgroundColor: "#FFFFFF" }}
                 data-testid={`card-package-${name.toLowerCase().replace(/\s+/g, "-")}`}
               >
                 <div className="p-7 flex flex-col flex-1">
@@ -284,7 +264,7 @@ export default function PackageCards() {
                       <span className="font-syne font-extrabold text-2xl" style={{ color: "#0F0F0F" }}>{price}</span>
                       <span className="text-xs line-through" style={{ color: "#A8A8A8" }}>{was}</span>
                     </div>
-                    <div className="flex items-center gap-2 mt-1">
+                    <div className="flex items-center gap-2 mt-1 flex-wrap">
                       <span className="text-xs" style={{ color: "#767676" }}>{perLink}</span>
                       <span className="text-xs font-bold px-2 py-0.5 rounded-full" style={{ backgroundColor: "#FFF0EB", color: "#FF6B35" }}>
                         {savePct}
@@ -296,7 +276,7 @@ export default function PackageCards() {
                     {features.map((f) => (
                       <div key={f} className="flex items-start gap-2">
                         <CheckCircle2 size={13} className="flex-shrink-0 mt-0.5" style={{ color: "#00C47A" }} />
-                        <span className="text-xs" style={{ color: "#3D3D3D", fontFamily: "DM Sans, sans-serif" }}>{f.replace("→ ", "")}</span>
+                        <span className="text-xs" style={{ color: "#3D3D3D", fontFamily: "DM Sans, sans-serif" }}>{f}</span>
                       </div>
                     ))}
                   </div>
@@ -315,8 +295,8 @@ export default function PackageCards() {
                 </div>
               </motion.div>
             )
-          ))}
-        </motion.div>
+          )}
+        </div>
 
         {/* Not sure box */}
         <motion.div

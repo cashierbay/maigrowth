@@ -13,16 +13,6 @@ const ROWS = [
   { feature: "Campaign Strategy Included", diy: "✗", agency: "Extra cost", mai: "✓" },
 ];
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: { transition: { staggerChildren: 0.07 } },
-};
-
-const rowVariant = {
-  hidden: { opacity: 0, x: -16 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.4, ease: EASE } },
-};
-
 function Cell({ val }: { val: string }) {
   if (val === "✓") return <span style={{ color: "#00C47A", fontSize: 18 }}>✓</span>;
   if (val === "✗") return <span style={{ color: "#EF4444", fontSize: 18 }}>✗</span>;
@@ -82,16 +72,14 @@ export default function ComparisonTable() {
                 </th>
               </tr>
             </thead>
-            <motion.tbody
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
+            <tbody>
               {ROWS.map((row, i) => (
                 <motion.tr
                   key={row.feature}
-                  variants={rowVariant}
+                  initial={{ opacity: 0, x: -16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.06, ease: EASE }}
                   style={{
                     backgroundColor: i % 2 === 0 ? "#FFFFFF" : "#F7F6F4",
                     borderTop: "1px solid #E2E0DC",
@@ -105,7 +93,7 @@ export default function ComparisonTable() {
                   <td className="py-4 px-6 text-center"><Cell val={row.mai} /></td>
                 </motion.tr>
               ))}
-            </motion.tbody>
+            </tbody>
           </table>
         </motion.div>
       </div>

@@ -2,16 +2,6 @@ import { motion } from "framer-motion";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: { transition: { staggerChildren: 0.12 } },
-};
-
-const staggerItem = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE } },
-};
-
 const COMPONENTS = [
   {
     emoji: "📝",
@@ -65,17 +55,14 @@ export default function ValueBreakdown() {
           </p>
         </motion.div>
 
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-        >
-          {COMPONENTS.map(({ emoji, title, desc, includes, value }) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {COMPONENTS.map(({ emoji, title, desc, includes, value }, i) => (
             <motion.div
               key={title}
-              variants={staggerItem}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.12, ease: EASE }}
               className="rounded-2xl p-7"
               style={{
                 backgroundColor: "rgba(255,255,255,0.05)",
@@ -106,7 +93,7 @@ export default function ValueBreakdown() {
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
