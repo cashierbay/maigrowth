@@ -60,9 +60,8 @@ export default function ServicesOverview() {
           <p
             className="mt-4 max-w-2xl mx-auto text-[17px] leading-relaxed"
             style={{ color: "#3D3D3D", fontFamily: "DM Sans, sans-serif" }}
-          >
-            Most agencies build links for Google only. Every MaiGrowth placement works in Google search AND gets your brand mentioned in AI-generated answers — at no extra cost.
-          </p>
+          >Most agencies build links. We build search dominance.
+          Every placement positions your brand across Google, high-authority sites, and AI-generated answers — without wasted spend.</p>
         </AnimatedSection>
 
         <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-6">
