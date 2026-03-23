@@ -11,7 +11,7 @@ export default function TermsAndConditions() {
             transition={{ duration: 0.5 }}
           >
             <h1 className="font-syne font-extrabold text-4xl mb-4" style={{ color: "#0F0F0F" }}>
-              Terms and Conditions
+              Terms of Service
             </h1>
             <p className="text-sm mb-12" style={{ color: "#767676", fontFamily: "DM Sans, sans-serif" }}>
               Last updated: March 23, 2026
@@ -21,76 +21,115 @@ export default function TermsAndConditions() {
               <section>
                 <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>1. Acceptance of Terms</h2>
                 <p>
-                  By accessing and using the MaiGrowth website and services, you accept and agree to be bound by these terms and conditions. If you do not agree to abide by the above, please do not use this service.
+                  By accessing and using MaiGrowth's services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service and our Privacy Policy. If you do not agree to these terms, please do not use our services. These terms apply to all visitors, users, and clients of MaiGrowth.
                 </p>
               </section>
 
               <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>2. Use License</h2>
-                <p className="mb-3">Permission is granted to temporarily download one copy of the materials (information or software) on MaiGrowth for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:</p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Modify or copy the materials</li>
-                  <li>Use the materials for any commercial purpose or for any public display</li>
-                  <li>Attempt to reverse engineer, disassemble, or decompile any software</li>
-                  <li>Remove any copyright or other proprietary notations</li>
-                  <li>Transmit the materials to anyone or any other location</li>
-                </ul>
-              </section>
-
-              <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>3. Disclaimer</h2>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>2. Services Description</h2>
                 <p>
-                  The materials on MaiGrowth are provided on an 'as is' basis. MaiGrowth makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
+                  MaiGrowth provides professional link building services including guest post placements, link insertion services, AI and LLM optimization for search visibility, and campaign packages combining multiple link types. The specific details of services rendered will be outlined in your order confirmation or service agreement.
                 </p>
               </section>
 
               <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>4. Limitations</h2>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>3. Client Obligations</h2>
                 <p>
-                  In no event shall MaiGrowth or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on MaiGrowth, even if MaiGrowth or an authorized representative has been notified orally or in writing of the possibility of such damage.
+                  As a client, you agree to provide accurate and complete information about your website and business, ensure your website complies with all applicable laws and regulations, not use our services for any illegal, harmful, or unethical purposes, and pay all fees as agreed upon. You are solely responsible for the content on your website and any consequences arising from the use of our services.
                 </p>
               </section>
 
               <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>5. Accuracy of Materials</h2>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>4. Prohibited Uses</h2>
                 <p>
-                  The materials appearing on MaiGrowth could include technical, typographical, or photographic errors. MaiGrowth does not warrant that any of the materials on MaiGrowth are accurate, complete, or current. MaiGrowth may make changes to the materials contained on its website at any time without notice.
+                  You may not use our services for websites that contain illegal content or activities, adult or explicit content, gambling or casino content unless properly licensed, hate speech, discrimination, or harassment, or malware, viruses, or any harmful code. MaiGrowth reserves the right to refuse or terminate services for any website that violates these prohibitions without refund.
                 </p>
               </section>
 
               <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>6. Links</h2>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>5. Service Delivery</h2>
                 <p>
-                  MaiGrowth has not reviewed all of the sites linked to its website and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by MaiGrowth of the site. Use of any such linked website is at the user's own risk.
+                  Links are typically delivered within 3 to 4 weeks from order confirmation. Timelines may vary based on package complexity and site availability. For premium packages, you may review and approve placement sites before publication. Upon completion, we provide detailed reports including live URLs, anchor texts, Domain Rating (DR) metrics, and traffic data.
                 </p>
               </section>
 
               <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>7. Modifications</h2>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>6. Link Guarantee</h2>
                 <p>
-                  MaiGrowth may revise these terms of service for its website at any time without notice. By using this website, you are agreeing to be bound by the then current version of these terms of service.
+                  All links are guaranteed for 12 months from the date of placement. If a link is removed during this period, we will replace it at no additional cost with a link of equal or greater value, or provide a pro-rated refund at your discretion. This guarantee covers link removal only and does not cover changes in DR or traffic metrics over time.
                 </p>
               </section>
 
               <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>8. Governing Law</h2>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>7. No Ranking Guarantees</h2>
                 <p>
-                  These terms and conditions are governed by and construed in accordance with the laws of the jurisdiction in which MaiGrowth operates, and you irrevocably submit to the exclusive jurisdiction of the courts in that location.
+                  While we employ best practices and high-quality placements, we cannot guarantee specific search engine ranking results. The client acknowledges that SEO outcomes depend on numerous external factors including but not limited to search engine algorithm changes, website authority, content quality, and competitive landscape. MaiGrowth is responsible only for the quality and delivery of link placements as agreed.
                 </p>
               </section>
 
               <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>9. Campaign Results Disclaimer</h2>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>8. Payment Terms</h2>
                 <p>
-                  MaiGrowth provides link building and content placement services but cannot guarantee specific ranking positions or traffic outcomes. Results depend on many factors including content quality, competition, and search algorithm updates.
+                  Payment is required upfront before work begins unless otherwise agreed in writing. Any payment disputes must be raised within 30 days of service delivery. For detailed refund terms, please refer to our Refund Policy. We reserve the right to suspend services for any outstanding or disputed payments.
                 </p>
               </section>
 
               <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>10. Contact Information</h2>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>9. Intellectual Property</h2>
                 <p>
-                  If you have any questions about these terms and conditions, please contact us at legal@maigrowth.com.
+                  All reports, strategies, and deliverables provided by MaiGrowth to the client are for the client's use only and may not be resold or redistributed without prior written consent. MaiGrowth retains all rights to its proprietary methodologies, tools, and processes.
                 </p>
+              </section>
+
+              <section>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>10. Termination</h2>
+                <p>
+                  Either party may terminate the service agreement with written notice. MaiGrowth reserves the right to terminate services immediately if a client violates these Terms of Service. In the event of termination, refunds will be handled in accordance with our Refund Policy.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>11. Limitation of Liability</h2>
+                <p>
+                  MaiGrowth shall not be liable for any indirect, incidental, special, or consequential damages resulting from the use or inability to use our services, including but not limited to loss of revenue, rankings, or business opportunities. Our total liability shall not exceed the amount paid for the specific service in question.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>12. Dispute Resolution</h2>
+                <p>
+                  In the event of a dispute, both parties agree to first attempt resolution through good faith negotiation. If a resolution cannot be reached, the dispute shall be submitted to mediation before any legal proceedings are initiated.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>13. Governing Law</h2>
+                <p>
+                  These Terms of Service shall be governed by and construed in accordance with applicable laws. Any legal disputes shall be subject to the exclusive jurisdiction of the courts in the jurisdiction where MaiGrowth operates.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>14. Severability</h2>
+                <p>
+                  If any provision of these Terms of Service is found to be invalid or unenforceable, the remaining provisions shall continue in full force and effect.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>15. Changes to Terms</h2>
+                <p>
+                  We reserve the right to modify these terms at any time. Changes will be posted on this page with an updated revision date. Continued use of our services after changes are posted constitutes your acceptance of the new terms.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>16. Contact</h2>
+                <p>
+                  For questions about these Terms of Service, contact us at:
+                </p>
+                <p className="mt-2">Email: <span style={{ fontWeight: 600 }}>contact@maigrowth.com</span></p>
+                <p>Website: <span style={{ fontWeight: 600 }}>https://maigrowth.com</span></p>
               </section>
             </div>
           </motion.div>

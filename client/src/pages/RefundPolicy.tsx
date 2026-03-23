@@ -19,80 +19,69 @@ export default function RefundPolicy() {
 
             <div className="space-y-8" style={{ fontFamily: "DM Sans, sans-serif", lineHeight: 1.8, color: "#3D3D3D" }}>
               <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>1. Campaign Start Date Refunds</h2>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>Our Commitment</h2>
                 <p>
-                  Customers may request a full refund within 14 days of campaign payment if the campaign has not yet commenced. Once campaign work has begun (content research, outreach, or placement), refunds are not available, as resources have been allocated and work is underway.
+                  At MaiGrowth, we stand firmly behind the quality of our work and are committed to delivering measurable value to every client. This Refund Policy outlines the circumstances under which refunds are available and the process for requesting them. We encourage you to read this policy carefully before placing an order.
                 </p>
               </section>
 
               <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>2. Link Guarantee Refunds</h2>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>Full Refund Eligibility</h2>
                 <p>
-                  All MaiGrowth packages include a 12-month link guarantee. If a placed link becomes inactive due to site deletion or removal, we will replace it with an equivalent placement at no additional cost within 30 days of verification.
+                  You are eligible for a full refund under the following circumstances: if we fail to deliver the agreed links within 60 days of order confirmation; if placed links are not indexed by Google within 90 days of delivery; or if the links delivered are significantly below the agreed-upon quality standards, such as a Domain Rating that is 20 or more points lower than promised. Refund eligibility will be assessed on a case-by-case basis with supporting evidence required.
                 </p>
               </section>
 
               <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>3. Non-Delivery Refunds</h2>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>Partial Refund Eligibility</h2>
                 <p>
-                  If MaiGrowth fails to deliver the promised number of placements within the agreed timeline due to our error or negligence, customers are entitled to a pro-rata refund based on the percentage of undelivered work. Delays caused by client feedback or revisions are not eligible for refund.
+                  You may be eligible for a partial refund if only some of the agreed links were delivered, in which case a refund will be issued for the undelivered portion. Additionally, if links are removed within the first 3 months of placement, you may choose between a replacement link of equal or greater value or a partial refund for the affected links.
                 </p>
               </section>
 
               <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>4. Monthly Campaign Refunds</h2>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>No Refund Situations</h2>
                 <p>
-                  For monthly or ongoing campaigns, customers may cancel at any time with 7 days' written notice. No refunds will be issued for partial months or prepaid months. Future months' fees will be waived upon cancellation.
+                  Refunds are not available in the following cases: when links were delivered as promised and are live and indexed; when there is no ranking improvement, as we guarantee quality placements and not search engine rankings; when the client changes their mind after links have been published; when the client's website was penalized for reasons unrelated to our link building work; or when more than 30 days have passed since the date of link delivery.
                 </p>
               </section>
 
               <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>5. Custom Campaign Refunds</h2>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>12-Month Link Guarantee</h2>
                 <p>
-                  Custom or bespoke campaigns are non-refundable once work has commenced. A 50% deposit is required to secure custom work and is non-refundable after 7 days. The remaining balance becomes non-refundable once campaign research and planning have started.
+                  All links come with a 12-month guarantee from the date of placement. If any link is removed during this period, we will replace it with a link of equal or greater value at no additional cost, or provide a pro-rated refund for the removed link at your choice. Please note that this guarantee covers link removal only and does not apply to fluctuations in Domain Rating or traffic metrics over time.
                 </p>
               </section>
 
               <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>6. Service Quality Issues</h2>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>Refund Request Process</h2>
                 <p>
-                  If a customer believes MaiGrowth has failed to meet the service quality standards outlined in their campaign agreement, they may submit a detailed complaint within 30 days of campaign completion. We will review and may offer a partial refund, credit toward future work, or re-work of underperforming placements.
+                  To request a refund, please send an email to contact@maigrowth.com with "Refund Request" in the subject line. Your email should include your order number, a clear explanation of the reason for your refund request, and any supporting evidence such as screenshots or reports. Our team will review your request and respond within 5 business days with a decision or request for additional information.
                 </p>
               </section>
 
               <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>7. Payment Processing Errors</h2>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>Refund Timeline</h2>
                 <p>
-                  If a customer is charged twice for the same campaign due to a system error, a full refund of the duplicate charge will be processed within 5 business days.
+                  Approved refunds will be processed within 10 business days and returned to the original payment method used at the time of purchase. Please allow an additional 5 to 10 business days for the refund to appear in your account, depending on your bank or payment provider.
                 </p>
               </section>
 
               <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>8. No Refunds for Results</h2>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>Dispute Resolution</h2>
                 <p>
-                  MaiGrowth provides link building services but does not guarantee specific ranking positions, traffic increases, or lead generation outcomes. Refunds are not issued based on unmet SEO or traffic results, as these depend on numerous external factors including competition, content quality, and search algorithm updates.
+                  If you are unsatisfied with our refund decision, you may request to escalate the matter. We are committed to working in good faith to find a fair and reasonable resolution for both parties. Escalated disputes will be reviewed by a senior member of our team within 7 business days.
                 </p>
               </section>
 
               <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>9. Refund Processing</h2>
+                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>Contact Us</h2>
                 <p>
-                  Approved refunds will be processed to the original payment method within 10 business days. Depending on your financial institution, it may take an additional 3-5 business days for the credit to appear on your account.
+                  If you have any questions about this Refund Policy, please reach out to us at:
                 </p>
-              </section>
-
-              <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>10. How to Request a Refund</h2>
-                <p className="mb-3">To request a refund, please contact our team:</p>
-                <p>Email: refunds@maigrowth.com</p>
-                <p className="mt-3">Include your invoice number, campaign details, and reason for the refund request. Our team will review and respond within 5 business days.</p>
-              </section>
-
-              <section>
-                <h2 className="font-bold text-xl mb-4" style={{ color: "#0F0F0F" }}>11. Disputes</h2>
-                <p>
-                  If you dispute a refund decision, you may appeal to our management team within 14 days. We will conduct a full review and provide a final determination.
-                </p>
+                <p className="mt-2">Email: <span style={{ fontWeight: 600 }}>contact@maigrowth.com</span></p>
+                <p>Website: <span style={{ fontWeight: 600 }}>https://maigrowth.com</span></p>
+                <p className="mt-2" style={{ fontSize: "0.95em" }}>We typically respond within 24 business hours.</p>
               </section>
             </div>
           </motion.div>
