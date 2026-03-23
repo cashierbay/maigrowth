@@ -149,10 +149,42 @@ export default function Footer() {
         className="border-t"
         style={{ borderColor: "rgba(255,255,255,0.1)" }}
       >
-        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-wrap items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-wrap items-center justify-between gap-6">
           <span className="text-xs" style={{ color: "rgba(255,255,255,0.3)", fontFamily: "DM Sans, sans-serif" }}>
             © 2025 MaiGrowth. All Rights Reserved.
           </span>
+          <div className="flex flex-wrap items-center gap-6">
+            <Link href="/privacy-policy">
+              <span
+                className="text-xs cursor-pointer transition-colors"
+                style={{ color: "rgba(255,255,255,0.5)", fontFamily: "DM Sans, sans-serif" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.8)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
+              >
+                Privacy Policy
+              </span>
+            </Link>
+            <Link href="/terms-and-conditions">
+              <span
+                className="text-xs cursor-pointer transition-colors"
+                style={{ color: "rgba(255,255,255,0.5)", fontFamily: "DM Sans, sans-serif" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.8)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
+              >
+                Terms & Conditions
+              </span>
+            </Link>
+            <Link href="/refund-policy">
+              <span
+                className="text-xs cursor-pointer transition-colors"
+                style={{ color: "rgba(255,255,255,0.5)", fontFamily: "DM Sans, sans-serif" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.8)")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
+              >
+                Refund Policy
+              </span>
+            </Link>
+          </div>
           <span className="text-xs" style={{ color: "rgba(255,255,255,0.3)", fontFamily: "DM Sans, sans-serif" }}>
             Built for the AI Search Era
           </span>
