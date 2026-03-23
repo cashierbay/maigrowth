@@ -1,6 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 import { Users, Mail, Globe, Building, Briefcase, MessageSquare, Calendar, Download } from "lucide-react";
-import type { ContactSubmission } from "@shared/schema";
+import { getContactSubmissions } from "@/lib/supabase";
+
+interface ContactSubmission {
+  id: number;
+  name: string;
+  email: string;
+  company: string | null;
+  website: string | null;
+  service: string | null;
+  message: string | null;
+  created_at: string | null;
+}
 
 function formatDate(dateStr: string | Date | null) {
   if (!dateStr) return "—";
@@ -23,7 +34,7 @@ function exportCSV(submissions: ContactSubmission[]) {
     s.website ?? "",
     s.service ?? "",
     (s.message ?? "").replace(/\n/g, " "),
-    formatDate(s.submittedAt),
+    formatDate(s.created_at),
   ]);
   const csv = [headers, ...rows].map((r) => r.map((v) => `"${String(v).replace(/"/g, '""')}"`).join(",")).join("\n");
   const blob = new Blob([csv], { type: "text/csv" });
@@ -37,7 +48,8 @@ function exportCSV(submissions: ContactSubmission[]) {
 
 export default function AdminSubmissions() {
   const { data: submissions = [], isLoading, error } = useQuery<ContactSubmission[]>({
-    queryKey: ["/api/contact"],
+    queryKey: ["contact_submissions"],
+    queryFn: () => getContactSubmissions(),
   });
 
   return (

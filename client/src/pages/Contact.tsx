@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Globe2, Clock, CheckCircle2, Linkedin, Twitter } from "lucide-react";
 import { fadeUp, stagger } from "@/lib/animations";
+import { submitContact } from "@/lib/supabase";
 
 const serviceOptions = [
   "Guest Posts",
@@ -52,18 +53,11 @@ export default function Contact() {
     }
     setSubmitting(true);
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
-      if (!res.ok) {
-        setServerError("Something went wrong. Please try again.");
-      } else {
-        setSubmitted(true);
-      }
-    } catch {
-      setServerError("Network error. Please check your connection and try again.");
+      await submitContact(form);
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Submission error:", error);
+      setServerError("Something went wrong. Please try again.");
     } finally {
       setSubmitting(false);
     }
