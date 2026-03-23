@@ -58,8 +58,7 @@ export default function ServicesOverview() {
           <p
             className="mt-4 max-w-2xl mx-auto text-[17px] leading-relaxed"
             style={{ color: "#3D3D3D", fontFamily: "DM Sans, sans-serif" }}
-          >Most agencies build links. We build search dominance.
-          Every placement positions your brand across Google, high-authority sites, and AI-generated answers — without wasted spend.</p>
+          >Most SEO agencies focus only on backlinks. We build high-authority link building strategies that increase your rankings, traffic, and visibility across Google and AI-generated results.</p>
         </AnimatedSection>
 
         <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-6">
