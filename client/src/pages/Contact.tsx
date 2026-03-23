@@ -319,7 +319,7 @@ export default function Contact() {
                   </h3>
                   <div className="space-y-4">
                     {[
-                      { icon: Mail, text: "hello@maigrowth.com" },
+                      { icon: Mail, text: "contact@maigrowth.com" },
                       { icon: Globe2, text: "Remote · Global · Worldwide" },
                       { icon: Clock, text: "Within 24 business hours" },
                     ].map(({ icon: Icon, text }) => (
