@@ -118,7 +118,7 @@ export default function HowItWorks() {
         </AnimatedSection>
 
         {/* Steps grid */}
-        <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <StaggerGroup className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (

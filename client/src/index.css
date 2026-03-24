@@ -47,6 +47,14 @@
   --font-serif: Georgia, serif;
   --font-mono: Menlo, monospace;
   --radius: .5rem;
+
+  /* Semantic Feedback Colors */
+  --mg-success: #00C47A;
+  --mg-warning: #FF9F40;
+  --mg-error: #E53E3E;
+  --mg-success-light: #E6F9F2;
+  --mg-warning-light: #FFF4E6;
+  --mg-error-light: #FEE;
   --shadow-2xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.00);
   --shadow-xs: 0px 2px 0px 0px hsl(0 0% 0% / 0.00);
   --shadow-sm: 0px 2px 0px 0px hsl(0 0% 0% / 0.00), 0px 1px 2px -1px hsl(0 0% 0% / 0.00);
@@ -167,37 +175,55 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white text-[15px] transition-all duration-200 cursor-pointer;
+    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white text-[15px] transition-all duration-300 cursor-pointer;
     background-color: #FF6B35;
     font-family: 'Syne', sans-serif;
     font-weight: 700;
+    border: none;
   }
 
   .btn-primary:hover {
     background-color: #E85A25;
-    box-shadow: 0 8px 24px rgba(255, 107, 53, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(255, 107, 53, 0.3);
   }
 
   .btn-primary:active {
-    transform: scale(0.98);
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(255, 107, 53, 0.2);
+  }
+
+  .btn-primary:focus-visible {
+    outline: 3px solid #FF6B35;
+    outline-offset: 3px;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[15px] transition-all duration-200 cursor-pointer;
-    border: 2px solid #0F0F0F;
+    @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[15px] transition-all duration-300 cursor-pointer;
+    background-color: white;
     color: #0F0F0F;
     font-family: 'Syne', sans-serif;
     font-weight: 700;
+    border: 2px solid #E8E5E0;
   }
 
   .btn-secondary:hover {
-    background-color: #0F0F0F;
-    color: white;
+    background-color: #EFEFED;
+    border-color: #0F0F0F;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   }
 
   .btn-secondary:active {
-    transform: scale(0.98);
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   }
+
+  .btn-secondary:focus-visible {
+    outline: 3px solid #0F0F0F;
+    outline-offset: 3px;
+  }
+
 
   .btn-ghost {
     @apply inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white text-[15px] transition-all duration-200 cursor-pointer;

@@ -143,7 +143,7 @@ export default function PackageCards() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {PACKAGES.map(({ emoji, name, tagline, desc, price, was, saved, perLink, savePct, features, featured }, i) =>
             featured ? (
               /* Featured card — glow pulse on wrapper, separate from reveal animation */

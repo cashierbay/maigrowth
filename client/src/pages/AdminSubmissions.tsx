@@ -1,6 +1,8 @@
+import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Users, Mail, Globe, Building, Briefcase, MessageSquare, Calendar, Download } from "lucide-react";
 import { getContactSubmissions } from "@/lib/supabase";
+import AdminLogin from "@/components/admin/AdminLogin";
 
 interface ContactSubmission {
   id: number;
@@ -47,6 +49,19 @@ function exportCSV(submissions: ContactSubmission[]) {
 }
 
 export default function AdminSubmissions() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const auth = sessionStorage.getItem('adminAuth');
+    if (auth === 'true') {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  if (!isAuthenticated) {
+    return <AdminLogin onLogin={() => setIsAuthenticated(true)} />;
+  }
+
   const { data: submissions = [], isLoading, error } = useQuery<ContactSubmission[]>({
     queryKey: ["contact_submissions"],
     queryFn: () => getContactSubmissions(),

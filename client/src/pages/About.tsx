@@ -277,13 +277,13 @@ export default function About() {
             </AnimatedSection>
 
             {/* Right: 3 stacked value cards */}
-            <StaggerGroup className="flex flex-col gap-5">
+            <StaggerGroup className="flex flex-col gap-6">
               {values.map((v) => {
                 const Icon = v.icon;
                 return (
                   <StaggerItem
                     key={v.title}
-                    className="flex items-start gap-5 rounded-2xl p-6 cursor-default"
+                    className="flex items-start gap-6 rounded-2xl p-6 cursor-default"
                     style={{
                       backgroundColor: "#FFFFFF",
                       border: "1px solid #E2E0DC",

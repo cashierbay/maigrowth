@@ -71,7 +71,7 @@ export default function Process() {
         </motion.div>
 
         {/* 2-column card grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {steps.map((step, i) => (
             <motion.div
               key={step.n}

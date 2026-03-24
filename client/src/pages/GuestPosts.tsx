@@ -924,7 +924,7 @@ export default function GuestPosts() {
             </motion.div>
 
             <motion.div
-              className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 mt-10"
+              className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-10"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.05 }}
@@ -1269,7 +1269,7 @@ export default function GuestPosts() {
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 {
                   num: "01",
@@ -1413,7 +1413,7 @@ export default function GuestPosts() {
             </div>
 
             <motion.div
-              className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-5"
+              className="mt-14 grid grid-cols-1 md:grid-cols-2 gap-6"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
@@ -1657,7 +1657,7 @@ export default function GuestPosts() {
             </motion.div>
 
             <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.1 }}
