@@ -10,6 +10,7 @@ import About from "@/pages/About";
 import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
 import Contact from "@/pages/Contact";
+import SubmitTestimonial from "@/pages/SubmitTestimonial";
 import GuestPosts from "@/pages/GuestPosts";
 import LinkInsertions from "@/pages/LinkInsertions";
 import Packages from "@/pages/Packages";
@@ -30,6 +31,7 @@ function Router() {
       <Route path="/blog" component={Blog} />
       <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/contact" component={Contact} />
+      <Route path="/submit-testimonial" component={SubmitTestimonial} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-and-conditions" component={TermsAndConditions} />
       <Route path="/refund-policy" component={RefundPolicy} />

@@ -37,3 +37,24 @@ export async function getContactSubmissions() {
   if (error) throw error;
   return data || [];
 }
+
+export async function submitTestimonial(data: {
+  name: string;
+  role: string;
+  quote: string;
+  stars: number;
+}) {
+  const sb = getSupabase();
+  const { error } = await sb.from("testimonials").insert([data]);
+  if (error) throw error;
+}
+
+export async function getTestimonials() {
+  const sb = getSupabase();
+  const { data, error } = await sb
+    .from("testimonials")
+    .select("*")
+    .order("created_at", { ascending: false });
+  if (error) throw error;
+  return data || [];
+}
