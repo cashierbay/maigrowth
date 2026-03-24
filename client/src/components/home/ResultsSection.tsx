@@ -33,7 +33,7 @@ export default function ResultsSection() {
       ref={ref}
       style={{
         background: '#F7F6F4',
-        padding: '96px 56px',
+        padding: 'clamp(32px, 8vw, 96px) clamp(16px, 5vw, 56px)',
       }}
     >
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
@@ -75,7 +75,7 @@ export default function ResultsSection() {
         {/* TWO CARDS GRID */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(2, 1fr)',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
           gap: '20px',
         }}>
 
@@ -110,7 +110,7 @@ export default function ResultsSection() {
 
             {/* Metrics row */}
             <div style={{
-              display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
+              display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))',
               gap: '10px', marginBottom: '24px',
             }}>
               {metrics.map((m, i) => (
@@ -121,19 +121,19 @@ export default function ResultsSection() {
                 }}>
                   <div style={{
                     fontFamily: 'Syne, sans-serif', fontWeight: 800,
-                    fontSize: '22px', lineHeight: 1,
+                    fontSize: 'clamp(16px, 3vw, 22px)', lineHeight: 1,
                     color: m.color, marginBottom: '5px',
                   }}>
                     {m.val}
                   </div>
                   <div style={{
-                    fontSize: '9px', color: '#888', lineHeight: 1.3,
+                    fontSize: 'clamp(8px, 2vw, 9px)', color: '#888', lineHeight: 1.3,
                     fontFamily: 'DM Sans, sans-serif',
                   }}>
                     {m.label}
                   </div>
                   <div style={{
-                    fontSize: '9px', fontWeight: 600,
+                    fontSize: 'clamp(8px, 2vw, 9px)', fontWeight: 600,
                     color: '#00C47A', marginTop: '5px',
                     fontFamily: 'DM Sans, sans-serif',
                   }}>

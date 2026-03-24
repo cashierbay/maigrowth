@@ -22,7 +22,7 @@ const cards = [
 
 export default function TrustSection() {
   return (
-    <section style={{ backgroundColor: "#EFEFED", padding: "96px 0" }}>
+    <section style={{ backgroundColor: "#EFEFED", padding: "clamp(48px, 10vw, 96px) 0" }}>
       <div className="max-w-7xl mx-auto px-6">
         <AnimatedSection className="text-center mb-14">
           <span className="section-label">

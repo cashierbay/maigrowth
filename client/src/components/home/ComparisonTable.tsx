@@ -23,7 +23,7 @@ function OtherCell({ value }: { value: string }) {
 
 export default function ComparisonTable() {
   return (
-    <section style={{ backgroundColor: "#FFFFFF", padding: "112px 0" }}>
+    <section style={{ backgroundColor: "#FFFFFF", padding: "clamp(48px, 10vw, 112px) 0" }}>
       <div className="max-w-7xl mx-auto px-6">
         <AnimatedSection className="text-center mb-16">
           <span className="section-label">

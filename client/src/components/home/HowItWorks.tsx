@@ -37,7 +37,7 @@ export default function HowItWorks() {
     <section
       style={{
         background: "linear-gradient(160deg, #0C0F2E 0%, #12153D 50%, #0C0F2E 100%)",
-        padding: "120px 0",
+        padding: "clamp(48px, 10vw, 120px) 0",
         position: "relative",
         overflow: "hidden",
       }}

@@ -39,7 +39,7 @@ const services = [
 
 export default function ServicesOverview() {
   return (
-    <section style={{ backgroundColor: "#EFEFED", padding: "112px 0" }}>
+    <section style={{ backgroundColor: "#EFEFED", padding: "clamp(48px, 10vw, 112px) 0" }}>
       <div className="max-w-7xl mx-auto px-6">
         <AnimatedSection className="text-center mb-16">
           <span className="section-label">
