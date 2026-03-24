@@ -26,8 +26,8 @@ export default function Hero() {
         <motion.div
           className="absolute pointer-events-none"
           style={{
-            width: 700,
-            height: 700,
+            width: "clamp(300px, 80vw, 700px)",
+            height: "clamp(300px, 80vw, 700px)",
             borderRadius: "50%",
             background:
               "radial-gradient(circle, rgba(255,107,53,0.18) 0%, rgba(255,107,53,0.06) 40%, transparent 70%)",
