@@ -70,6 +70,7 @@ export default function Footer() {
                 { href: "/about", label: "About" },
                 { href: "/blog", label: "Blog" },
                 { href: "/contact", label: "Contact" },
+                { href: "/submit-testimonial", label: "Leave a Review" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link href={link.href}>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Mail, Globe2, Clock, CheckCircle2, Linkedin, Twitter } from "lucide-react";
+import { Mail, Globe2, Clock, CheckCircle2, Linkedin, Twitter, Star } from "lucide-react";
+import { Link } from "wouter";
 import { fadeUp, stagger } from "@/lib/animations";
 import { submitContact } from "@/lib/supabase";
 
@@ -362,6 +363,29 @@ export default function Contact() {
                       <Twitter size={18} style={{ color: "#767676" }} />
                     </a>
                   </div>
+                </motion.div>
+
+                <motion.div variants={fadeUp} className="mg-card mt-6">
+                  <h3
+                    className="text-lg mb-5 flex items-center gap-2"
+                    style={{ fontFamily: "Syne, sans-serif", fontWeight: 700, color: "#0F0F0F" }}
+                  >
+                    <Star size={20} style={{ color: "#FF6B35" }} />
+                    Share Your Experience
+                  </h3>
+                  <p className="text-[14px] mb-5" style={{ color: "#3D3D3D", fontFamily: "DM Sans, sans-serif" }}>
+                    Have worked with us? Leave a review and help other businesses discover our results.
+                  </p>
+                  <Link href="/submit-testimonial" data-testid="link-submit-testimonial">
+                    <motion.span
+                      className="btn-primary w-full justify-center"
+                      style={{ display: "block", textAlign: "center" }}
+                      whileHover={{ scale: 1.03, boxShadow: "0 8px 28px rgba(255,107,53,0.32)", transition: { duration: 0.18 } }}
+                      whileTap={{ scale: 0.97 }}
+                    >
+                      Leave a Review →
+                    </motion.span>
+                  </Link>
                 </motion.div>
               </motion.div>
             </div>
