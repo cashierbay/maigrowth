@@ -39,7 +39,7 @@ const standards = [
 
 export default function Guarantees() {
   return (
-    <section style={{ backgroundColor: "#F7F6F4", padding: "96px 0" }}>
+    <section style={{ backgroundColor: "#F7F6F4", padding: "clamp(40px, 8vw, 96px) 0" }}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="text-center mb-14"

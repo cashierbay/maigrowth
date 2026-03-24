@@ -523,7 +523,7 @@ export default function GuestPosts() {
         </section>
 
         {/* ─── SECTION 2: BENEFITS ─── */}
-        <section style={{ backgroundColor: "#F7F6F4", padding: "112px 0" }}>
+        <section style={{ backgroundColor: "#F7F6F4", padding: "clamp(40px, 8vw, 112px) 0" }}>
           <div className="max-w-7xl mx-auto px-6">
             <motion.div {...fadeUp} className="text-center mb-16">
               <span className="section-label">WHY GUEST POSTS WORK</span>
@@ -623,7 +623,7 @@ export default function GuestPosts() {
         </section>
 
         {/* ─── RESULTS CHART SECTION ─── */}
-        <section style={{ backgroundColor: "#12153D", padding: "96px 0" }}>
+        <section style={{ backgroundColor: "#12153D", padding: "clamp(40px, 8vw, 96px) 0" }}>
           <div className="max-w-7xl mx-auto px-6">
             <motion.div
               className="text-center mb-14"
@@ -722,7 +722,7 @@ export default function GuestPosts() {
         </section>
 
         {/* ─── SECTION 3: DR TIER CARDS ─── */}
-        <section style={{ backgroundColor: "#EFEFED", padding: "112px 0" }}>
+        <section style={{ backgroundColor: "#EFEFED", padding: "clamp(40px, 8vw, 112px) 0" }}>
           <div className="max-w-7xl mx-auto px-6">
             <motion.div {...fadeUp} className="text-center mb-20">
               <span className="section-label">INDIVIDUAL GUEST POST PLACEMENTS</span>
@@ -824,7 +824,7 @@ export default function GuestPosts() {
         </section>
 
         {/* ─── COMPARISON TABLE ─── */}
-        <section style={{ backgroundColor: "#F7F6F4", padding: "96px 0" }}>
+        <section style={{ backgroundColor: "#F7F6F4", padding: "clamp(40px, 8vw, 96px) 0" }}>
           <div className="max-w-5xl mx-auto px-6">
             <motion.div
               className="text-center mb-12"
@@ -902,7 +902,7 @@ export default function GuestPosts() {
         </section>
 
         {/* ─── SECTION 4: PACKAGES ─── */}
-        <section id="gp-packages" style={{ backgroundColor: "#FFFFFF", padding: "112px 0" }}>
+        <section id="gp-packages" style={{ backgroundColor: "#FFFFFF", padding: "clamp(40px, 8vw, 112px) 0" }}>
           <div className="max-w-7xl mx-auto px-6">
             <motion.div {...fadeUp} className="text-center mb-6">
               <span
@@ -1052,7 +1052,7 @@ export default function GuestPosts() {
         </section>
 
         {/* ─── SECTION 5: WHAT MAKES US DIFFERENT ─── */}
-        <section style={{ backgroundColor: "#EFEFED", padding: "112px 0" }}>
+        <section style={{ backgroundColor: "#EFEFED", padding: "clamp(40px, 8vw, 112px) 0" }}>
           <div className="max-w-7xl mx-auto px-6">
             <motion.div {...fadeUp} className="text-center mb-14">
               <span className="section-label">OUR APPROACH</span>
@@ -1130,7 +1130,7 @@ export default function GuestPosts() {
         </section>
 
         {/* ─── SECTION 6: GUEST POSTS VS NICHE EDITS ─── */}
-        <section style={{ backgroundColor: "#FFFFFF", padding: "112px 0" }}>
+        <section style={{ backgroundColor: "#FFFFFF", padding: "clamp(40px, 8vw, 112px) 0" }}>
           <div className="max-w-7xl mx-auto px-6">
             <motion.div {...fadeUp} className="text-center mb-14">
               <span className="section-label">KNOW THE DIFFERENCE</span>
@@ -1517,7 +1517,7 @@ export default function GuestPosts() {
         </section>
 
         {/* ─── GUARANTEES SECTION ─── */}
-        <section style={{ backgroundColor: "#F7F6F4", padding: "96px 0" }}>
+        <section style={{ backgroundColor: "#F7F6F4", padding: "clamp(40px, 8vw, 96px) 0" }}>
           <div className="max-w-7xl mx-auto px-6">
             <motion.div
               className="text-center mb-14"
@@ -1577,7 +1577,7 @@ export default function GuestPosts() {
         </section>
 
         {/* ─── SECTION 8: QUALITY CRITERIA ─── */}
-        <section style={{ backgroundColor: "#EFEFED", padding: "112px 0" }}>
+        <section style={{ backgroundColor: "#EFEFED", padding: "clamp(40px, 8vw, 112px) 0" }}>
           <div className="max-w-7xl mx-auto px-6">
             <motion.div {...fadeUp} className="text-center mb-14">
               <span className="section-label">OUR STANDARDS</span>
@@ -1644,7 +1644,7 @@ export default function GuestPosts() {
         </section>
 
         {/* ─── SECTION 9: TESTIMONIALS ─── */}
-        <section style={{ backgroundColor: "#FFFFFF", padding: "112px 0" }}>
+        <section style={{ backgroundColor: "#FFFFFF", padding: "clamp(40px, 8vw, 112px) 0" }}>
           <div className="max-w-7xl mx-auto px-6">
             <motion.div {...fadeUp} className="text-center mb-14">
               <span className="section-label">WHAT CLIENTS SAY</span>
@@ -1718,7 +1718,7 @@ export default function GuestPosts() {
         </section>
 
         {/* ─── SECTION 10: FAQ ─── */}
-        <section style={{ backgroundColor: "#F7F6F4", padding: "112px 0" }}>
+        <section style={{ backgroundColor: "#F7F6F4", padding: "clamp(40px, 8vw, 112px) 0" }}>
           <div className="max-w-6xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-16 lg:gap-24">
               <motion.div {...fadeUp} className="lg:sticky lg:top-24 self-start">
@@ -1806,7 +1806,7 @@ export default function GuestPosts() {
         </section>
 
         {/* ─── SECTION 11: FINAL CTA BANNER ─── */}
-        <section style={{ backgroundColor: "#F7F6F4", padding: "96px 0" }}>
+        <section style={{ backgroundColor: "#F7F6F4", padding: "clamp(40px, 8vw, 96px) 0" }}>
           <div className="max-w-5xl mx-auto px-6">
             <motion.div
               className="rounded-3xl px-8 md:px-14 py-14 text-center relative overflow-hidden"

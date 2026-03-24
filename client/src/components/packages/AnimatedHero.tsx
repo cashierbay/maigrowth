@@ -12,8 +12,8 @@ export default function AnimatedHero() {
         style={{
           top: "-10%",
           right: "-10%",
-          width: 600,
-          height: 600,
+          width: "clamp(300px, 60vw, 600px)",
+          height: "clamp(300px, 60vw, 600px)",
           background: "radial-gradient(circle, rgba(255,107,53,0.15), transparent 70%)",
           borderRadius: "50%",
         }}
@@ -26,8 +26,8 @@ export default function AnimatedHero() {
         style={{
           bottom: "-15%",
           left: "-10%",
-          width: 500,
-          height: 500,
+          width: "clamp(250px, 50vw, 500px)",
+          height: "clamp(250px, 50vw, 500px)",
           background: "radial-gradient(circle, rgba(255,107,53,0.08), transparent 70%)",
           borderRadius: "50%",
         }}

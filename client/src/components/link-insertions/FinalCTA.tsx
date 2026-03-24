@@ -17,7 +17,7 @@ export default function FinalCTA() {
   };
 
   return (
-    <section style={{ backgroundColor: "#F7F6F4", padding: "96px 0" }}>
+    <section style={{ backgroundColor: "#F7F6F4", padding: "clamp(40px, 8vw, 96px) 0" }}>
       <div className="max-w-5xl mx-auto px-6">
         <motion.div
           className="rounded-3xl px-8 md:px-14 py-14 text-center"

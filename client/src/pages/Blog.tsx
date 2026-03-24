@@ -93,7 +93,7 @@ export default function Blog() {
           backgroundImage:
             "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
-          padding: "160px 24px 100px",
+          padding: "clamp(80px, 14vw, 160px) clamp(16px, 4vw, 24px) clamp(40px, 8vw, 100px)",
         }}
       >
         <div className="max-w-3xl mx-auto">
@@ -134,7 +134,7 @@ export default function Blog() {
 
       <div style={{ height: 64, background: "linear-gradient(to bottom, #12153D, #F7F6F4)" }} />
 
-      <section style={{ backgroundColor: "#F7F6F4", padding: "80px 0" }}>
+      <section style={{ backgroundColor: "#F7F6F4", padding: "clamp(36px, 8vw, 80px) 0" }}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             variants={stagger}

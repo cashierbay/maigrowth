@@ -6,7 +6,7 @@ export default function CTABanner() {
   return (
     <section
       className="text-center"
-      style={{ backgroundColor: "#12153D", padding: "112px 24px" }}
+      style={{ backgroundColor: "#12153D", padding: "clamp(40px, 8vw, 112px) clamp(16px, 4vw, 24px)" }}
     >
       <div className="max-w-3xl mx-auto">
         <motion.div

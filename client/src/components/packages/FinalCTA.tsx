@@ -10,7 +10,7 @@ const DOT_GRID = {
 
 export default function FinalCTA() {
   return (
-    <section style={{ backgroundColor: "#F7F6F4", padding: "96px 0" }}>
+    <section style={{ backgroundColor: "#F7F6F4", padding: "clamp(40px, 8vw, 96px) 0" }}>
       <div className="max-w-6xl mx-auto px-6">
         {/* Heading */}
         <motion.div
@@ -119,7 +119,7 @@ export default function FinalCTA() {
           <div
             className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none"
             style={{
-              width: 600,
+              width: "clamp(300px, 80vw, 600px)",
               height: 300,
               background: "radial-gradient(ellipse, rgba(255,107,53,0.08) 0%, transparent 70%)",
               filter: "blur(40px)",

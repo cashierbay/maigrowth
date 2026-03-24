@@ -44,7 +44,7 @@ const DOT_GRID = {
 
 export default function Process() {
   return (
-    <section style={{ backgroundColor: "#0E1235", padding: "96px 0", ...DOT_GRID }}>
+    <section style={{ backgroundColor: "#0E1235", padding: "clamp(40px, 8vw, 96px) 0", ...DOT_GRID }}>
       <div className="max-w-6xl mx-auto px-6">
 
         {/* Heading */}

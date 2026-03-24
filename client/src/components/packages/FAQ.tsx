@@ -35,7 +35,7 @@ export default function FAQ() {
   const [open, setOpen] = useState<number>(0);
 
   return (
-    <section style={{ backgroundColor: "#FFFFFF", padding: "96px 0" }}>
+    <section style={{ backgroundColor: "#FFFFFF", padding: "clamp(40px, 8vw, 96px) 0" }}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-16 lg:gap-24">
           {/* Sticky left label */}

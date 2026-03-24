@@ -9,7 +9,7 @@ export default function BulkSavings() {
   };
 
   return (
-    <section style={{ backgroundColor: "#12153D", padding: "80px 0" }}>
+    <section style={{ backgroundColor: "#12153D", padding: "clamp(36px, 8vw, 80px) 0" }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <motion.div

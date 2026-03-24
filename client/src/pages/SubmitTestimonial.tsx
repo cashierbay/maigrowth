@@ -123,7 +123,7 @@ export default function SubmitTestimonial() {
 
       <div style={{ height: 64, background: "linear-gradient(to bottom, #12153D, #F7F6F4)" }} />
 
-      <section style={{ backgroundColor: "#F7F6F4", padding: "112px 0" }}>
+      <section style={{ backgroundColor: "#F7F6F4", padding: "clamp(40px, 8vw, 112px) 0" }}>
         <div className="max-w-2xl mx-auto px-6">
           <AnimatePresence mode="wait">
             {!submitted ? (

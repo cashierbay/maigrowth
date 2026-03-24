@@ -30,7 +30,7 @@ export default function HomeFAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section style={{ backgroundColor: "#F7F6F4", padding: "112px 0" }}>
+    <section style={{ backgroundColor: "#F7F6F4", padding: "clamp(40px, 8vw, 112px) 0" }}>
       <div className="max-w-3xl mx-auto px-6">
         <AnimatedSection className="text-center mb-14">
           <span className="section-label">

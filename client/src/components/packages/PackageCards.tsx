@@ -116,7 +116,7 @@ const PACKAGES = [
 
 export default function PackageCards() {
   return (
-    <section id="packages" style={{ backgroundColor: "#F7F6F4", padding: "112px 0" }}>
+    <section id="packages" style={{ backgroundColor: "#F7F6F4", padding: "clamp(40px, 8vw, 112px) 0" }}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 24 }}

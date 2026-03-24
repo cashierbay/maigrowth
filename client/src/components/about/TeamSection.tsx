@@ -51,7 +51,7 @@ export default function TeamSection() {
     <section
       style={{
         background: "#FFFFFF",
-        padding: "120px 24px",
+        padding: "clamp(40px, 8vw, 120px) clamp(16px, 4vw, 24px)",
         position: "relative",
         overflow: "hidden",
       }}

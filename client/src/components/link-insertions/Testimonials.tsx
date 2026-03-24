@@ -47,7 +47,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section style={{ backgroundColor: "#FFFFFF", padding: "96px 0" }}>
+    <section style={{ backgroundColor: "#FFFFFF", padding: "clamp(40px, 8vw, 96px) 0" }}>
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           className="text-center mb-12"

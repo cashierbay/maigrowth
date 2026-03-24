@@ -142,7 +142,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section style={{ backgroundColor: "#FFFFFF", padding: "112px 0", overflow: "hidden" }}>
+    <section style={{ backgroundColor: "#FFFFFF", padding: "clamp(40px, 8vw, 112px) 0", overflow: "hidden" }}>
       <div className="max-w-7xl mx-auto px-6 text-center mb-16">
         <motion.div
           variants={stagger}

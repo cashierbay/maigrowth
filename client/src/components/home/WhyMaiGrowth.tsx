@@ -14,7 +14,7 @@ const features = [
 
 export default function WhyMaiGrowth() {
   return (
-    <section style={{ backgroundColor: "#FFFFFF", padding: "112px 0" }}>
+    <section style={{ backgroundColor: "#FFFFFF", padding: "clamp(40px, 8vw, 112px) 0" }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <AnimatedSection>

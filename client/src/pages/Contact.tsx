@@ -136,7 +136,7 @@ export default function Contact() {
 
       <div style={{ height: 64, background: "linear-gradient(to bottom, #12153D, #F7F6F4)" }} />
 
-      <section style={{ backgroundColor: "#F7F6F4", padding: "112px 0" }}>
+      <section style={{ backgroundColor: "#F7F6F4", padding: "clamp(40px, 8vw, 112px) 0" }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-16">
             <div className="lg:col-span-3">

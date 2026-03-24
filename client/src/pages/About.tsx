@@ -118,7 +118,7 @@ export default function About() {
 
       <div style={{ height: 64, background: "linear-gradient(to bottom, #12153D, #F7F6F4)" }} />
 
-      <section style={{ backgroundColor: "#F7F6F4", padding: "112px 0" }}>
+      <section style={{ backgroundColor: "#F7F6F4", padding: "clamp(40px, 8vw, 112px) 0" }}>
         <div className="max-w-7xl mx-auto px-6">
 
           {/* Centered intro */}
@@ -232,7 +232,7 @@ export default function About() {
       </section>
 
       {/* OUR VALUES — Two-column: left text block, right stacked cards */}
-      <section style={{ backgroundColor: "#EFEFED", padding: "112px 0" }}>
+      <section style={{ backgroundColor: "#EFEFED", padding: "clamp(40px, 8vw, 112px) 0" }}>
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -334,7 +334,7 @@ export default function About() {
 
       <section
         className="text-center relative"
-        style={{ backgroundColor: "#12153D", padding: "96px 24px" }}
+        style={{ backgroundColor: "#12153D", padding: "clamp(40px, 8vw, 96px) clamp(16px, 4vw, 24px)" }}
       >
         <div className="max-w-3xl mx-auto relative">
           <span
