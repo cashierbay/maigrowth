@@ -29,13 +29,21 @@ export async function submitContact(data: {
 }
 
 export async function getContactSubmissions() {
-  const sb = getSupabase();
-  const { data, error } = await sb
-    .from("contact_submissions")
-    .select("*")
-    .order("created_at", { ascending: false });
-  if (error) throw error;
-  return data || [];
+  try {
+    const sb = getSupabase();
+    const { data, error } = await sb
+      .from("contact_submissions")
+      .select("*")
+      .order("created_at", { ascending: false });
+    if (error) {
+      console.error("Supabase query error:", error);
+      return [];
+    }
+    return data || [];
+  } catch (err) {
+    console.error("Failed to fetch submissions:", err);
+    return [];
+  }
 }
 
 export async function submitTestimonial(data: {

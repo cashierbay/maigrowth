@@ -139,8 +139,11 @@ export default function AdminSubmissions() {
             className="rounded-xl p-6 text-center"
             style={{ backgroundColor: "#FFF0EB", border: "1px solid #FF6B35" }}
           >
-            <p style={{ color: "#FF6B35", fontFamily: "DM Sans, sans-serif" }}>
-              Failed to load submissions. Make sure the server is running.
+            <p style={{ color: "#FF6B35", fontFamily: "DM Sans, sans-serif", marginBottom: "8px" }}>
+              ⚠️ Failed to load submissions
+            </p>
+            <p style={{ color: "#FF6B35", fontFamily: "DM Sans, sans-serif", fontSize: "13px" }}>
+              Check Supabase: Make sure contact_submissions table exists and RLS is disabled
             </p>
           </div>
         )}
