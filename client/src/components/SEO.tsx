@@ -10,7 +10,7 @@ interface SEOProps {
 export default function SEO({
   title,
   description,
-  ogImage = '/og-image.jpg',
+  ogImage = '/og-image.png',
   ogType = 'website',
 }: SEOProps) {
   const siteUrl = 'https://maigrowth.com';
