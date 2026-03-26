@@ -1,0 +1,153 @@
+Agent Goal: Implement comprehensive performance and accessibility optimizations to achieve top Lighthouse scores (90+ on mobile) without breaking existing functionality.
+
+Instructions:
+
+1.
+Configure Vite for Manual Chunking (Code Splitting):
+
+•
+Action: Create or update the client/vite.config.ts file to implement manual chunking. This will split the main JavaScript bundle into smaller, more manageable chunks for faster loading.
+
+•
+File: client/vite.config.ts
+
+•
+Content:
+
+TypeScript
+
+
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'router': ['wouter'],
+          'animation': ['framer-motion'],
+          'supabase': ['@supabase/supabase-js'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000, // Keep this to avoid warnings for intentionally large chunks
+  },
+});
+
+
+
+
+
+
+
+2.
+Implement Font Preloading:
+
+•
+Action: Add <link rel="preload" as="font" type="font/woff2" crossorigin> tags to the <head> section of your main index.html file (likely client/index.html). Preload the primary fonts used (Syne and DM Sans) to ensure they load as early as possible.
+
+•
+File: client/index.html
+
+•
+Example (adjust paths and font names as needed):
+
+HTML
+
+
+<link rel="preload" href="/fonts/Syne-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/DMSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Add more preload links for other critical font weights/styles -->
+
+
+
+
+
+
+
+3.
+Ensure font-display: swap; for all @font-face declarations:
+
+•
+Action: Review your CSS files or Tailwind configuration (if custom fonts are defined there) to ensure all @font-face rules include font-display: swap;. This prevents invisible text during font loading, improving perceived performance.
+
+•
+Files: Check your main CSS file(s) (e.g., client/src/index.css or similar) or Tailwind config.
+
+
+
+4.
+Implement Image Lazy Loading:
+
+•
+Action: Identify all <img> tags that are not immediately visible on page load (i.e., "below the fold"). Add the loading="lazy" attribute to these images. This defers loading of off-screen images until the user scrolls near them.
+
+•
+Files: Review relevant React component files (e.g., client/src/pages/*.tsx, client/src/components/**/*.tsx).
+
+•
+Example: <img src="/path/to/image.jpg" alt="Description" loading="lazy">
+
+
+
+5.
+Implement Dynamic Imports for Large Components (Optional but Recommended):
+
+•
+Action: For large React components that are not critical for the initial page load (e.g., HomeFAQ, ComparisonTable, or other sections that appear lower on the page), refactor them to use React.lazy() and Suspense for code splitting. This will load their code only when they are about to be displayed.
+
+•
+Files: Review relevant React component files (e.g., client/src/components/home/HomeFAQ.tsx, client/src/components/home/ComparisonTable.tsx).
+
+•
+**Example (conceptual, in a parent component like Home.tsx):
+
+JavaScript
+
+
+import React, { Suspense } from 'react';
+// ... other imports
+
+const LazyHomeFAQ = React.lazy(() => import('@/components/home/HomeFAQ'));
+const LazyComparisonTable = React.lazy(() => import('@/components/home/ComparisonTable'));
+
+export default function Home() {
+  return (
+    <>
+      {/* ... other components */}
+      <Suspense fallback={<div>Loading FAQ...</div>}>
+        <LazyHomeFAQ />
+      </Suspense>
+      <Suspense fallback={<div>Loading Comparison...</div>}>
+        <LazyComparisonTable />
+      </Suspense>
+      {/* ... */}
+    </>
+  );
+}
+
+
+
+
+
+
+
+Verification Steps (after implementation):
+
+•
+Local Build & Serve: Follow the local testing guide below.
+
+•
+Lighthouse Audit: Run a Lighthouse audit (in an Incognito window, on a mobile profile) and confirm that the Performance score has significantly improved, ideally reaching above 90.
+
+•
+Console Check: Verify that the browser console is clean, with no new errors or warnings.
+
+•
+Functionality Test: Manually navigate through the entire website to ensure all features, links, and forms work as expected.
+
+Important Note: Focus on these specific tasks. Do not introduce unrelated changes or refactorings beyond what is necessary to implement these optimizations. 
+
