@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Users, Mail, Globe, Building, Briefcase, MessageSquare, Calendar, Download } from "lucide-react";
+import { Users, Mail, Globe, Building, Briefcase, MessageSquare, Calendar, Download, LogOut } from "lucide-react";
 import { getContactSubmissions } from "@/lib/supabase";
-import AdminLogin from "@/components/admin/AdminLogin";
+import SupabaseAdminLogin from "@/components/admin/SupabaseAdminLogin";
+import { createClient } from "@supabase/supabase-js";
 
 interface ContactSubmission {
   id: number;
@@ -50,16 +51,32 @@ function exportCSV(submissions: ContactSubmission[]) {
 
 export default function AdminSubmissions() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userEmail, setUserEmail] = useState('');
 
   useEffect(() => {
-    const auth = sessionStorage.getItem('adminAuth');
-    if (auth === 'true') {
-      setIsAuthenticated(true);
+    // Check if session exists in localStorage
+    const sessionStr = localStorage.getItem('adminSession');
+    if (sessionStr) {
+      try {
+        const session = JSON.parse(sessionStr);
+        if (session.user?.email) {
+          setIsAuthenticated(true);
+          setUserEmail(session.user.email);
+        }
+      } catch (e) {
+        localStorage.removeItem('adminSession');
+      }
     }
   }, []);
 
+  const handleLogout = () => {
+    localStorage.removeItem('adminSession');
+    setIsAuthenticated(false);
+    setUserEmail('');
+  };
+
   if (!isAuthenticated) {
-    return <AdminLogin onLogin={() => setIsAuthenticated(true)} />;
+    return <SupabaseAdminLogin onLogin={() => setIsAuthenticated(true)} />;
   }
 
   const { data: submissions = [], isLoading, error } = useQuery<ContactSubmission[]>({
@@ -79,18 +96,39 @@ export default function AdminSubmissions() {
           gap: 16,
         }}
       >
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 flex-1">
           <Users size={22} style={{ color: "#FF6B35" }} />
-          <span
-            style={{
-              fontFamily: "Syne, sans-serif",
-              fontWeight: 700,
-              fontSize: 20,
-              color: "white",
-            }}
-          >
-            Lead Submissions
-          </span>
+          <div>
+            <span
+              style={{
+                fontFamily: "Syne, sans-serif",
+                fontWeight: 700,
+                fontSize: 20,
+                color: "white",
+                display: "block",
+              }}
+            >
+              Lead Submissions
+            </span>
+            <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.7)" }}>
+              Signed in as: {userEmail}
+            </span>
+          </div>
+        </div>
+        <button
+          onClick={handleLogout}
+          className="flex items-center gap-2 text-[13px] font-semibold px-4 py-2 rounded-lg transition-colors"
+          style={{
+            backgroundColor: "rgba(255,255,255,0.1)",
+            color: "white",
+            fontFamily: "DM Sans, sans-serif",
+            border: "1px solid rgba(255,255,255,0.2)",
+          }}
+        >
+          <LogOut size={15} />
+          Sign Out
+        </button>
+        <div>
           {!isLoading && (
             <span
               className="inline-flex items-center justify-center rounded-full text-[12px] font-bold px-2.5 py-0.5"
