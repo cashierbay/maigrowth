@@ -156,10 +156,11 @@ export default function Contact() {
                   >
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-[13px] font-semibold mb-2" style={{ color: "#0F0F0F", fontFamily: "DM Sans, sans-serif" }}>
+                        <label htmlFor="name" className="block text-[13px] font-semibold mb-2" style={{ color: "#0F0F0F", fontFamily: "DM Sans, sans-serif" }}>
                           Full Name *
                         </label>
                         <input
+                          id="name"
                           type="text"
                           placeholder="Your full name"
                           value={form.name}
@@ -173,10 +174,11 @@ export default function Contact() {
                       </div>
 
                       <div>
-                        <label className="block text-[13px] font-semibold mb-2" style={{ color: "#0F0F0F", fontFamily: "DM Sans, sans-serif" }}>
+                        <label htmlFor="email" className="block text-[13px] font-semibold mb-2" style={{ color: "#0F0F0F", fontFamily: "DM Sans, sans-serif" }}>
                           Email Address *
                         </label>
                         <input
+                          id="email"
                           type="email"
                           placeholder="your@email.com"
                           value={form.email}
@@ -192,10 +194,11 @@ export default function Contact() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-[13px] font-semibold mb-2" style={{ color: "#0F0F0F", fontFamily: "DM Sans, sans-serif" }}>
+                        <label htmlFor="company" className="block text-[13px] font-semibold mb-2" style={{ color: "#0F0F0F", fontFamily: "DM Sans, sans-serif" }}>
                           Company Name
                         </label>
                         <input
+                          id="company"
                           type="text"
                           placeholder="Your company"
                           value={form.company}
@@ -208,10 +211,11 @@ export default function Contact() {
                       </div>
 
                       <div>
-                        <label className="block text-[13px] font-semibold mb-2" style={{ color: "#0F0F0F", fontFamily: "DM Sans, sans-serif" }}>
+                        <label htmlFor="website" className="block text-[13px] font-semibold mb-2" style={{ color: "#0F0F0F", fontFamily: "DM Sans, sans-serif" }}>
                           Website URL
                         </label>
                         <input
+                          id="website"
                           type="text"
                           placeholder="https://yourwebsite.com"
                           value={form.website}
@@ -225,10 +229,11 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <label className="block text-[13px] font-semibold mb-2" style={{ color: "#0F0F0F", fontFamily: "DM Sans, sans-serif" }}>
+                      <label htmlFor="service" className="block text-[13px] font-semibold mb-2" style={{ color: "#0F0F0F", fontFamily: "DM Sans, sans-serif" }}>
                         Service Interested In
                       </label>
                       <select
+                        id="service"
                         value={form.service}
                         onChange={(e) => setForm({ ...form, service: e.target.value })}
                         style={{ ...inputStyle, appearance: "none", cursor: "pointer" }}
@@ -244,10 +249,11 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <label className="block text-[13px] font-semibold mb-2" style={{ color: "#0F0F0F", fontFamily: "DM Sans, sans-serif" }}>
+                      <label htmlFor="message" className="block text-[13px] font-semibold mb-2" style={{ color: "#0F0F0F", fontFamily: "DM Sans, sans-serif" }}>
                         Tell Us About Your Goals *
                       </label>
                       <textarea
+                        id="message"
                         rows={5}
                         placeholder="Tell us about your website, current situation, and what you want to achieve..."
                         value={form.message}
