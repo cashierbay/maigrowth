@@ -1,7 +1,13 @@
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 export default function RefundPolicy() {
   return (
+    <>
+      <SEO
+        title="Refund Policy"
+        description="MaiGrowth's refund policy and guarantees. Learn about our 12-month link performance guarantee."
+      />
     <main>
       <div style={{ paddingTop: "clamp(60px, 10vw, 100px)", paddingBottom: "clamp(40px, 8vw, 80px)", backgroundColor: "#F7F6F4" }}>
         <div className="max-w-4xl mx-auto px-6">
@@ -88,5 +94,6 @@ export default function RefundPolicy() {
         </div>
       </div>
     </main>
+    </>
   );
 }

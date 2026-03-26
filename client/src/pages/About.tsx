@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Eye, Star, Lightbulb, Users, Link2, BrainCircuit } from "lucide-react";
 import { Link } from "wouter";
 import { fadeUp, stagger } from "@/lib/animations";
+import SEO from "@/components/SEO";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import { StaggerGroup, StaggerItem } from "@/components/shared/StaggerGroup";
 import TeamSection from "@/components/about/TeamSection";
@@ -62,7 +63,10 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 export default function About() {
   return (
     <>
-      <title>About MaiGrowth — Link Building for Google and AI Search</title>
+      <SEO
+        title="About Us"
+        description="Learn about MaiGrowth's mission to help businesses rank on Google and get cited in AI search engines. Premium link building and AEO expertise."
+      />
 
       <section
         className="relative flex flex-col items-center justify-center text-center"

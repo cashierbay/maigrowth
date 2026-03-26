@@ -1,7 +1,13 @@
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 export default function PrivacyPolicy() {
   return (
+    <>
+      <SEO
+        title="Privacy Policy"
+        description="MaiGrowth's privacy policy. Learn how we protect your data and privacy."
+      />
     <main>
       <div style={{ paddingTop: "clamp(60px, 10vw, 100px)", paddingBottom: "clamp(40px, 8vw, 80px)", backgroundColor: "#F7F6F4" }}>
         <div className="max-w-4xl mx-auto px-6">
@@ -108,5 +114,6 @@ export default function PrivacyPolicy() {
         </div>
       </div>
     </main>
+    </>
   );
 }

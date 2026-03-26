@@ -1,7 +1,13 @@
 import { motion } from "framer-motion";
+import SEO from "@/components/SEO";
 
 export default function TermsAndConditions() {
   return (
+    <>
+      <SEO
+        title="Terms of Service"
+        description="MaiGrowth's terms of service. Read our terms and conditions for using our link building services."
+      />
     <main>
       <div style={{ paddingTop: "clamp(60px, 10vw, 100px)", paddingBottom: "clamp(40px, 8vw, 80px)", backgroundColor: "#F7F6F4" }}>
         <div className="max-w-4xl mx-auto px-6">
@@ -136,5 +142,6 @@ export default function TermsAndConditions() {
         </div>
       </div>
     </main>
+    </>
   );
 }

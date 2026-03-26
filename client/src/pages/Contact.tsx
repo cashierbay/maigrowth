@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Mail, Globe2, Clock, CheckCircle2, Linkedin, Twitter, Star } from "lucide-react";
 import { Link } from "wouter";
 import { fadeUp, stagger } from "@/lib/animations";
+import SEO from "@/components/SEO";
 import { submitContact } from "@/lib/supabase";
 
 const serviceOptions = [
@@ -91,7 +92,10 @@ export default function Contact() {
 
   return (
     <>
-      <title>Free Strategy Call — MaiGrowth</title>
+      <SEO
+        title="Contact Us"
+        description="Get in touch with MaiGrowth for AI-optimized link building. Book a free strategy session to discuss your SEO goals."
+      />
 
       <section
         className="relative flex flex-col items-center justify-center text-center"

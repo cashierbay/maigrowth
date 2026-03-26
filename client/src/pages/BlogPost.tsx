@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link, useParams } from "wouter";
 import { getPostBySlug, getAllPosts } from "@/lib/posts";
 import { fadeUp, stagger } from "@/lib/animations";
+import SEO from "@/components/SEO";
 import { CheckCircle2, ArrowLeft } from "lucide-react";
 
 function categoryStyles(color: string) {
@@ -242,7 +243,10 @@ export default function BlogPost() {
 
   return (
     <>
-      <title>{post.title} | MaiGrowth Blog</title>
+      <SEO
+        title={post.title}
+        description={post.excerpt}
+      />
 
       <section
         className="relative"

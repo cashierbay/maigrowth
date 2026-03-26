@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import AnimatedHero from "@/components/packages/AnimatedHero";
 import StatsCounter from "@/components/packages/StatsCounter";
 import ProblemSolution from "@/components/packages/ProblemSolution";
@@ -12,8 +13,11 @@ import FinalCTA from "@/components/packages/FinalCTA";
 
 export default function Packages() {
   return (
-    <div>
-      <title>Campaign Packages — Guest Posts + Link Insertions | MaiGrowth</title>
+    <>
+      <SEO
+        title="Campaign Packages"
+        description="Structured pricing tiers for every stage of SEO growth. Guest post packages include content writing, outreach, and full reporting."
+      />
       <AnimatedHero />
       <StatsCounter />
       <ProblemSolution />
@@ -25,6 +29,6 @@ export default function Packages() {
       <Testimonials />
       <FAQ />
       <FinalCTA />
-    </div>
+    </>
   );
 }

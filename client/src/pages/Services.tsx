@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
 import { CheckCircle2, ChevronDown } from "lucide-react";
 import { fadeUp, stagger } from "@/lib/animations";
+import SEO from "@/components/SEO";
 
 const linkBuildingFeatures = [
   "Outreach to real website owners and editors",
@@ -141,7 +142,10 @@ export default function Services() {
 
   return (
     <>
-      <title>Services — Link Building, AEO & GEO | MaiGrowth</title>
+      <SEO
+        title="Services"
+        description="Link building, AI Engine Optimization (AEO), and Geographic Entity Optimization (GEO) services. Rank on Google and get cited in ChatGPT, Perplexity, and AI Overviews."
+      />
 
       <section
         className="relative flex flex-col items-center justify-center text-center"

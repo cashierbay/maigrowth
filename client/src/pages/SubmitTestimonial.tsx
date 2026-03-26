@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
+import SEO from "@/components/SEO";
 import { submitTestimonial } from "@/lib/supabase";
 
 interface FormData {
@@ -73,7 +74,10 @@ export default function SubmitTestimonial() {
 
   return (
     <>
-      <title>Leave a Review — MaiGrowth</title>
+      <SEO
+        title="Leave a Review"
+        description="Share your experience with MaiGrowth's link building services. Help other businesses discover our AI-optimized guest posts and link insertions."
+      />
 
       <section
         className="relative flex flex-col items-center justify-center text-center"

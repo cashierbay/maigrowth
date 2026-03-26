@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { getAllPosts, type PostMeta } from "@/lib/posts";
 import { fadeUp, stagger } from "@/lib/animations";
+import SEO from "@/components/SEO";
 
 function categoryStyles(color: string) {
   switch (color) {
@@ -84,7 +85,10 @@ export default function Blog() {
 
   return (
     <>
-      <title>Blog — Link Building & AI Search Insights | MaiGrowth</title>
+      <SEO
+        title="Blog"
+        description="Insights on link building, AI search optimization, and SEO trends. Learn how to rank on Google and get cited in AI-generated content."
+      />
 
       <section
         className="relative flex flex-col items-center justify-center text-center"

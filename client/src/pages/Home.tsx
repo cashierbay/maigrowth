@@ -1,3 +1,4 @@
+import SEO from "@/components/SEO";
 import Hero from "@/components/home/Hero";
 import ProblemSection from "@/components/home/ProblemSection";
 import ResultsSection from "@/components/home/ResultsSection";
@@ -14,7 +15,10 @@ import CTABanner from "@/components/home/CTABanner";
 export default function Home() {
   return (
     <>
-      <title>MaiGrowth — Guest Posts & Link Insertions | Found in Google & AI</title>
+      <SEO
+        title="AI-Optimized Link Building"
+        description="Get ranked on Google AND cited in ChatGPT, Perplexity, and AI answer engines. Premium guest posts and link insertions with 12-month guarantee."
+      />
       <Hero />
       <ProblemSection />
       <ResultsSection />

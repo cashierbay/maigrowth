@@ -1,0 +1,85 @@
+FIX #4: SEO METADATA (90 MIN)
+THE PROBLEM:
+Missing meta descriptions, Open Graph tags, sitemap.xml, and robots.txt. Google can't index properly, no social sharing previews.
+THE FIX - PART A: Meta Tags (30 min)
+Create: client/src/components/SEO.tsx
+tsximport { Helmet } from 'react-helmet-async';
+
+interface SEOProps {
+  title: string;
+  description: string;
+  ogImage?: string;
+  ogType?: string;
+}
+
+export default function SEO({ 
+  title, 
+  description, 
+  ogImage = '/og-image.jpg',
+  ogType = 'website' 
+}: SEOProps) {
+  const siteUrl = 'https://maigrowth.com';
+  const fullTitle = `${title} | MaiGrowth`;
+
+  return (
+    <Helmet>
+      {/* Primary Meta Tags */}
+      <title>{fullTitle}</title>
+      <meta name="title" content={fullTitle} />
+      <meta name="description" content={description} />
+
+      {/* Open Graph / Facebook */}
+      <meta property="og:type" content={ogType} />
+      <meta property="og:url" content={siteUrl} />
+      <meta property="og:title" content={fullTitle} />
+      <meta property="og:description" content={description} />
+      <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+
+      {/* Twitter */}
+      <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:url" content={siteUrl} />
+      <meta property="twitter:title" content={fullTitle} />
+      <meta property="twitter:description" content={description} />
+      <meta property="twitter:image" content={`${siteUrl}${ogImage}`} />
+    </Helmet>
+  );
+}
+Install react-helmet-async:
+bashnpm install react-helmet-async
+Wrap App in HelmetProvider:
+File: client/src/App.tsx
+tsximport { HelmetProvider } from 'react-helmet-async';
+
+function App() {
+  return (
+    <HelmetProvider>
+      {/* Your existing app code */}
+    </HelmetProvider>
+  );
+}
+Add SEO to each page:
+Home.tsx:
+tsximport SEO from '../components/SEO';
+
+export default function Home() {
+  return (
+    <>
+      <SEO 
+        title="AI-Optimized Link Building"
+        description="Get ranked on Google AND cited in ChatGPT, Perplexity, and AI answer engines. Premium guest posts and link insertions with 12-month guarantee."
+      />
+      {/* Rest of page */}
+    </>
+  );
+}
+GuestPosts.tsx:
+tsx<SEO 
+  title="Guest Post Service"
+  description="Premium guest post placements on DR 60+ sites. Every link optimized for AI citations in ChatGPT, Perplexity, Google AI Overviews. 12-month guarantee."
+/>
+Contact.tsx:
+tsx<SEO 
+  title="Contact Us"
+  description="Get in touch with MaiGrowth for AI-optimized link building. Book a free strategy session to discuss your SEO goals."
+/>
+Repeat for all pages (About, Services, Blog, etc.)

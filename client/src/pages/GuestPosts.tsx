@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
+import SEO from "@/components/SEO";
 import {
   TrendingUp,
   Award,
@@ -342,8 +343,12 @@ export default function GuestPosts() {
   };
 
   return (
+    <>
+      <SEO
+        title="Guest Post Service"
+        description="Premium guest post placements on DR 60+ sites. Every link optimized for AI citations in ChatGPT, Perplexity, Google AI Overviews. 12-month guarantee."
+      />
     <div>
-      <title>Guest Post Service — Rank on Google &amp; Get Cited in AI | MaiGrowth</title>
 
       {/* ─── STICKY CTA BAR ─── */}
       {!stickyDismissed && (
@@ -1889,5 +1894,6 @@ export default function GuestPosts() {
 
       </div>
     </div>
+    </>
   );
 }

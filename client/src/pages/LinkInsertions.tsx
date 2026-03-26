@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import SEO from "@/components/SEO";
 import StickyBar from "@/components/link-insertions/StickyBar";
 import Hero from "@/components/link-insertions/Hero";
 import TrustBadges from "@/components/link-insertions/TrustBadges";
@@ -16,12 +17,12 @@ import FinalCTA from "@/components/link-insertions/FinalCTA";
 import FAQ from "@/components/link-insertions/FAQ";
 
 export default function LinkInsertions() {
-  useEffect(() => {
-    document.title = "Link Insertions — High-Authority Backlinks | MaiGrowth";
-  }, []);
-
   return (
     <>
+      <SEO
+        title="Link Insertions Service"
+        description="High-authority link insertions in aged, topical articles. Boost rankings and AI visibility with niche-relevant placements. DR 40+ sites with real organic traffic."
+      />
       <StickyBar />
       {/* Push page content below sticky bar (48px) so it doesn't hide behind it */}
       <div style={{ paddingTop: 48 }}>
