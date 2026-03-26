@@ -25,7 +25,10 @@ export async function submitContact(data: {
 }) {
   const sb = getSupabase();
   const { error } = await sb.from("contact_submissions").insert([data]);
-  if (error) throw error;
+  if (error) {
+    console.error("Supabase insert error:", error);
+    throw new Error(error.message || "Failed to submit contact form");
+  }
 }
 
 export async function getContactSubmissions() {
@@ -54,7 +57,10 @@ export async function submitTestimonial(data: {
 }) {
   const sb = getSupabase();
   const { error } = await sb.from("testimonials").insert([data]);
-  if (error) throw error;
+  if (error) {
+    console.error("Supabase testimonial insert error:", error);
+    throw new Error(error.message || "Failed to submit testimonial");
+  }
 }
 
 export async function getTestimonials() {

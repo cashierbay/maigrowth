@@ -57,10 +57,15 @@ export default function Contact() {
       await submitContact(form);
       setSubmitted(true);
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : String(error);
+      let errorMessage = "Something went wrong. Please try again.";
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      } else if (typeof error === "object" && error !== null && "message" in error) {
+        errorMessage = (error as any).message;
+      }
       console.error("Submission error:", errorMessage);
       console.error("Full error:", error);
-      setServerError(`Error: ${errorMessage || "Something went wrong. Please try again."}`);
+      setServerError(errorMessage);
     } finally {
       setSubmitting(false);
     }
