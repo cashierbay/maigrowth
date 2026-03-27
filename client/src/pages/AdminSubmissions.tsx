@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Users, Mail, Globe, Building, Briefcase, MessageSquare, Calendar, Download, LogOut } from "lucide-react";
-import { getContactSubmissions } from "@/lib/supabase";
-import SupabaseAdminLogin from "@/components/admin/SupabaseAdminLogin";
-import { createClient } from "@supabase/supabase-js";
+import { getContactSubmissionsLazy } from "@/lib/lazySupabase";
+
+const SupabaseAdminLogin = lazy(() => import("@/components/admin/SupabaseAdminLogin"));
 
 interface ContactSubmission {
   id: number;
@@ -76,12 +76,16 @@ export default function AdminSubmissions() {
   };
 
   if (!isAuthenticated) {
-    return <SupabaseAdminLogin onLogin={() => setIsAuthenticated(true)} />;
+    return (
+      <Suspense fallback={<div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>Loading...</div>}>
+        <SupabaseAdminLogin onLogin={() => setIsAuthenticated(true)} />
+      </Suspense>
+    );
   }
 
   const { data: submissions = [], isLoading, error } = useQuery<ContactSubmission[]>({
     queryKey: ["contact_submissions"],
-    queryFn: () => getContactSubmissions(),
+    queryFn: () => getContactSubmissionsLazy(),
   });
 
   return (

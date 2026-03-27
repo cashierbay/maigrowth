@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, Suspense, lazy } from "react";
 import { Switch, Route, useLocation } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
@@ -7,37 +7,47 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+
+// Eager load critical pages
 import Home from "@/pages/Home";
-import About from "@/pages/About";
-import Blog from "@/pages/Blog";
-import BlogPost from "@/pages/BlogPost";
 import Contact from "@/pages/Contact";
-import SubmitTestimonial from "@/pages/SubmitTestimonial";
-import GuestPosts from "@/pages/GuestPosts";
-import LinkInsertions from "@/pages/LinkInsertions";
-import Packages from "@/pages/Packages";
-import AdminSubmissions from "@/pages/AdminSubmissions";
-import PrivacyPolicy from "@/pages/PrivacyPolicy";
-import TermsAndConditions from "@/pages/TermsAndConditions";
-import RefundPolicy from "@/pages/RefundPolicy";
 import NotFound from "@/pages/not-found";
+
+// Lazy load non-critical pages to reduce initial bundle
+const About = lazy(() => import("@/pages/About"));
+const Blog = lazy(() => import("@/pages/Blog"));
+const BlogPost = lazy(() => import("@/pages/BlogPost"));
+const SubmitTestimonial = lazy(() => import("@/pages/SubmitTestimonial"));
+const GuestPosts = lazy(() => import("@/pages/GuestPosts"));
+const LinkInsertions = lazy(() => import("@/pages/LinkInsertions"));
+const Packages = lazy(() => import("@/pages/Packages"));
+const AdminSubmissions = lazy(() => import("@/pages/AdminSubmissions"));
+const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
+const TermsAndConditions = lazy(() => import("@/pages/TermsAndConditions"));
+const RefundPolicy = lazy(() => import("@/pages/RefundPolicy"));
+
+const PageLoader = () => (
+  <div style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+    <div>Loading...</div>
+  </div>
+);
 
 function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/guest-posts" component={GuestPosts} />
-      <Route path="/link-insertions" component={LinkInsertions} />
-      <Route path="/packages" component={Packages} />
-      <Route path="/blog" component={Blog} />
-      <Route path="/blog/:slug" component={BlogPost} />
+      <Route path="/about" component={() => <Suspense fallback={<PageLoader />}><About /></Suspense>} />
+      <Route path="/guest-posts" component={() => <Suspense fallback={<PageLoader />}><GuestPosts /></Suspense>} />
+      <Route path="/link-insertions" component={() => <Suspense fallback={<PageLoader />}><LinkInsertions /></Suspense>} />
+      <Route path="/packages" component={() => <Suspense fallback={<PageLoader />}><Packages /></Suspense>} />
+      <Route path="/blog" component={() => <Suspense fallback={<PageLoader />}><Blog /></Suspense>} />
+      <Route path="/blog/:slug" component={() => <Suspense fallback={<PageLoader />}><BlogPost /></Suspense>} />
       <Route path="/contact" component={Contact} />
-      <Route path="/submit-testimonial" component={SubmitTestimonial} />
-      <Route path="/privacy-policy" component={PrivacyPolicy} />
-      <Route path="/terms-and-conditions" component={TermsAndConditions} />
-      <Route path="/refund-policy" component={RefundPolicy} />
-      <Route path="/admin" component={AdminSubmissions} />
+      <Route path="/submit-testimonial" component={() => <Suspense fallback={<PageLoader />}><SubmitTestimonial /></Suspense>} />
+      <Route path="/privacy-policy" component={() => <Suspense fallback={<PageLoader />}><PrivacyPolicy /></Suspense>} />
+      <Route path="/terms-and-conditions" component={() => <Suspense fallback={<PageLoader />}><TermsAndConditions /></Suspense>} />
+      <Route path="/refund-policy" component={() => <Suspense fallback={<PageLoader />}><RefundPolicy /></Suspense>} />
+      <Route path="/admin" component={() => <Suspense fallback={<PageLoader />}><AdminSubmissions /></Suspense>} />
       <Route component={NotFound} />
     </Switch>
   );
