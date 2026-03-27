@@ -1,0 +1,102 @@
+CRITICAL: Mobile Lighthouse performance is 54-78. Must achieve 80+ on BOTH mobile and desktop.
+
+TASK: Optimize MaiGrowth website for Lighthouse performance score 80+ (mobile AND desktop).
+
+TECH STACK:
+- Vite + React + TypeScript
+- Tailwind CSS
+- Supabase
+- Vercel deployment
+- Repository: GitHub (auto-deploys on push)
+
+PERFORMANCE ISSUES TO FIX:
+
+1. BUNDLE SIZE OPTIMIZATION:
+   - Implement code splitting in vite.config.ts
+   - Split vendor chunks (react, framer-motion, supabase)
+   - Enable minification and compression
+   - Remove unused dependencies
+
+2. IMAGE OPTIMIZATION:
+   - Add loading="lazy" to ALL <img> tags
+   - Add width/height attributes to prevent layout shift
+   - Convert large images to WebP format (if >100KB)
+
+3. FONT OPTIMIZATION:
+   - Preconnect to Google Fonts
+   - Use font-display: swap
+   - Defer non-critical font loading
+
+4. JAVASCRIPT OPTIMIZATION:
+   - Defer non-critical scripts
+   - Move analytics/tracking to load after page interactive
+   - Minimize main thread work
+
+5. CSS OPTIMIZATION:
+   - Remove unused Tailwind classes (if possible)
+   - Inline critical CSS for above-the-fold content
+
+FILES TO MODIFY:
+
+1. vite.config.ts - Add this configuration:
+```typescript
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  build: {
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+      },
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'router': ['wouter'],
+          'animation': ['framer-motion'],
+          'supabase': ['@supabase/supabase-js'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 600,
+  },
+});
+```
+
+2. client/index.html - Optimize font loading:
+   - Add <link rel="preconnect" href="https://fonts.googleapis.com">
+   - Add <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   - Add font-display=swap to Google Fonts URL
+
+3. All image tags - Add loading="lazy" and explicit width/height
+
+4. Find and remove any unused npm dependencies
+
+5. Ensure all components use React.lazy() for route-based code splitting
+
+VERIFICATION:
+After changes, run:
+- npm run build
+- Check bundle size in dist/
+- Deploy and test on PageSpeed Insights (mobile + desktop)
+- Target: 80+ performance on both
+
+DO NOT:
+- Break existing functionality
+- Remove Supabase integration
+- Change routing structure
+- Modify contact form logic
+- Touch admin authentication
+
+CONSTRAINTS:
+- Keep changes minimal and focused on performance
+- Preserve all existing features
+- Maintain TypeScript types
+- Ensure build succeeds without errors
+
+TIME ESTIMATE: 45-60 minutes
+EXPECTED RESULT: Lighthouse performance 80+ on mobile and desktop

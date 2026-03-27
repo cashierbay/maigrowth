@@ -30,6 +30,7 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    minify: "esbuild",
     rollupOptions: {
       output: {
         manualChunks: {
@@ -37,10 +38,11 @@ export default defineConfig({
           'router': ['wouter'],
           'animation': ['framer-motion'],
           'supabase': ['@supabase/supabase-js'],
+          'ui': ['@radix-ui/react-dialog', '@radix-ui/react-select', '@radix-ui/react-dropdown-menu'],
         },
       },
     },
-    chunkSizeWarningLimit: 1000,
+    chunkSizeWarningLimit: 600,
   },
   server: {
     fs: {
