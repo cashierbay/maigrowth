@@ -43,3 +43,9 @@ outputType = "webview"
 
 [agent]
 expertMode = true
+
+[userenv]
+
+[userenv.shared]
+VITE_SUPABASE_URL = "https://zglwodavhldhwvqhflcn.supabase.co"
+VITE_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpnbHdvZGF2aGxkaHd2cWhmbGNuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQyODcwNzYsImV4cCI6MjA4OTg2MzA3Nn0.-ZC3-OMfvbGVDPrdj27DNquPxmaBAUpnqdmxqONU2CE"
