@@ -1,0 +1,87 @@
+What the warning means:
+The warning Invalid App ID - The specified 'fb:app:id' property is not a valid app ID means you have a Facebook meta tag in your HTML that contains an invalid or missing Facebook App ID.
+
+Is it critical?
+No, not critical for:
+
+✅ Website functionality
+
+✅ User experience
+
+✅ SEO ranking
+
+✅ Build/deployment
+
+But it matters for:
+
+❌ Facebook sharing previews (link previews may not work properly)
+
+❌ Social media analytics tracking
+
+❌ Facebook Insights data collection
+
+How to fix it:
+1. Check your HTML for the meta tag
+Look for this in your HTML <head> section:
+
+html
+<meta property="fb:app:id" content="YOUR_APP_ID" />
+2. Remove it if you don't have a Facebook App
+If you don't have a Facebook App, simply remove the tag:
+
+html
+<!-- Delete this line if you don't have a Facebook App -->
+<meta property="fb:app:id" content="1234567890" />
+3. Fix it if you have a Facebook App
+If you do have a Facebook App:
+
+Go to Facebook Developers
+
+Select your app
+
+Copy the App ID (found in the dashboard)
+
+Update your meta tag with the correct ID
+
+html
+<!-- Replace with your actual App ID -->
+<meta property="fb:app:id" content="123456789012345" />
+4. Common locations for this tag:
+Next.js: pages/_document.js or app/layout.js
+
+React/Vite: index.html or using React Helmet
+
+Astro: src/layouts/Layout.astro
+
+General HTML: index.html in the <head> section
+
+5. Test after fixing
+Deploy your changes
+
+Go to Facebook Sharing Debugger
+
+Enter your URL
+
+Click "Scrape Again"
+
+The warning should disappear.
+
+Alternative: Use only Open Graph tags
+If you don't need Facebook App features (like Facebook Login, App Insights), you can safely remove the fb:app:id tag. Your Facebook shares will still work with just the Open Graph tags:
+
+html
+<meta property="og:title" content="Your Title" />
+<meta property="og:description" content="Your Description" />
+<meta property="og:image" content="https://yourdomain.com/image.jpg" />
+<meta property="og:url" content="https://maigrowth.vercel.app/" />
+<meta property="og:type" content="website" />
+Summary:
+Priority: Low - Fix when you have time
+
+Impact: Only affects Facebook sharing analytics
+
+Fix time: 5 minutes
+
+Risk: None - removing the tag won't break anything
+
+This warning won't affect your Vercel deployment, SEO, or website users—it's purely for Facebook integration.
