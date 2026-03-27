@@ -1,7 +1,7 @@
 import express, { type Request, Response, NextFunction } from "express";
+import path from "path";
+import fs from "fs";
 import { registerRoutes } from "../server/routes";
-import { serveStatic } from "../server/static";
-import { createServer } from "http";
 
 const app = express();
 
@@ -13,7 +13,7 @@ declare module "http" {
 
 app.use(
   express.json({
-    verify: (req, _res, buf) => {
+    verify: (req: any, _res, buf) => {
       req.rawBody = buf;
     },
   }),
@@ -58,25 +58,43 @@ app.use((req, res, next) => {
   next();
 });
 
-(async () => {
-  const httpServer = createServer(app);
-  await registerRoutes(httpServer, app);
-
-  app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
-    const status = err.status || err.statusCode || 500;
-    const message = err.message || "Internal Server Error";
-
-    console.error("Internal Server Error:", err);
-
-    if (res.headersSent) {
-      return next(err);
+// Initialize routes and static serving
+let initialized = false;
+const initPromise = (async () => {
+  if (!initialized) {
+    initialized = true;
+    await registerRoutes(null as any, app);
+    
+    // Serve static files
+    const distPath = path.resolve(__dirname, "..", "dist", "public");
+    if (fs.existsSync(distPath)) {
+      app.use(express.static(distPath));
+      
+      // SPA fallback
+      app.use("/:path*", (_req, res) => {
+        res.sendFile(path.resolve(distPath, "index.html"));
+      });
     }
-
-    return res.status(status).json({ message });
-  });
-
-  // Always serve static files in production
-  serveStatic(app);
+  }
 })();
+
+app.use((err: any, _req: Request, res: Response, next: NextFunction) => {
+  const status = err.status || err.statusCode || 500;
+  const message = err.message || "Internal Server Error";
+
+  console.error("Internal Server Error:", err);
+
+  if (res.headersSent) {
+    return next(err);
+  }
+
+  return res.status(status).json({ message });
+});
+
+// Ensure initialization is complete before handling requests
+app.use(async (req, res, next) => {
+  await initPromise;
+  next();
+});
 
 export default app;
