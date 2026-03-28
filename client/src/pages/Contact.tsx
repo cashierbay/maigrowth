@@ -56,6 +56,18 @@ export default function Contact() {
     setSubmitting(true);
     try {
       await submitContact(form);
+
+      // Send thank-you email — non-blocking, errors do not break the form
+      try {
+        await fetch("/api/send-email", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name: form.name, email: form.email }),
+        });
+      } catch (emailErr) {
+        console.error("Email send error (non-critical):", emailErr);
+      }
+
       setSubmitted(true);
     } catch (error) {
       let errorMessage = "Something went wrong. Please try again.";
@@ -307,6 +319,9 @@ export default function Contact() {
                       Message Sent!
                     </h3>
                     <p className="mt-3 text-[16px]" style={{ color: "#3D3D3D", fontFamily: "DM Sans, sans-serif" }}>
+                      Thanks! Check your email for confirmation.
+                    </p>
+                    <p className="mt-2 text-[14px]" style={{ color: "#767676", fontFamily: "DM Sans, sans-serif" }}>
                       We'll reply within 24 business hours.
                     </p>
                   </motion.div>

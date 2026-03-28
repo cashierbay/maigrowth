@@ -2,7 +2,13 @@
   "buildCommand": "npx vite build",
   "outputDirectory": "dist/public",
   "installCommand": "npm install",
+  "functions": {
+    "api/send-email.ts": {
+      "runtime": "@vercel/node"
+    }
+  },
   "rewrites": [
+    { "source": "/api/send-email", "destination": "/api/send-email" },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
