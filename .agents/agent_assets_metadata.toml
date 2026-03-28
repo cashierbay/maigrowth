@@ -18,3 +18,9 @@ id = "9ZPKaA5Rf6tRDkf1ciGed"
 uri = "file://client/public/maigrowth-logo-light.svg"
 type = "image"
 title = "MaiGrowth Logo — Light Background"
+
+[[outputs]]
+id = "ys1ybbZoHty8RpnZEDVvk"
+uri = "file://client/public/maigrowth-logo-400.png"
+type = "image"
+title = "MaiGrowth Logo — 400x400 PNG (Light)"

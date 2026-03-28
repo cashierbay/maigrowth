@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#FFFFFF"/>
+  <text
+    x="200"
+    y="185"
+    dominant-baseline="middle"
+    text-anchor="middle"
+    font-family="'Arial Black', 'Helvetica Neue', sans-serif"
+    font-weight="900"
+    font-size="68"
+    letter-spacing="-2"
+  >
+    <tspan fill="#0F0F0F">Mai</tspan><tspan fill="#FF6B35">Growth</tspan>
+  </text>
+  <text
+    x="200"
+    y="248"
+    dominant-baseline="middle"
+    text-anchor="middle"
+    font-family="'Arial', 'Helvetica Neue', sans-serif"
+    font-weight="400"
+    font-size="18"
+    letter-spacing="3"
+    fill="#767676"
+  >LINK BUILDING · AI SEO</text>
+</svg>
