@@ -13,9 +13,9 @@ export async function registerRoutes(
       return res.status(400).json({ error: "Missing name or email" });
     }
 
-    const apiKey = process.env.RESEND_API_KEY;
+    const apiKey = process.env.RESEND_API_KEY || process.env.VITE_RESEND_API_KEY;
     if (!apiKey) {
-      console.error("RESEND_API_KEY is not set");
+      console.error("Neither RESEND_API_KEY nor VITE_RESEND_API_KEY is set");
       return res.status(500).json({ error: "Email service not configured" });
     }
 
