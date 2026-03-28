@@ -6,3 +6,15 @@ id = "bF-k7f5Gh92hp2_6Je4r9"
 uri = "file://DESIGN.md"
 type = "text"
 title = "MaiGrowth Design System"
+
+[[outputs]]
+id = "p-zwksPF4xqNs_WjBwwBN"
+uri = "file://client/public/maigrowth-logo.svg"
+type = "image"
+title = "MaiGrowth Logo — Dark Background"
+
+[[outputs]]
+id = "9ZPKaA5Rf6tRDkf1ciGed"
+uri = "file://client/public/maigrowth-logo-light.svg"
+type = "image"
+title = "MaiGrowth Logo — Light Background"

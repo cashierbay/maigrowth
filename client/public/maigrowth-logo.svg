@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="120" viewBox="0 0 400 120">
+  <rect width="400" height="120" fill="#12153D" rx="16"/>
+  <text
+    x="50%"
+    y="50%"
+    dominant-baseline="middle"
+    text-anchor="middle"
+    font-family="'Syne', 'Arial Black', sans-serif"
+    font-weight="800"
+    font-size="64"
+    letter-spacing="-1"
+  >
+    <tspan fill="#FFFFFF">Mai</tspan><tspan fill="#FF6B35">Growth</tspan>
+  </text>
+</svg>
