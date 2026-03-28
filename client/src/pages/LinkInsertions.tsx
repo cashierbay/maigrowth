@@ -21,7 +21,11 @@ export default function LinkInsertions() {
     <>
       <SEO
         title="Link Insertions Service"
-        description="High-authority link insertions in aged, topical articles. Boost rankings and AI visibility with niche-relevant placements. DR 40+ sites with real organic traffic."
+        description="Strategic link insertions in high-authority aged articles (DR 40+). Boost Google rankings AND AI citations with niche-relevant placements. 1,000+ monthly traffic minimum. 12-month guarantee."
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: "Link Insertions", url: "/link-insertions" }
+        ]}
       />
       <StickyBar />
       {/* Push page content below sticky bar (48px) so it doesn't hide behind it */}

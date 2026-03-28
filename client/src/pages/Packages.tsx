@@ -16,7 +16,11 @@ export default function Packages() {
     <>
       <SEO
         title="Campaign Packages"
-        description="Structured pricing tiers for every stage of SEO growth. Guest post packages include content writing, outreach, and full reporting."
+        description="Flexible pricing tiers: Slow Burner, Launch Pad, Growth, Authority, Domination. All include original content, manual outreach, AI optimization, and 12-month link guarantee."
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: "Packages", url: "/packages" }
+        ]}
       />
       <AnimatedHero />
       <StatsCounter />

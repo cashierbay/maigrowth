@@ -5,6 +5,8 @@ interface SEOProps {
   description: string;
   ogImage?: string;
   ogType?: string;
+  schema?: Record<string, any>;
+  breadcrumbs?: Array<{ name: string; url: string }>;
 }
 
 export default function SEO({
@@ -12,9 +14,23 @@ export default function SEO({
   description,
   ogImage = '/og-image.png',
   ogType = 'website',
+  schema,
+  breadcrumbs,
 }: SEOProps) {
-  const siteUrl = 'https://maigrowth.com';
+  const siteUrl = 'https://maigrowth.vercel.app';
   const fullTitle = `${title} | MaiGrowth`;
+
+  // Build breadcrumb schema if provided
+  const breadcrumbSchema = breadcrumbs ? {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((crumb, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "name": crumb.name,
+      "item": `${siteUrl}${crumb.url}`
+    }))
+  } : null;
 
   return (
     <Helmet>
@@ -36,6 +52,18 @@ export default function SEO({
       <meta property="twitter:title" content={fullTitle} />
       <meta property="twitter:description" content={description} />
       <meta property="twitter:image" content={`${siteUrl}${ogImage}`} />
+
+      {/* Structured Data */}
+      {schema && (
+        <script type="application/ld+json">
+          {JSON.stringify(schema)}
+        </script>
+      )}
+      {breadcrumbSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
+      )}
     </Helmet>
   );
 }

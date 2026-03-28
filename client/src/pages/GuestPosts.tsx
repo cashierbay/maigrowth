@@ -346,7 +346,11 @@ export default function GuestPosts() {
     <>
       <SEO
         title="Guest Post Service"
-        description="Premium guest post placements on DR 60+ sites. Every link optimized for AI citations in ChatGPT, Perplexity, Google AI Overviews. 12-month guarantee."
+        description="Premium guest post placements on high-authority sites (DR 30–60+). Rank on Google AND get cited in ChatGPT, Perplexity, Google AI Overviews. 500+ happy clients. 12-month link guarantee."
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: "Guest Posts", url: "/guest-posts" }
+        ]}
       />
     <div>
 
