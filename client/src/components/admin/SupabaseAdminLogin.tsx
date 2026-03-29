@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
+import { Check } from 'lucide-react';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || "";
 const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || "";
@@ -14,6 +15,7 @@ export default function SupabaseAdminLogin({ onLogin }: SupabaseAdminLoginProps)
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [isRecovery, setIsRecovery] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   // Get the correct redirect URL based on environment
   const getRedirectUrl = () => {
@@ -42,7 +44,8 @@ export default function SupabaseAdminLogin({ onLogin }: SupabaseAdminLoginProps)
           setError(resetError.message);
         } else {
           setError('');
-          alert('Password reset link sent to your email. Check your inbox.');
+          setShowSuccessModal(true);
+          setEmail('');
         }
       } else {
         // Sign in flow
@@ -71,7 +74,37 @@ export default function SupabaseAdminLogin({ onLogin }: SupabaseAdminLoginProps)
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
+    <>
+      {showSuccessModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 backdrop-blur-sm">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 animate-in fade-in zoom-in duration-300">
+            <div className="flex flex-col items-center text-center">
+              <div className="mb-4 animate-in slide-in-from-bottom duration-500 delay-100">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
+                  <Check className="w-8 h-8 text-green-600" />
+                </div>
+              </div>
+              
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Check your email</h2>
+              <p className="text-gray-600 mb-6">
+                We've sent a password reset link to <span className="font-semibold">{email || 'your email'}</span>. Click the link to set a new password.
+              </p>
+              
+              <button
+                onClick={() => {
+                  setShowSuccessModal(false);
+                  setIsRecovery(false);
+                }}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-200"
+              >
+                Back to Sign In
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+      
+      <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
         <h1 className="font-bold text-3xl text-gray-900 mb-2">Admin Access</h1>
         <p className="text-gray-600 mb-6">Sign in with your Supabase account</p>
@@ -141,5 +174,6 @@ export default function SupabaseAdminLogin({ onLogin }: SupabaseAdminLoginProps)
         </form>
       </div>
     </div>
+    </>
   );
 }
