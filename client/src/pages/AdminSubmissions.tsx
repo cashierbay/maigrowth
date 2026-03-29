@@ -53,6 +53,12 @@ export default function AdminSubmissions() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userEmail, setUserEmail] = useState('');
 
+  const { data: submissions = [], isLoading, error } = useQuery<ContactSubmission[]>({
+    queryKey: ["contact_submissions"],
+    queryFn: () => getContactSubmissionsLazy(),
+    enabled: isAuthenticated,
+  });
+
   useEffect(() => {
     // Check if session exists in localStorage
     const sessionStr = localStorage.getItem('adminSession');
@@ -82,11 +88,6 @@ export default function AdminSubmissions() {
       </Suspense>
     );
   }
-
-  const { data: submissions = [], isLoading, error } = useQuery<ContactSubmission[]>({
-    queryKey: ["contact_submissions"],
-    queryFn: () => getContactSubmissionsLazy(),
-  });
 
   return (
     <div style={{ minHeight: "100vh", backgroundColor: "#F7F6F4" }}>
