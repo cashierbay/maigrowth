@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || "";
@@ -13,6 +13,13 @@ export default function SupabaseAdminLogin({ onLogin }: SupabaseAdminLoginProps)
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [isRecovery, setIsRecovery] = useState(false);
+
+  // Get the correct redirect URL based on environment
+  const getRedirectUrl = () => {
+    const currentUrl = window.location.origin;
+    return `${currentUrl}/admin`;
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,21 +27,40 @@ export default function SupabaseAdminLogin({ onLogin }: SupabaseAdminLoginProps)
     setLoading(true);
 
     try {
-      const supabase = createClient(supabaseUrl, supabaseAnonKey);
-      const { data, error: signInError } = await supabase.auth.signInWithPassword({
-        email,
-        password,
+      const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+        auth: {
+          redirectTo: getRedirectUrl(),
+        },
       });
 
-      if (signInError) {
-        setError(signInError.message);
-        return;
-      }
+      if (isRecovery) {
+        // Password recovery flow
+        const { error: resetError } = await supabase.auth.resetPasswordForEmail(email, {
+          redirectTo: getRedirectUrl(),
+        });
+        if (resetError) {
+          setError(resetError.message);
+        } else {
+          setError('');
+          alert('Password reset link sent to your email. Check your inbox.');
+        }
+      } else {
+        // Sign in flow
+        const { data, error: signInError } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
 
-      if (data.session) {
-        // Store session in localStorage
-        localStorage.setItem('adminSession', JSON.stringify(data.session));
-        onLogin();
+        if (signInError) {
+          setError(signInError.message);
+          return;
+        }
+
+        if (data.session) {
+          // Store session in localStorage
+          localStorage.setItem('adminSession', JSON.stringify(data.session));
+          onLogin();
+        }
       }
     } catch (err) {
       setError('Authentication failed. Please try again.');
@@ -88,11 +114,27 @@ export default function SupabaseAdminLogin({ onLogin }: SupabaseAdminLoginProps)
             disabled={loading}
             className="btn-primary w-full disabled:opacity-50"
           >
-            {loading ? 'Signing in...' : 'Sign In'}
+            {loading ? (isRecovery ? 'Sending...' : 'Signing in...') : (isRecovery ? 'Send Recovery Link' : 'Sign In')}
           </button>
 
           <p className="text-xs text-gray-500 mt-4 text-center">
-            Contact your administrator for credentials
+            {isRecovery ? (
+              <button 
+                type="button"
+                onClick={() => { setIsRecovery(false); setError(''); }}
+                className="text-blue-600 hover:underline"
+              >
+                Back to sign in
+              </button>
+            ) : (
+              <button 
+                type="button"
+                onClick={() => { setIsRecovery(true); setError(''); }}
+                className="text-blue-600 hover:underline"
+              >
+                Forgot your password?
+              </button>
+            )}
           </p>
         </form>
       </div>
