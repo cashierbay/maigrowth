@@ -283,7 +283,7 @@ export default function AdminSubmissions() {
                       style={{ color: "#767676", fontFamily: "DM Sans, sans-serif" }}
                     >
                       <Calendar size={12} />
-                      {formatDate(s.submittedAt)}
+                      {formatDate(s.created_at)}
                     </span>
                   </div>
                 </div>
