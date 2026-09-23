@@ -241,11 +241,45 @@ export default function BlogPost() {
   const headings = extractHeadings(post.content);
   const relatedPosts = allPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
 
+  const siteUrl = "https://www.maigrowth.com";
+  const publisher = {
+    "@type": "Organization",
+    name: "MaiGrowth",
+    url: siteUrl,
+    logo: { "@type": "ImageObject", url: `${siteUrl}/favicon.png` },
+  };
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: post.date,
+    dateModified: post.date,
+    articleSection: post.category,
+    inLanguage: "en-US",
+    image: `${siteUrl}/og-image.png`,
+    // Byline on the page reads "By MaiGrowth Team", so attribute to the org
+    // rather than inventing a named person author.
+    author: { "@type": "Organization", name: "MaiGrowth", url: siteUrl },
+    publisher,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${siteUrl}/blog/${post.slug}`,
+    },
+  };
+
   return (
     <>
       <SEO
         title={post.title}
         description={post.excerpt}
+        ogType="article"
+        schema={articleSchema}
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: "Blog", url: "/blog" },
+          { name: post.title, url: `/blog/${post.slug}` },
+        ]}
       />
 
       <section

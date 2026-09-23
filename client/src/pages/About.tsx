@@ -10,7 +10,7 @@ import TeamSection from "@/components/about/TeamSection";
 const statCards = [
   {
     icon: Users,
-    number: "100+",
+    number: "500+",
     title: "Clients Served",
     body: "Businesses worldwide trust MaiGrowth for premium link building and AI search visibility — from startups to established brands.",
     href: "/submit-testimonial",
@@ -20,7 +20,7 @@ const statCards = [
   },
   {
     icon: Link2,
-    number: "50,000+",
+    number: "10,000+",
     title: "Links Built",
     body: "High-authority backlinks placed across real, traffic-verified websites with DR 40+ — all white-hat, all permanent.",
     href: "/guest-posts",

@@ -45,6 +45,20 @@ const ROUTES = [
   "/refund-policy",
 ];
 
+/**
+ * Enumerate individual blog post routes from the single source of truth
+ * (client/src/lib/posts.ts). Without this, every /blog/<slug> falls through
+ * the SPA fallback and gets the homepage HTML written to it, so crawlers see
+ * the homepage (title, h1, canonical=/) instead of the article — the articles
+ * are effectively invisible to AI and self-canonicalize to the homepage.
+ */
+async function getBlogRoutes() {
+  const postsFile = join(ROOT, "client", "src", "lib", "posts.ts");
+  const src = await readFile(postsFile, "utf-8");
+  const slugs = [...src.matchAll(/slug:\s*["'`]([^"'`]+)["'`]/g)].map((m) => m[1]);
+  return [...new Set(slugs)].map((slug) => `/blog/${slug}`);
+}
+
 const MIME = {
   ".html": "text/html; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
@@ -166,10 +180,13 @@ async function main() {
   const server = await startServer();
   const browser = await launchBrowser();
 
+  const blogRoutes = await getBlogRoutes();
+  const routes = [...ROUTES, ...blogRoutes];
+
   let failures = 0;
 
   try {
-    for (const route of ROUTES) {
+    for (const route of routes) {
       const page = await browser.newPage();
       await page.setViewport({ width: 1440, height: 900 });
 
@@ -217,7 +234,9 @@ async function main() {
     // leave some routes invisible to crawlers with no obvious symptom.
     throw new Error(`${failures} route(s) failed to prerender`);
   }
-  console.log(`\nPrerendered ${ROUTES.length} routes.`);
+  console.log(
+    `\nPrerendered ${routes.length} routes (${blogRoutes.length} blog posts).`,
+  );
 }
 
 main().catch((err) => {

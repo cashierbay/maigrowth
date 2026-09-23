@@ -7,9 +7,9 @@ const testimonials = [
     badge: "📈 +280% Organic Traffic",
     quote:
       "MaiGrowth's Link Insertions moved us from page 4 to page 1 for three of our most competitive keywords. The traffic growth speaks for itself — 280% in under 8 months.",
-    name: "Sarah Chen",
+    name: "Daniel Foster",
     company: "SaaSFlow",
-    initials: "SC",
+    initials: "DF",
   },
   {
     badge: "🎯 Page 1 Rankings in 60 Days",
