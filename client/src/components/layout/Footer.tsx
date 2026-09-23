@@ -152,7 +152,7 @@ export default function Footer() {
       >
         <div className="max-w-7xl mx-auto px-6 py-6 flex flex-wrap items-center justify-between gap-6">
           <span className="text-xs" style={{ color: "rgba(255,255,255,0.3)", fontFamily: "DM Sans, sans-serif" }}>
-            © 2025 MaiGrowth. All Rights Reserved.
+            © 2026 MaiGrowth. All Rights Reserved.
           </span>
           <div className="flex flex-wrap items-center gap-6">
             <Link href="/privacy-policy">

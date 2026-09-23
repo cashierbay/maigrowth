@@ -1,0 +1,20 @@
+# MaiGrowth
+
+> MaiGrowth is a link building and AI search optimization agency. We help brands rank on Google and get cited by AI answer engines (ChatGPT, Perplexity, Google AI Overviews, Gemini) through premium guest posts, link insertions, structured data, and GEO/AEO strategy.
+
+## About
+- [About MaiGrowth](https://www.maigrowth.com/about): Our story, team, and approach to link building + Generative Engine Optimization (GEO).
+
+## Services
+- [Packages](https://www.maigrowth.com/packages): Link building and GEO service tiers with pricing.
+- [Guest Posts](https://www.maigrowth.com/guest-posts): Editorial guest posts on high-authority sites AI tools regularly cite.
+- [Link Insertions](https://www.maigrowth.com/link-insertions): Niche-relevant link placements in existing authoritative content.
+
+## Resources
+- [Blog](https://www.maigrowth.com/blog): Articles on GEO, AEO, and link building for the AI search era.
+- [Contact](https://www.maigrowth.com/contact): Get in touch — 24-hour reply.
+
+## Policies
+- [Privacy Policy](https://www.maigrowth.com/privacy-policy)
+- [Terms & Conditions](https://www.maigrowth.com/terms-and-conditions)
+- [Refund Policy](https://www.maigrowth.com/refund-policy)

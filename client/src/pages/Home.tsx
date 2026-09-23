@@ -19,14 +19,14 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "MaiGrowth",
-    "url": "https://maigrowth.vercel.app",
+    "url": "https://www.maigrowth.com",
     "description": "Premium link building and AI search optimization service. Rank higher on Google AND get cited in ChatGPT, Perplexity, and Google AI Overviews.",
-    "logo": "https://maigrowth.vercel.app/logo.png",
+    "logo": "https://www.maigrowth.com/logo.png",
     "sameAs": ["https://twitter.com/maigrowth"],
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "Sales",
-      "url": "https://maigrowth.vercel.app/contact"
+      "url": "https://www.maigrowth.com/contact"
     }
   };
 

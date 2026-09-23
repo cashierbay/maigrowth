@@ -92,7 +92,7 @@ export default function Hero() {
             </span>
           </motion.div>
 
-          <div
+          <h1
             className="leading-[1.05] tracking-tight text-white mb-6"
             style={{
               fontFamily: "Syne, sans-serif",
@@ -100,7 +100,7 @@ export default function Hero() {
               fontSize: "clamp(44px, 7vw, 84px)",
             }}
           >
-            <motion.div
+            <motion.span
               variants={stagger}
               initial="hidden"
               animate="visible"
@@ -111,8 +111,8 @@ export default function Hero() {
                   {word}
                 </motion.span>
               ))}
-            </motion.div>
-            <motion.div
+            </motion.span>
+            <motion.span
               variants={stagger}
               initial="hidden"
               animate="visible"
@@ -126,8 +126,8 @@ export default function Hero() {
               <motion.span variants={fadeUp} style={{ color: "#FF6B35" }}>
                 AI.
               </motion.span>
-            </motion.div>
-          </div>
+            </motion.span>
+          </h1>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}

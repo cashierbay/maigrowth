@@ -6,7 +6,7 @@ Allow: /
 Disallow: /admin
 
 # Sitemap location
-Sitemap: https://maigrowth.com/sitemap.xml
+Sitemap: https://www.maigrowth.com/sitemap.xml
 
 # Crawl delay (optional, prevents aggressive crawling)
 Crawl-delay: 1
